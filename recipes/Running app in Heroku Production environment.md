@@ -1,10 +1,7 @@
-Only the ./dist folder is meant to be ran in Production, not the actual Node app.
+# How to run this app in Production
 
-However if you want to run this app on Heroku in Production mode (e.g. to host an API), add the following to package.json->scripts:
+Running app in Production mode only serves /dist folder, however it doesn't exist unless the app is built. To force hosting to run the build, add the following to package.json->scripts:
+`postinstall: npm run build`
 
-1. `postinstall: npm run build`
-  This builds the standalone frontend HTML app.
-
-2. `heroku-prebuild": "npm install --dev"`
-  This forces Heroku to install the required devDependencies (bleeugh!).
-
+Running in Production mode requires a bunch of devDependencies. To get them add the following to package.json->scripts:
+`heroku-prebuild": "npm install --dev"`
