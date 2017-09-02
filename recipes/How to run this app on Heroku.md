@@ -1,4 +1,4 @@
-# How to run this app in Production
+# How to run this app on Heroku
 
 Running app in Production mode only serves /dist folder, however it doesn't exist unless the app is built. To force hosting to run the build, add the following to package.json->scripts:
 `postinstall: npm run build`
