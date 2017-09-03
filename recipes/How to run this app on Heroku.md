@@ -5,3 +5,8 @@ Running app in Production mode only serves /dist folder, however it doesn't exis
 
 Running in Production mode requires a bunch of devDependencies. To get them add the following to package.json->scripts:
 `heroku-prebuild": "npm install --dev"`
+
+Then you need to setup a remote on Heroku.
+To do this run:
+"bach/Create Heroku remote for this branch.sh"
+and Bitbucket will push to this remote after build (see bitbucket-pipelines.yml).
