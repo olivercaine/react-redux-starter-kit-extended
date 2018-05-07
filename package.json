@@ -11,8 +11,7 @@
     "test": "cross-env NODE_ENV=test karma start build/karma.config",
     "test:watch": "npm test -- --watch",
     "lint": "eslint .",
-    "lint:fix": "npm run lint -- --fix",
-    "heroku-prebuild": "npm install --dev"
+    "lint:fix": "npm run lint -- --fix"
   },
   "repository": {
     "type": "git",
