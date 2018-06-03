@@ -4,7 +4,7 @@ This project was started at the advent of the Redux ecosystem, and was intended 
 
 You are welcome to use this project if it is a better fit for your needs, but if you are brand new to the ecosystem I highly recommend checking out something that has received more recent updates.
 
-Thank you to everyone who made this project possible over the past year(s).
+Thank you to everyone who made this project possible over the past years.
 
 # React Redux Starter Kit
 
