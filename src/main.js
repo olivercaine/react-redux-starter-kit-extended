@@ -2,6 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import createStore from './store/createStore'
 import './styles/main.scss'
+import ClientSocket from '../custom/sockets/ClientSocket'
+
+// Socket
+const clientSocket = new ClientSocket('http://localhost:3000');
 
 // Store Initialization
 // ------------------------------------
