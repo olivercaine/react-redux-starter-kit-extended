@@ -172,13 +172,13 @@ config.module.rules.push({
 
 // HTML Template
 // ------------------------------------
-config.plugins.push(new HtmlWebpackPlugin({
+config.plugins.push(new HtmlWebpackPlugin(Object.assign({
   template: inProjectSrc('index.html'),
   inject: true,
   minify: {
     collapseWhitespace: true,
   },
-}))
+}, project.globals)))
 
 // Development Tools
 // ------------------------------------
