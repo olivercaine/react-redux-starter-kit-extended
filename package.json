@@ -20,6 +20,7 @@
   "author": "David Zukowski <david@zuko.me> (http://zuko.me)",
   "license": "MIT",
   "dependencies": {
+    "@types/sinon": "^5.0.1",
     "bootstrap": "^4.0.0-alpha",
     "compression": "^1.6.2",
     "express": "^4.14.0",
