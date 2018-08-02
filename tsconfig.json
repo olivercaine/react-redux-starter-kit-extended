@@ -1,14 +1,12 @@
 {
   "compilerOptions": {
+    "baseUrl": "src",
     "target": "es5",
     "module": "commonjs",
     "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "strictNullChecks": true,
-    "stripInternal": true,
-    "declaration": true,
-    "outDir": "./dist",
     "lib": ["es2015"],
     "typeRoots": [
       "./node_modules/@types",
@@ -22,5 +20,9 @@
   },
   "files": [
     "./lib/index.ts"
-  ]
+  ],
+  "checkJs": true,
+  "diagnostics": true,
+  "noUnusedLocals": true,
+  "noUnusedParameters": true
 }

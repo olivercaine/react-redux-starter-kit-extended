@@ -1,4 +1,5 @@
 import HomeRoute from 'routes/Home'
+import { expect } from 'chai'
 
 describe('(Route) Home', () => {
   let _component
