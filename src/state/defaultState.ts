@@ -1,8 +1,6 @@
-export interface ReduxState {
-  counter: number;
-}
+import { RootState } from '../definitions';
 
-let state: ReduxState = {
+let state: RootState = {
   counter: 5,
 }
 
