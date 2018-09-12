@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { increment, doubleAsync } from '../modules/counter'
-import { RootState } from '../../../definitions'
+import { RootState } from '../../../Definitions'
 
 /*  This is a container component. Notice it does not contain any JSX,
     nor does it import React. This component is **only** responsible for

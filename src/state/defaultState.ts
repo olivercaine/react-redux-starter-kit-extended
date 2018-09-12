@@ -1,4 +1,4 @@
-import { RootState } from '../definitions';
+import { RootState } from '../Definitions';
 
 let state: RootState = {
   counter: 5,
