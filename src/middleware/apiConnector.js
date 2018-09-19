@@ -5,8 +5,8 @@ export default store => {
   let state = store.getState()
   return next => {
     return action => {
-      console.log('dispatching', action)
-      console.log('next state', store.getState())
+      console.log('Dispatching: ', action)
+      console.log('Next state: ', store.getState())
       let result = next(action)
       switch (action.type) {
         case COUNTER_DOUBLE_ASYNC:
