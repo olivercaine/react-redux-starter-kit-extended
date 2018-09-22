@@ -3,7 +3,7 @@ import thunk from 'redux-thunk'
 import { browserHistory } from 'react-router'
 import makeRootReducer from './reducers'
 import { updateLocation } from './location'
-import apiConnnector from '../middleware/apiConnector'
+import apiConnnector from '../middleware/ApiConnector'
 
 const createStore = (initialState = {}) => {
   // ======================================================

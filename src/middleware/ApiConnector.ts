@@ -2,7 +2,7 @@ import { increment, COUNTER_INCREMENT } from '../routes/Counter/modules/counter'
 import { fetchAsync } from '../functions'
 
 /*
- Recieves all actions but only processes specifc ones
+  Recieves all actions but only processes specific ones
 */
 export default store => {
   let state = store.getState()
