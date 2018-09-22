@@ -1,5 +1,5 @@
 import { increment, COUNTER_INCREMENT } from '../routes/Counter/modules/counter'
-import { fetchAsync } from '../functions'
+import { fetchAsync } from '../Functions'
 
 /*
   Receives all actions but only processes specific ones
