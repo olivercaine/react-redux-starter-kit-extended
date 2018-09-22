@@ -1,6 +1,9 @@
-import { COUNTER_DOUBLE_ASYNC } from '../routes/Counter/modules/counter.js'
+import { increment, COUNTER_INCREMENT } from '../routes/Counter/modules/counter'
 import { fetchAsync } from '../functions'
 
+/*
+  Receives all actions but only processes specific ones
+*/
 export default store => {
   let state = store.getState()
   return next => {
@@ -9,9 +12,12 @@ export default store => {
       console.log('Next state: ', store.getState())
       let result = next(action)
       switch (action.type) {
-        case COUNTER_DOUBLE_ASYNC:
-          fetchAsync('http://www.fakeresponse.com/api/?sleep=5')
-            .then(console.log)
+        case COUNTER_INCREMENT:
+          fetchAsync('http://www.fakeresponse.com/api/?sleep=2')
+            .then((data) => {
+              console.log(data)
+              store.dispatch(increment(100))
+            })
           break
         default:
           return state

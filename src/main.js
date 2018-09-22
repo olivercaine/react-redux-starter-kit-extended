@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import createStore from './store/createStore'
-import defaultState from './state/defaultState'
+import defaultState from './state/DefaultState'
 import './styles/main.scss'
 
 // Store Initialization

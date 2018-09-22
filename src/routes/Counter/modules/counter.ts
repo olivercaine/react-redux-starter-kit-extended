@@ -41,8 +41,8 @@ export const actions = {
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-  [COUNTER_INCREMENT]    : (state, action) => state + action.payload,
-  [COUNTER_DOUBLE_ASYNC] : (state, action) => state * 2
+  [COUNTER_INCREMENT]    : (state: number, action) => state + action.payload,
+  [COUNTER_DOUBLE_ASYNC] : (state: number, action) => state * 2
 }
 
 // ------------------------------------
