@@ -1,4 +1,5 @@
 import React from 'react'
+import { expect } from 'chai'
 import { HomeView } from 'routes/Home/components/HomeView'
 import { render } from 'enzyme'
 

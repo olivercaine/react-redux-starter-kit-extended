@@ -1,4 +1,4 @@
-import { increment, COUNTER_INCREMENT } from '../routes/Counter/modules/counter.js'
+import { increment, COUNTER_INCREMENT } from '../routes/Counter/modules/counter'
 import { fetchAsync } from '../functions'
 
 /*

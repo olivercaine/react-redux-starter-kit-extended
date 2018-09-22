@@ -31,7 +31,7 @@ const config = {
       inProject(project.srcDir),
       'node_modules',
     ],
-    extensions: ['*', '.js', '.jsx', '.json'],
+    extensions: ['*', '.js', '.jsx', '.json', '.ts', '.tsx'],
   },
   externals: project.externals,
   module: {
@@ -86,6 +86,14 @@ config.module.rules.push({
       ]
     },
   }],
+})
+
+// TypeScript
+// ------------------------------------
+config.module.rules.push({
+  test: /\.(ts|tsx)$/,
+  exclude: /node_modules/,
+  use: ['babel-loader', 'awesome-typescript-loader']
 })
 
 // Styles

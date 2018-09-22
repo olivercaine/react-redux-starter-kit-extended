@@ -1,5 +1,7 @@
 import React from 'react'
 import { bindActionCreators } from 'redux'
+import * as sinon from 'sinon'
+import { expect } from 'chai'
 import { Counter } from 'routes/Counter/components/Counter'
 import { shallow } from 'enzyme'
 
