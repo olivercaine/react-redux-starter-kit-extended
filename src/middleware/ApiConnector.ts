@@ -1,28 +1,25 @@
-import { increment, COUNTER_INCREMENT } from '../routes/Counter/modules/counter'
-import { fetchAsync } from '../Functions'
+import { fetchAsync } from '../Functions';
+import { COUNTER_INCREMENT, increment } from '../routes/Counter/modules/counter';
 
 /*
   Receives all actions but only processes specific ones
 */
-export default store => {
-  let state = store.getState()
-  return next => {
-    return action => {
-      console.log('dispatching', action)
-      console.log('next state', store.getState())
-      let result = next(action)
+export default (store) => {
+  const state = store.getState();
+  return (next) => {
+    return (action) => {
+      const result = next(action);
       switch (action.type) {
         case COUNTER_INCREMENT:
           fetchAsync('http://www.fakeresponse.com/api/?sleep=2')
             .then((data) => {
-              console.log(data)
-              store.dispatch(increment(100))
-            })
-          break
+              store.dispatch(increment(100));
+            });
+          break;
         default:
-          return state
+          return state;
       }
-      return result
-    }
-  }
-}
+      return result;
+    };
+  };
+};
