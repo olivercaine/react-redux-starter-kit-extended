@@ -1,6 +1,6 @@
 import { RootState } from '../Definitions';
 
-let state: RootState = {
+const state: RootState = {
   counter: 5,
 }
 
