@@ -10,7 +10,7 @@
     "start": "cross-env NODE_ENV=development node build/scripts/start",
     "test": "cross-env NODE_ENV=test karma start build/karma.config",
     "test:watch": "npm test -- --watch",
-    "lint": "eslint . && ./node_modules/.bin/tslint -c tslint.json -t verbose src/**/*.ts",
+    "lint": "eslint . --quiet && ./node_modules/.bin/tslint -c tslint.json -t verbose src/**/*.ts",
     "lint:fix": "npm run lint -- --fix",
     "storybook": "start-storybook -p 6006 -s ./public",
     "build-storybook": "build-storybook"
