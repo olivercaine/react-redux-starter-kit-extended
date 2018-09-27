@@ -1,6 +1,6 @@
-import { RootState } from '../Definitions';
+import { IRootState } from '../Definitions';
 
-const state: RootState = {
+const state: IRootState = {
   counter: 5,
 }
 
