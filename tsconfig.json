@@ -18,10 +18,9 @@
       "chai"
     ]
   },
-  "files": [
-    "./lib/index.ts"
+  "exclude": [
+    "*/**/*.spec.ts"
   ],
-  "checkJs": true,
   "diagnostics": true,
   "noUnusedLocals": true,
   "noUnusedParameters": true

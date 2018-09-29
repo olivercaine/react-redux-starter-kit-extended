@@ -10,7 +10,7 @@
     "start": "cross-env NODE_ENV=development node build/scripts/start",
     "test": "cross-env NODE_ENV=test karma start build/karma.config",
     "test:watch": "npm test -- --watch",
-    "lint": "eslint . --quiet && ./node_modules/.bin/tslint -c tslint.json -t verbose src/**/*.ts",
+    "lint": "tslint -p ./tsconfig.json & eslint .",
     "lint:fix": "npm run lint -- --fix",
     "storybook": "start-storybook -p 6006 -s ./public",
     "build-storybook": "build-storybook"
@@ -36,10 +36,10 @@
     "redbox-react": "^1.3.6",
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
-    "tslint": "^5.8.0",
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
+    "@storybook/react": "^3.0.1",
     "@types/chai": "^4.1.3",
     "@types/mocha": "^5.2.0",
     "@types/node": "^10.1.2",
@@ -94,12 +94,12 @@
     "sinon": "^2.2.0",
     "sinon-chai": "^2.10.0",
     "style-loader": "^0.17.0",
+    "tslint": "^5.8.0",
     "typescript": "^2.8.3",
     "url-loader": "^0.5.8",
     "webpack": "^2.5.1",
     "webpack-dev-middleware": "^1.8.4",
     "webpack-hot-middleware": "^2.13.2",
-    "yargs": "^8.0.1",
-    "@storybook/react": "^3.0.1"
+    "yargs": "^8.0.1"
   }
 }
