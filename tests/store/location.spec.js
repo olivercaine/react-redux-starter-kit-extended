@@ -1,5 +1,3 @@
-import { expect } from 'chai'
-import * as sinon from 'sinon'
 import {
   LOCATION_CHANGE,
   locationChange,
