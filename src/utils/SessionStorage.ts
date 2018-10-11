@@ -1,4 +1,4 @@
-import { IRootState } from './../Definitions';
+import { IRootState } from 'Definitions';
 
 const GLOBAL_STATE = 'GLOBAL_STATE'
 
