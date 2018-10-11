@@ -1,4 +1,3 @@
-import { fetchAsync } from '../Functions'
 import { COUNTER_INCREMENT, increment } from '../routes/Counter/modules/counter'
 
 /*
@@ -13,7 +12,7 @@ export default (store) => {
         case COUNTER_INCREMENT:
           setTimeout(() => {
             store.dispatch(increment(100))
-          }, 5000)
+          }, 1000)
           break
         default:
           return state
