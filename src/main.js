@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import createStore from './store/createStore'
-import defaultState from './state/DefaultState'
+import globalState from './GlobalState'
 import './styles/main.scss'
 
 // Store Initialization
 // ------------------------------------
-const store = createStore(defaultState)
+const store = createStore(globalState)
 
 // Render Setup
 // ------------------------------------
