@@ -11,10 +11,9 @@ export default (store) => {
       const result = next(action)
       switch (action.type) {
         case COUNTER_INCREMENT:
-          fetchAsync('http://www.fakeresponse.com/api/?sleep=2')
-            .then((data) => {
-              store.dispatch(increment(100))
-            })
+          setTimeout(() => {
+            store.dispatch(increment(100))
+          }, 5000)
           break
         default:
           return state
