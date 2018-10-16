@@ -1,9 +1,7 @@
-import { IRootState } from './Definitions';
+import { IGlobalState } from './Definitions';
 
-export const initialState: IRootState = {
+export const initialState: IGlobalState = {
   counter: 5,
 }
 
-const state: IRootState = initialState
-
-export default state
+export default initialState
