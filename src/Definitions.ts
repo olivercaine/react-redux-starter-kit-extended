@@ -1,3 +1,3 @@
-export interface IRootState {
+export interface IGlobalState {
   counter: number;
 }
