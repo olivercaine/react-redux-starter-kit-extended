@@ -1,5 +1,5 @@
-import { COUNTER_DOUBLE_ASYNC, increment } from '../routes/Counter/modules/counter'
 import { Defaults } from 'Constants'
+import { COUNTER_DOUBLE_ASYNC, increment } from '../routes/Counter/modules/counter'
 
 /*
   Receives all actions but only processes specific ones.
