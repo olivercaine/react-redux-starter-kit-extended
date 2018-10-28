@@ -1,4 +1,3 @@
-import { expect } from 'chai'
 import {
   default as createStore
 } from 'store/createStore'
@@ -12,7 +11,7 @@ describe('(Store) createStore', () => {
 
   it('should have an empty asyncReducers object', () => {
     expect(store.asyncReducers).to.be.an('object')
-    expect(store.asyncReducers).to.be.empty('')
+    expect(store.asyncReducers).to.be.empty()
   })
 
   describe('(Location)', () => {
