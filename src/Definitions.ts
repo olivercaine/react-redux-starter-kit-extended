@@ -2,5 +2,13 @@
 // all definitions - models, interfaces etc - into this file until it gets too big to manage.
 
 export interface IGlobalState {
-  counter: number;
+  counter: ICounter;
+}
+
+// tslint:disable-next-line
+export interface ICounter extends Number {}
+
+export interface IReduxAction {
+  payload?: any,
+  type: string,
 }
