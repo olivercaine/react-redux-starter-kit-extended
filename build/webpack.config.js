@@ -31,7 +31,7 @@ const config = {
       inProject(project.srcDir),
       'node_modules',
     ],
-    extensions: ['*', '.js', '.jsx', '.json'],
+    extensions: ['*', '.js', '.jsx', '.json', '.ts', '.tsx'],
   },
   externals: project.externals,
   module: {
@@ -49,43 +49,55 @@ const config = {
 
 // JavaScript
 // ------------------------------------
+// config.module.rules.push({
+//   test: /\.(js|jsx)$/,
+//   exclude: /node_modules/,
+//   use: [{
+//     loader: 'babel-loader',
+//     query: {
+//       cacheDirectory: true,
+//       plugins: [
+//         'babel-plugin-transform-class-properties',
+//         'babel-plugin-syntax-dynamic-import',
+//         [
+//           'babel-plugin-transform-runtime',
+//           {
+//             helpers: true,
+//             polyfill: false, // we polyfill needed features in src/normalize.js
+//             regenerator: true,
+//           },
+//         ],
+//         [
+//           'babel-plugin-transform-object-rest-spread',
+//           {
+//             useBuiltIns: true // we polyfill Object.assign in src/normalize.js
+//           },
+//         ],
+//       ],
+//       presets: [
+//         'babel-preset-react',
+//         ['babel-preset-env', {
+//           modules: false,
+//           targets: {
+//             ie9: true,
+//           },
+//           uglify: true,
+//         }],
+//       ]
+//     },
+//   }],
+// })
+
+// TypeScript
 config.module.rules.push({
-  test: /\.(js|jsx)$/,
-  exclude: /node_modules/,
-  use: [{
-    loader: 'babel-loader',
-    query: {
-      cacheDirectory: true,
-      plugins: [
-        'babel-plugin-transform-class-properties',
-        'babel-plugin-syntax-dynamic-import',
-        [
-          'babel-plugin-transform-runtime',
-          {
-            helpers: true,
-            polyfill: false, // we polyfill needed features in src/normalize.js
-            regenerator: true,
-          },
-        ],
-        [
-          'babel-plugin-transform-object-rest-spread',
-          {
-            useBuiltIns: true // we polyfill Object.assign in src/normalize.js
-          },
-        ],
-      ],
-      presets: [
-        'babel-preset-react',
-        ['babel-preset-env', {
-          modules: false,
-          targets: {
-            ie9: true,
-          },
-          uglify: true,
-        }],
-      ]
-    },
-  }],
+  test: /\.(t|j)sx?$/,
+  loader: ['awesome-typescript-loader?module=es6'],
+  exclude: [/node_modules/]
+})
+config.module.rules.push({
+  test: /\.js$/,
+  loader: 'source-map-loader',
+  enforce: 'pre'
 })
 
 // Styles
