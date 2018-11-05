@@ -1,3 +1,5 @@
+import { ICounter, IReduxAction } from './../../../Definitions';
+
 // ------------------------------------
 // Constants
 // ------------------------------------
@@ -7,7 +9,7 @@ export const COUNTER_DOUBLE_ASYNC = 'COUNTER_DOUBLE_ASYNC'
 // ------------------------------------
 // Actions
 // ------------------------------------
-export function increment(value = 1) {
+export function increment(value = 1): IReduxAction {
   return {
     payload : value,
     type    : COUNTER_INCREMENT,
@@ -41,15 +43,15 @@ export const actions = {
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-  [COUNTER_INCREMENT]    : (state: number, action) => state + action.payload,
-  [COUNTER_DOUBLE_ASYNC] : (state: number, action) => state * 2,
+  [COUNTER_INCREMENT]    : (state: number, action): ICounter => state + action.payload,
+  [COUNTER_DOUBLE_ASYNC] : (state: number, action): ICounter => state * 2,
 }
 
 // ------------------------------------
 // Reducer
 // ------------------------------------
-const initialState = 0
-export default function counterReducer(state = initialState, action) {
+const initialState: ICounter = 0
+export default function counterReducer(state = initialState, action): ICounter {
   const handler = ACTION_HANDLERS[action.type]
 
   return handler ? handler(state, action) : state
