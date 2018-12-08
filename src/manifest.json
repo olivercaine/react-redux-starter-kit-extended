@@ -1,7 +1,6 @@
 {
-    "short_name": "Boilerplate",
-    "name": "Boilerplate Project",
-    "start_url": "/counter",
+    "background_color": "#138D75",  
+    "display": "browser",
     "icons": [
       {
         "src": "/icons/icon-260.png",
@@ -9,7 +8,8 @@
         "sizes": "260x260"
       }
     ],
-    "background_color": "#6CD59F",
-    "display": "standalone",
-    "theme_color": "#6CD59F"
+    "name": "Boilerplate Project",
+    "short_name": "Boilerplate",
+    "start_url": "/counter",
+    "theme_color": "#E59866"
   }
