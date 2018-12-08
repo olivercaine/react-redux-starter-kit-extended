@@ -1,0 +1,15 @@
+{
+    "short_name": "Boilerplate",
+    "name": "Boilerplate Project",
+    "start_url": "/counter",
+    "icons": [
+      {
+        "src": "/icons/icon-260.png",
+        "type": "image/png",
+        "sizes": "260x260"
+      }
+    ],
+    "background_color": "#6CD59F",
+    "display": "standalone",
+    "theme_color": "#6CD59F"
+  }
