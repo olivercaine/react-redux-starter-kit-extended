@@ -1,15 +1,15 @@
 {
-    "background_color": "#138D75",  
-    "display": "browser",
-    "icons": [
-      {
-        "src": "/icons/icon-260.png",
-        "type": "image/png",
-        "sizes": "260x260"
-      }
-    ],
-    "name": "Boilerplate Project",
-    "short_name": "Boilerplate",
-    "start_url": "/counter",
-    "theme_color": "#E59866"
-  }
+  "background_color": "#138D75",  
+  "display": "browser",
+  "icons": [
+    {
+      "src": "/icons/icon-260.png",
+      "type": "image/png",
+      "sizes": "260x260"
+    }
+  ],
+  "name": "Boilerplate Project",
+  "short_name": "Boilerplate",
+  "start_url": "/counter",
+  "theme_color": "#E59866"
+}
