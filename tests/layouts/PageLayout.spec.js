@@ -8,7 +8,7 @@ describe('(Layout) PageLayout', () => {
   })
 
   it('renders a project title', () => {
-    shallow(<PageLayout />).find('h1').should.have.text('React Redux Starter Kit: Docker build')
+    shallow(<PageLayout />).find('h1').should.have.text('React Redux Starter Kit')
   })
 
   it('renders its children inside of the viewport', () => {
