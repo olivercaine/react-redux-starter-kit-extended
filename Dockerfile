@@ -2,8 +2,10 @@
 FROM node:8.11.3-alpine as build-deps
 WORKDIR /usr/src/app
 COPY package.json yarn.lock ./
-RUN yarn
+RUN yarn install
 COPY . ./
+RUN npm run lint
+RUN npm run test
 RUN npm run build
 
 # Stage 2 - the production environment
