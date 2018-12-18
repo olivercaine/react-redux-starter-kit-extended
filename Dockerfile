@@ -1,13 +1,14 @@
-FROM node:8.11.3-alpine
-
-# Create work directory
+# Stage 1 - the build process
+FROM node:8.11.3-alpine as build-deps
 WORKDIR /usr/src/app
+COPY package.json yarn.lock ./
+RUN yarn
+COPY . ./
+RUN npm run build
 
-# Copy app source to work directory
-COPY ./dist /usr/src/app
-
-# Install app dependencies
+# Stage 2 - the production environment
+FROM node:8.11.3-alpine
+WORKDIR /usr/src/app
+COPY --from=build-deps /usr/src/app/dist /usr/src/app
 RUN npm install
-
-# Build and run the app
 CMD npm start
