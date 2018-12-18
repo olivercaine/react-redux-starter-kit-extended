@@ -121,3 +121,19 @@ otherwise the user will be erased from the state object and will not show in the
 ## Accessing global state
 
 A Reducer only has access to a specific key however it's possible to access global scope in the `mapStateToProps` function which is how you can build the data object for a specific component.
+
+## Building the app
+
+```bash
+docker build . -t olliecaine/rrske:latest
+docker run -p 80:3000 --rm olliecaine/rrske:latest
+# to debug:
+docker run -p 80:3000 --rm -it olliecaine/rrske:latest sh
+```
+
+## Getting the dist
+
+```
+docker create --name build olliecaine/rrske
+docker cp $(docker create olliecaine/rrske):/dist ./dist
+```

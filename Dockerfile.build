@@ -13,4 +13,4 @@ FROM node:8.11.3-alpine
 COPY --from=build-image /source-code/dist dist
 WORKDIR /dist
 RUN npm install
-CMD [ "npm", "start" ]
+CMD npm start
