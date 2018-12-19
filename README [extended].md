@@ -126,14 +126,14 @@ A Reducer only has access to a specific key however it's possible to access glob
 
 ```bash
 docker build . -t olliecaine/rrske:latest
-docker run -p 80:3000 --rm olliecaine/rrske:latest
-# to debug:
-docker run -p 80:3000 --rm -it olliecaine/rrske:latest sh
+docker run -p 80:3000 --rm olliecaine/rrske:latest # to debug: docker run -p 80:3000 --rm -it olliecaine/rrske:latest sh
 ```
 
-## Getting the dist
+## Creating a dist
 
-```
+```bash
+docker build . -t olliecaine/rrske
 docker create --name build olliecaine/rrske
 docker cp $(docker create olliecaine/rrske):/dist ./dist
+docker rm build
 ```
