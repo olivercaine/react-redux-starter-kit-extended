@@ -126,7 +126,7 @@ A Reducer only has access to a specific key however it's possible to access glob
 
 ```
 time npm run build:docker
-docker run -p 3000:3000 --rm olliecaine/rrske:latest # to debug: --it [image name] sh
+docker run -p 3000:3000 --rm olliecaine/rrske:latest # to debug: -it [image name] sh
 ```
 
 ### Build times
