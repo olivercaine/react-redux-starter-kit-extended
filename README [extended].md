@@ -122,18 +122,28 @@ otherwise the user will be erased from the state object and will not show in the
 
 A Reducer only has access to a specific key however it's possible to access global scope in the `mapStateToProps` function which is how you can build the data object for a specific component.
 
-## Building the app
+## Build the app using Docker
 
-```bash
-docker build . -t olliecaine/rrske:latest
-docker run -p 80:3000 --rm olliecaine/rrske:latest # to debug: docker run -p 80:3000 --rm -it olliecaine/rrske:latest sh
+```
+npm run build:docker
+docker run -p 3000:3000 --rm olliecaine/rrske:latest # to debug: --it [image name] sh
 ```
 
-## Creating a dist
+### Build times
 
 ```bash
-docker build . -t olliecaine/rrske
-docker create --name build olliecaine/rrske
-docker cp $(docker create olliecaine/rrske):/dist ./dist
-docker rm build
+# Steps:
+docker container prune
+# clear necessary images. WARNING, CLEARS ALL: docker rmi -f $(docker images -q)
+time npm run build:docker
 ```
+
+| Setup                                        | First run        | Notes                                    |
+| -------------------------------------------- | ---------------- | ---------------------------------------- |
+| Yarn + yarn.lock                             | 3:45.62          | 2nd run not relevant due to Docker cache |
+| NPM + package-lock.json                      | 3:51.01, 4:15.58 |                                          |
+| NPM@latest + package-lock.json               | 3:45             |                                          |
+| NPM + package-lock.json + no-progress        | 3:17, 4:30       | Current                                  |
+| NPM@latest + package-lock.json + no-progress | 2:33.93, ??      | Desired?                                 |
+| NPM ci (v5.7.1) + package-lock.json          | FAILED           |                                          |
+| NPM ci (v6.0.0) + package-lock.json          | FAILED           |                                          |
