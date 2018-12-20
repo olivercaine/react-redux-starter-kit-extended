@@ -1,4 +1,4 @@
-# Stage 1 - the build process
+# Stage 1: Prepare the dist
 FROM node:8.11.3-alpine as build-image
 WORKDIR /project
 
@@ -11,7 +11,7 @@ RUN npm run lint
 # RUN npm run test TODO: fix tests. Possibly not working due to PhantomJS environemnt variable.
 RUN npm run build
 
-# Stage 2 - the production environment
+# Stage 2: Create the production image
 FROM node:8.11.3-alpine
 WORKDIR /dist
 
