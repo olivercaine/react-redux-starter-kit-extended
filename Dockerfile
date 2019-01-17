@@ -1,5 +1,5 @@
 # Stage 1: Prepare the dist
-FROM node:8.11.3-alpine as build-image
+FROM node:8.15-alpine as build-image
 WORKDIR /project
 
 COPY package.json package-lock.json ./
@@ -12,7 +12,7 @@ RUN npm run lint
 RUN npm run build
 
 # Stage 2: Create the production image
-FROM node:8.11.3-alpine
+FROM node:8.15-alpine
 WORKDIR /dist
 
 COPY --from=build-image /project/dist .
