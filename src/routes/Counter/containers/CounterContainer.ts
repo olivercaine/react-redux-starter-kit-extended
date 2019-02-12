@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { IGlobalState } from '../../../Definitions'
+import { IRootState } from '../../../Definitions'
 import { doubleAsync, increment } from '../modules/counter'
 
 /*  This is a container component. Notice it does not contain any JSX,
@@ -18,7 +18,7 @@ const mapDispatchToProps = {
   increment : () => increment(1),
 }
 
-const mapStateToProps = (state: IGlobalState) => ({
+const mapStateToProps = (state: IRootState) => ({
   counter : state.counter,
 })
 

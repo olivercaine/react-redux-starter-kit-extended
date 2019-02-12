@@ -1,3 +1,4 @@
+import { expect } from 'chai';
 import CounterRoute from 'routes/Counter'
 
 describe('(Route) Counter', () => {
