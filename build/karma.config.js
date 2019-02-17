@@ -5,7 +5,20 @@ const TEST_BUNDLER = './tests/test-bundler.js'
 
 const karmaConfig = {
   basePath: '../',
-  browsers: ['PhantomJS'],
+  browsers: ['ChromeHeadlessCustom'],
+  customLaunchers: {
+    ChromeHeadlessCustom: {
+      base: 'ChromeHeadless',
+      flags: [
+        '--no-sandbox',
+        '--headless',
+        '--disable-gpu',
+        '--disable-translate',
+        '--disable-extensions',
+        '--remote-debugging-port=9222'
+      ]
+    }
+  },
   singleRun: !argv.watch,
   coverageReporter: {
     reporters: [
