@@ -35,4 +35,9 @@ COPY --from=build-image /project/dist .
 RUN npm set progress=false
 RUN npm install
 
-CMD [ "npm", "start" ]
+# Run as non-root user
+USER node
+
+# Build and run the app
+CMD npm start 
+# CMD [ "npm", "start" ] - try this one if container starts hanging?
