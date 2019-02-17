@@ -1,5 +1,8 @@
 # Stage 1: Prepare the dist
-FROM node:8.15-alpine as build-image
+FROM node:8.15-alpine as build
+
+RUN npm set progress=false
+
 WORKDIR /project
 
 # INSTALL CHROME
@@ -19,7 +22,7 @@ ENV CHROME_BIN /usr/bin/chromium-browser
 # END: INSTALL CHROME
 
 COPY package*.json ./
-RUN npm set progress=false
+COPY --from=boilerplate-stack/module /project ../module
 RUN npm install
 
 COPY . ./
@@ -31,7 +34,7 @@ RUN npm run build
 FROM node:8.15-alpine
 WORKDIR /dist
 
-COPY --from=build-image /project/dist .
+COPY --from=build /project/dist .
 RUN npm set progress=false
 RUN npm install
 
