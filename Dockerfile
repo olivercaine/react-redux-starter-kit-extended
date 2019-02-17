@@ -1,5 +1,5 @@
 # Stage 1: Prepare the dist
-FROM node:8.15-alpine as build
+FROM node:8.15-alpine as build-client
 
 RUN npm set progress=false
 
@@ -32,15 +32,18 @@ RUN npm run build
 
 # Stage 2: Create the production image
 FROM node:8.15-alpine
-WORKDIR /dist
 
-COPY --from=build /project/dist .
-RUN npm set progress=false
+# Create work directory
+WORKDIR /usr/src/app
+
+# Copy app source to work directory
+COPY --from=build-client /project/dist /usr/src/app
+
+# Install app dependencies
 RUN npm install
 
 # Run as non-root user
 USER node
 
 # Build and run the app
-CMD npm start 
-# CMD [ "npm", "start" ] - try this one if container starts hanging?
+CMD npm start
