@@ -6,6 +6,7 @@ import { sayWelcome } from '../../Home/components/StringUtil'
 export const HomeView = () => (
   <div>
     <h4>{sayWelcome('welcome!')}</h4>
+    <p>1</p>
     <img alt='This is a duck, because Redux!' className='duck' src={DuckImage} />
   </div>
 )
