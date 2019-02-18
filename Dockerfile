@@ -22,7 +22,7 @@ ENV CHROME_BIN /usr/bin/chromium-browser
 # END: INSTALL CHROME
 
 COPY package*.json ./
-COPY --from=boilerplate-stack/module /project ../module
+COPY --from=boilerplate-stack/module:devops-deploy-improvement-with-long-branch-name /project ../module
 RUN npm install
 
 COPY . ./
