@@ -1,49 +1,44 @@
-# Stage 1: Prepare the dist
-FROM node:8.15-alpine as build-client
+# --------------- STAGE 1 ---------------
+FROM node:8.15-alpine as stage-1
+
+# Install Chrome
+RUN sed -i -e 's/v3.8/edge/g' /etc/apk/repositories
+RUN apk add --no-cache build-base
+RUN apk add --no-cache chromium-chromedriver 
+RUN apk add --no-cache chromium 
+RUN apk upgrade --no-cache --available
+ENV CHROME_BIN /usr/bin/chromium-browser
+# End: Install Chrome
 
 RUN npm set progress=false
 
 WORKDIR /project
 
-# INSTALL CHROME
-RUN sed -i -e 's/v3.8/edge/g' /etc/apk/repositories \
-    && apk add --no-cache \
-    python \
-    build-base \
-    git \
-    bash \
-    openjdk8-jre-base \
-    # chromium dependencies
-    nss \
-    chromium-chromedriver \
-    chromium \
-    && apk upgrade --no-cache --available
-ENV CHROME_BIN /usr/bin/chromium-browser
-# END: INSTALL CHROME
-
+# Install dependencies
 COPY package*.json ./
-COPY --from=boilerplate-stack/module:latest /project ../module
 RUN npm install
+COPY --from=boilerplate-stack/module:latest /project ../module
 
+# Lint, test and build app
 COPY . ./
 RUN npm run lint
 RUN npm run test
 RUN npm run build
 
-# Stage 2: Create the production image
+# --------------- STAGE 2 ---------------
 FROM node:8.15-alpine
 
-# Create work directory
+# Is this step needed? Use /project and COPY to . instead (below)?
 WORKDIR /usr/src/app
 
-# Copy app source to work directory
-COPY --from=build-client /project/dist /usr/src/app
+# Get dist from build image
+COPY --from=stage-1 /project/dist /usr/src/app
 
-# Install app dependencies
+# Install prod dependencies (Express)
 RUN npm install
 
 # Run as non-root user
 USER node
 
-# Build and run the app
-CMD npm start
+# Better than npm start
+CMD ["node", "server.js"]
