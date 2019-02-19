@@ -13,7 +13,7 @@
     "lint": "tslint -p ./tsconfig.json && eslint .",
     "lint:fix": "npm run lint -- --fix",
     "storybook": "start-storybook -p 6006 -s ./public",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook -o ./dist/storybook"
   },
   "repository": {
     "type": "git",
