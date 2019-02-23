@@ -1,4 +1,4 @@
-# --------------- STAGE 1 ---------------
+# --------------- STAGE 1: Build ---------------
 FROM base:latest as stage-1
 
 # Install dependencies
@@ -12,7 +12,7 @@ RUN npm run lint
 RUN npm run test
 RUN npm run build
 
-# --------------- STAGE 2 ---------------
+# --------------- STAGE 2: Host ---------------
 FROM node:8.15-alpine
 
 # Is this step needed? Use /project and COPY to . instead (below)?
