@@ -1,18 +1,5 @@
 # --------------- STAGE 1 ---------------
-FROM node:8.15-alpine as stage-1
-
-# Install Chrome
-RUN sed -i -e 's/v3.8/edge/g' /etc/apk/repositories
-RUN apk add --no-cache build-base
-RUN apk add --no-cache chromium-chromedriver 
-RUN apk add --no-cache chromium 
-RUN apk upgrade --no-cache --available
-ENV CHROME_BIN /usr/bin/chromium-browser
-# End: Install Chrome
-
-RUN npm set progress=false
-
-WORKDIR /project
+FROM base:latest as stage-1
 
 # Install dependencies
 COPY package*.json ./
