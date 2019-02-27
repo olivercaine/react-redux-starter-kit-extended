@@ -14,6 +14,11 @@ describe('(Store) createStore', () => {
     expect(store.asyncReducers).to.be.empty()
   })
 
+  it('DELETE-ME', () => {
+    expect(store.asyncReducers).to.be.an('object')
+    expect(store.asyncReducers).to.be.empty()
+  })
+
   describe('(Location)', () => {
     it('store should be initialized with Location state', () => {
       const location = {
