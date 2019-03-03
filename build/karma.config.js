@@ -30,7 +30,7 @@ const karmaConfig = {
     watched  : false,
     served   : true,
     included : true
-  }, './build/enzyme.config.js'],
+  }],
   frameworks: ['mocha'],
   reporters: ['mocha'],
   preprocessors: {
