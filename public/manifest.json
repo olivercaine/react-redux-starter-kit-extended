@@ -10,6 +10,6 @@
   ],
   "name": "Boilerplate Project",
   "short_name": "Boilerplate",
-  "start_url": "/counter",
+  "start_url": "/",
   "theme_color": "#83ACCE"
 }
