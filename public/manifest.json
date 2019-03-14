@@ -1,5 +1,5 @@
 {
-  "background_color": "#138D75",  
+  "background_color": "#83ACCE",  
   "display": "browser",
   "icons": [
     {
@@ -11,5 +11,5 @@
   "name": "Boilerplate Project",
   "short_name": "Boilerplate",
   "start_url": "/counter",
-  "theme_color": "#E59866"
+  "theme_color": "#83ACCE"
 }
