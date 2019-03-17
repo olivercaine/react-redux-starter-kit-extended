@@ -3,7 +3,7 @@ FROM base:latest as stage-1
 
 # Install dependencies
 COPY package*.json ./
-RUN npm install
+RUN npm install --prefer-offline
 COPY --from=boilerplate-stack/module:latest /project ../module
 
 # Lint, test and build app
@@ -22,7 +22,7 @@ WORKDIR /usr/src/app
 COPY --from=stage-1 /project/dist /usr/src/app
 
 # Install prod dependencies (Express)
-RUN npm install
+RUN npm install --prefer-offline
 
 # Run as non-root user
 USER node
