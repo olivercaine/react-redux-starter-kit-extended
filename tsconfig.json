@@ -21,6 +21,7 @@
   },
   "exclude": [
     "node_modules",
+    "common",
     "*/**/*.spec.ts"
   ],
   "diagnostics": true,
