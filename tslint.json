@@ -1,10 +1,5 @@
 {
     "extends": "tslint:recommended",
-    "linterOptions": {
-        "exclude": [
-            "common/**"
-        ]
-    },
     "rules": {
         "no-null-keyword": true,
         "semicolon": false,

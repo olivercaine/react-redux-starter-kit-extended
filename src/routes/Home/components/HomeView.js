@@ -1,7 +1,7 @@
 import React from 'react'
 import DuckImage from '../assets/Duck.jpg'
 import './HomeView.scss'
-import { sayWelcome } from 'utils/String'
+import { sayWelcome } from '../../../utils/String'
 
 export const HomeView = () => (
   <div>
