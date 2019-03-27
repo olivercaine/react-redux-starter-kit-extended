@@ -1,4 +1,4 @@
-import { Months } from 'month-enum-ts/lib/months';
+import { Months } from 'month-enum-ts/lib/Months';
 /**
  * This is just an example.
  */
