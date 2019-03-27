@@ -1,5 +1,3 @@
-// import { expect } from 'chai'
-// import { beforeEach, describe, it } from 'mocha'
 import HomeRoute from 'routes/Home'
 
 describe('(Route) Home', () => {

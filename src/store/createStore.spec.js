@@ -1,8 +1,6 @@
 import {
   default as createStore
 } from 'store/createStore'
-// import { expect } from 'chai'
-// import { before, describe, it } from 'mocha'
 
 describe('(Store) createStore', () => {
   let store
