@@ -1,6 +1,7 @@
 import React from 'react'
 import PageLayout from 'layouts/PageLayout/PageLayout'
 import { shallow } from '../../../tests/enzyme-wrapper'
+// import { describe, it } from 'mocha'
 
 describe('(Layout) PageLayout', () => {
   it('renders as a <div>', () => {

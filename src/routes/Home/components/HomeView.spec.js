@@ -1,6 +1,8 @@
 import React from 'react'
 import { HomeView } from 'routes/Home/components/HomeView'
-import { render } from 'enzyme'
+import { render } from '../../../../tests/enzyme-wrapper'
+// import { expect } from 'chai'
+// import { beforeEach, describe, it } from 'mocha'
 
 describe('(View) Home', () => {
   let _component

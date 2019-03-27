@@ -4,6 +4,9 @@ import {
   doubleAsync,
   default as counterReducer
 } from 'routes/Counter/modules/counter'
+// import { expect } from 'chai'
+// import { beforeEach, describe, it } from 'mocha'
+// import * as sinon from 'sinon'
 
 describe('(Redux Module) Counter', () => {
   it('Should export a constant COUNTER_INCREMENT.', () => {

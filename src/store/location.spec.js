@@ -4,6 +4,8 @@ import {
   updateLocation,
   default as locationReducer
 } from 'store/location'
+// import { expect } from 'chai'
+// import { beforeEach, describe, it } from 'mocha'
 
 describe('(Internal Module) Location', () => {
   it('Should export a constant LOCATION_CHANGE.', () => {

@@ -1,7 +1,10 @@
 import React from 'react'
 import { bindActionCreators } from 'redux'
 import { Counter } from 'routes/Counter/components/Counter'
-import { shallow } from 'enzyme'
+import { shallow } from '../../../../tests/enzyme-wrapper'
+// import { expect } from 'chai'
+// import { beforeEach, describe, it } from 'mocha'
+// import * as sinon from 'sinon'
 
 describe('(Component) Counter', () => {
   let _props, _spies, _wrapper
