@@ -1,6 +1,6 @@
 import React from 'react'
 import { HomeView } from 'routes/Home/components/HomeView'
-import { render } from 'enzyme'
+import { render } from '../../../../tests/enzyme-wrapper'
 
 describe('(View) Home', () => {
   let _component

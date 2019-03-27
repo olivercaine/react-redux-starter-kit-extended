@@ -1,6 +1,6 @@
 import React from 'react'
 import PageLayout from 'layouts/PageLayout/PageLayout'
-import { shallow } from '../enzyme-wrapper'
+import { shallow } from '../../../tests/enzyme-wrapper'
 
 describe('(Layout) PageLayout', () => {
   it('renders as a <div>', () => {
