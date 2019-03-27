@@ -4,7 +4,6 @@ FROM base:latest as stage-1
 # Install dependencies
 COPY package*.json ./
 RUN npm install --prefer-offline
-COPY --from=boilerplate-stack/module:latest /project ../module
 
 # Lint, test and build app
 COPY . ./
