@@ -2,6 +2,7 @@
     "extends": "tslint:recommended",
     "rules": {
         "no-null-keyword": true,
+        "no-unused-variable": true,
         "semicolon": false,
         "quotemark": [
             true,
