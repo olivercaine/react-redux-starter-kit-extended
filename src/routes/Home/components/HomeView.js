@@ -1,11 +1,11 @@
 import React from 'react'
 import DuckImage from '../assets/Duck.jpg'
 import './HomeView.scss'
-import { sayWelcome } from '../../../utils/String'
+import { Months } from '@common/month-enum-ts/lib/Months'
 
 export const HomeView = () => (
   <div>
-    <h4>{sayWelcome()}</h4>
+    <h4>The month is {Months[new Date().getMonth()]} according to TypeScript</h4>
     <img alt='This is a duck, because Redux!' className='duck' src={DuckImage} />
   </div>
 )
