@@ -4,6 +4,7 @@
         "no-null-keyword": true,
         "no-unused-variable": true,
         "semicolon": false,
+        "member-access": [true, "no-public"],
         "quotemark": [
             true,
             "single",
