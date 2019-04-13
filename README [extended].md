@@ -33,7 +33,7 @@ Now the route is accessible, it's time to tidy up some of the new code:
 
    On the last line you will see something like:
 
-   ​```export default connect(mapStateToProps, mapDispatchToProps)(Component)```
+   ```export default connect(mapStateToProps, mapDispatchToProps)(Component)```
 
    "Component" here is defined above. Just change it's path to a component you've created in the /src/components folder.
 
@@ -46,7 +46,7 @@ This applies to APIs but also any other "out-of-app" behaviour - e.g. manipulati
 Directory page (/src/routes/directory/index.js) requests list of chefs by dispatching the SHOULD_FETCH_CHEFS event:
 
 ```javascript
-store.dispatch({ type: 'SHOULD_FETCH_CHEFS' })
+store.dispatch(shouldFetchChefs(100))
 ```
 
 ** 2. ReduxService recieves the SHOULD_FETCH_CHEFS event**
@@ -56,7 +56,7 @@ Because ReduxService is listening for the SHOULD_FETCH_CHEFS event it makes a re
 ```javascript
   case SHOULD_FETCH_CHEFS:
     apiConnector.getChefs(data => {
-      next({ type: DID_FETCH_CHEFS, data })
+      next(didFetchChefs(data))
     })
     break
 ```

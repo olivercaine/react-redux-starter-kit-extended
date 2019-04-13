@@ -34,11 +34,6 @@ export const doubleAsync = () => {
   }
 }
 
-export const actions = {
-  doubleAsync,
-  increment,
-}
-
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
