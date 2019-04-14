@@ -1,5 +1,6 @@
 {
     "hooks": {
+        "post-checkout": "git submodule update --init --recursive",
         "pre-push": "npm run lint && npm test"
     }
 }
