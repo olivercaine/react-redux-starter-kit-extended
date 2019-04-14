@@ -8,3 +8,4 @@ coverage
 .yarn-cache
 storybook-static
 devops
+.nyc_output
