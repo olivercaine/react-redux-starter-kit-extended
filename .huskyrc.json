@@ -1,7 +1,7 @@
 {
     "hooks": {
         "post-checkout": "git submodule update --init --recursive",
-        "post-merge": "git submodule update --init --recursive",
+        "post-merge": "echo 'Installing modules...' & npm i",
         "pre-push": "npm run lint && npm test"
     }
 }
