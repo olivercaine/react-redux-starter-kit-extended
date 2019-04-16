@@ -22,12 +22,12 @@ export function increment(value = 1): IReduxAction {
 
 export const doubleAsync = () => {
   return async (dispatch, getState) => {
-      setTimeout(() => {
-        dispatch({
-          payload : getState().counter,
-          type    : COUNTER_DOUBLE_ASYNC,
-        })
-      }, 200)
+    setTimeout(() => {
+      dispatch({
+        payload : getState().counter,
+        type    : COUNTER_DOUBLE_ASYNC,
+      })
+    }, 200)
   }
 }
 
