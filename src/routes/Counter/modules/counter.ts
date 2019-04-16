@@ -21,16 +21,13 @@ export function increment(value = 1): IReduxAction {
     creating async actions, especially when combined with redux-thunk! */
 
 export const doubleAsync = () => {
-  return (dispatch, getState) => {
-    return new Promise((resolve) => {
+  return async (dispatch, getState) => {
       setTimeout(() => {
         dispatch({
           payload : getState().counter,
           type    : COUNTER_DOUBLE_ASYNC,
         })
-        resolve()
       }, 200)
-    })
   }
 }
 
@@ -39,7 +36,7 @@ export const doubleAsync = () => {
 // ------------------------------------
 const ACTION_HANDLERS = {
   [COUNTER_INCREMENT]    : (state: number, action): ICounter => state + action.payload,
-  [COUNTER_DOUBLE_ASYNC] : (state: number, action): ICounter => state * 2,
+  [COUNTER_DOUBLE_ASYNC] : (state: number): ICounter => state * 2,
 }
 
 // ------------------------------------
