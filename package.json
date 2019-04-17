@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf dist",
+    "dev": "concurrently \"npm run start\" \"npm run test:watch\" \"npm run storybook\"",
     "compile": "node build/scripts/compile",
     "build": "npm run clean && npm run build-storybook && cross-env NODE_ENV=production npm run compile && cp ./devops/static-web-app/* ./dist",
     "start": "cross-env NODE_ENV=development node build/scripts/start",
@@ -26,6 +27,7 @@
     "@common/month-enum-ts": "file:common/month-enum-ts",
     "bootstrap": "^4.3.1",
     "compression": "^1.6.2",
+    "concurrently": "^4.1.0",
     "express": "^4.14.0",
     "object-assign": "^4.1.1",
     "promise": "^7.1.1",
