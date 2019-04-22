@@ -3,7 +3,12 @@
 
 export interface IRootState {
   counter: ICounter;
+  // canonicalData: ICanonicalData;
 }
+
+// export interface ICanonicalData {
+//   normalizedEntities: []
+// }
 
 // tslint:disable-next-line
 export interface ICounter extends Number {}
