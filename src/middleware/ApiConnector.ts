@@ -3,15 +3,14 @@ import { COUNTER_DOUBLE_ASYNC, increment } from '../routes/Counter/modules/count
 
 // Receives all actions but only processes ones defined below before they reach the store's reducer.
 export const apiConnector = (store) => (next) => (action) => {
-  const result = next(action)
+
   switch (action.type) {
     case COUNTER_DOUBLE_ASYNC:
       setTimeout(() => {
         store.dispatch(increment(Defaults.Increment))
       }, 1000)
       break
-    default:
-      return store.getState()
   }
-  return result
+
+  next(action);
 }
