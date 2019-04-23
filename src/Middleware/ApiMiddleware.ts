@@ -1,17 +1,14 @@
 import { Defaults } from 'Constants'
 import { Middleware } from 'redux';
-import Urls from 'routes/Urls';
+import { getSomething } from '../connectors/ApiConnector';
 import { COUNTER_DOUBLE_ASYNC, increment } from '../routes/Counter/modules/counter'
 
 // Receives all actions but only processes ones defined below before they reach the store's reducer.
-export const apiConnector: Middleware = (store) => (next) => (action) => {
+export const apiMiddleware: Middleware = (store) => (next) => (action) => {
 
   switch (action.type) {
     case COUNTER_DOUBLE_ASYNC:
-      fetch(`${Urls.fakeDelay}?t=5000'`)
-        .then(() => {
-          store.dispatch(increment(Defaults.Increment))
-        })
+      getSomething(store.dispatch(increment(Defaults.Increment)))
       break
   }
 
