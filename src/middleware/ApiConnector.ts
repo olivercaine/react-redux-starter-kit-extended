@@ -1,3 +1,4 @@
+import Urls from 'routes/Urls';
 import { Defaults } from 'Constants'
 import { Middleware } from 'redux';
 import { COUNTER_DOUBLE_ASYNC, increment } from '../routes/Counter/modules/counter'
@@ -7,9 +8,10 @@ export const apiConnector: Middleware = (store) => (next) => (action) => {
 
   switch (action.type) {
     case COUNTER_DOUBLE_ASYNC:
-      setTimeout(() => {
-        store.dispatch(increment(Defaults.Increment))
-      }, 1000)
+      fetch(`${Urls.fakeDelay}?t=5000'`) 
+        .then(() => {
+          store.dispatch(increment(Defaults.Increment))
+        })
       break
   }
 

@@ -29,6 +29,12 @@ if (project.env === 'development') {
     path: '/__webpack_hmr'
   }))
 
+  // Useful when needing a fake endpoint: `/fakeDelay/?t=2000`
+  app.get('/fake-delay', (req, res) => {
+    let ms = isNaN(req.query.t) ? 1000 : parseInt(req.query.t)
+    setTimeout(() => res.status(200).send({ delay:ms }), ms)
+  })
+
   // Serve static assets from ~/public since Webpack is unaware of
   // these files. This middleware doesn't need to be enabled outside
   // of development since this directory will be copied into ~/dist
