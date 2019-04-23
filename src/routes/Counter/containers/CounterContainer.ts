@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import { IRootState } from '../../../Definitions'
 import { doubleAsync, increment } from '../modules/counter'
+import { Defaults } from './../../../Constants';
 
 /*  This is a container component. Notice it does not contain any JSX,
     nor does it import React. This component is **only** responsible for
@@ -15,7 +16,7 @@ import Component from '../components/Counter'
 
 const mapDispatchToProps = {
   doubleAsync,
-  increment : () => increment(1),
+  increment : () => increment(Defaults.Increment),
 }
 
 const mapStateToProps = (state: IRootState) => ({
