@@ -12,6 +12,6 @@ export const errorLoggerMiddleware: Middleware = (store) => (next) => (action) =
         //     eventAction: action.type,
         // })
     }
-
     return next(action);
+
 }

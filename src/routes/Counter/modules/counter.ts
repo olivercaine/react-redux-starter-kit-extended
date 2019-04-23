@@ -29,7 +29,7 @@ export const doubleAsync = () => {
           payload : getState().counter,
           type    : COUNTER_DOUBLE_ASYNC,
         })
-    })
+      })
   }
 }
 
