@@ -10,7 +10,7 @@ export const COUNTER_DOUBLE_ASYNC = 'COUNTER_DOUBLE_ASYNC'
 // ------------------------------------
 // Actions
 // ------------------------------------
-export function increment(value = 1): IReduxAction {
+export function increment(value: number = 1): IReduxAction {
   return {
     payload : value,
     type    : COUNTER_INCREMENT,
