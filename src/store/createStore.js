@@ -3,8 +3,8 @@ import thunk from 'redux-thunk'
 import { browserHistory } from 'react-router'
 import makeRootReducer from './reducers'
 import { updateLocation } from './location'
-import { apiMiddleware } from '../Middleware/ApiMiddleware'
-import { errorLoggerMiddleware } from '../Middleware/ErrorLogger'
+import { apiMiddleware } from '../middlewares/ApiMiddleware'
+import { errorLoggerMiddleware } from '../middlewares/ErrorLogger'
 
 const createStore = (initialState = {}) => {
   // ======================================================
