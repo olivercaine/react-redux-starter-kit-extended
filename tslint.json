@@ -5,6 +5,9 @@
         "no-unused-variable": true,
         "semicolon": false,
         "member-access": [true, "no-public"],
+        "no-default-export": {
+            "severity": "warning"
+        },        
         "quotemark": [
             true,
             "single",
