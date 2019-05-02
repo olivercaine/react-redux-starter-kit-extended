@@ -36,5 +36,5 @@ const mapStateToProps = (state: IRootState) => ({
     Selectors are efficient. A selector is not recomputed unless one of its arguments change.
     Selectors are composable. They can be used as input to other selectors.
     https://github.com/reactjs/reselect    */
-
+// tslint:disable:no-default-export
 export default connect(mapStateToProps, mapDispatchToProps)(Component)
