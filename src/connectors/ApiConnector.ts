@@ -5,6 +5,6 @@ async function fetchAsync(url) {
     return response.json();
 }
 
-export async function randomNumber(delay: number): Promise<{randomNumber: number}> {
+export async function createRandomNumber(delay: number): Promise<{randomNumber: number}> {
     return await fetchAsync(`${Urls.randomNumber}?t=${delay}`);
 }

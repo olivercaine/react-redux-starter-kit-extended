@@ -1,4 +1,4 @@
-import { randomNumber } from 'connectors/ApiConnector';
+import { createRandomNumber } from 'connectors/ApiConnector';
 import { ICounter, IReduxAction } from './../../../Definitions';
 
 // ------------------------------------
@@ -24,7 +24,7 @@ export function increment(value: number = 1): IReduxAction {
 export const doubleAsync = () => {
   return async (dispatch, getState) => {
     try {
-      await randomNumber(1000) // Mock API delay
+      await createRandomNumber(2000) // Mock API delay
       dispatch({
         payload : getState().counter,
         type    : COUNTER_DOUBLE_ASYNC,
