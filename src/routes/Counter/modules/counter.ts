@@ -1,4 +1,4 @@
-import Urls from 'routes/Urls';
+import { randomNumber } from 'connectors/ApiConnector';
 import { ICounter, IReduxAction } from './../../../Definitions';
 
 // ------------------------------------
@@ -23,13 +23,15 @@ export function increment(value: number = 1): IReduxAction {
 
 export const doubleAsync = () => {
   return async (dispatch, getState) => {
-    fetch(`${Urls.fakeDelay}?t=200'`)
-      .then(() => {
-        dispatch({
-          payload : getState().counter,
-          type    : COUNTER_DOUBLE_ASYNC,
-        })
+    try {
+      await randomNumber(1000) // Mock API delay
+      dispatch({
+        payload : getState().counter,
+        type    : COUNTER_DOUBLE_ASYNC,
       })
+    } catch (error) {
+      dispatch({type: 'ERROR_ERROR'})
+    }
   }
 }
 

@@ -29,10 +29,10 @@ if (project.env === 'development') {
     path: '/__webpack_hmr'
   }))
 
-  // Useful when needing a fake endpoint: `/fake-delay/?t=2000`
-  app.get('/fake-delay', (req, res) => {
-    let delay = isNaN(req.query.t) ? 1000 : parseInt(req.query.t)
-    setTimeout(() => res.status(200).send({ increment: Math.floor(Math.random() * 11) }), delay)
+  // Useful when needing a fake endpoint
+  app.get('/random-number', (req, res) => {
+    let delay = isNaN(req.query.t) ? 2000 : parseInt(req.query.t)
+    setTimeout(() => res.status(200).send({ randomNumber: Math.floor(Math.random() * 11) }), delay)
   })
 
   // Serve static assets from ~/public since Webpack is unaware of
