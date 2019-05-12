@@ -1,9 +1,9 @@
 import {
   COUNTER_INCREMENT,
-  increment,
   doubleAsync,
   default as counterReducer
 } from 'routes/Counter/modules/counter'
+import { createAction } from '@common/reducers/lib/ActionCreator'
 
 describe('(Redux Module) Counter', () => {
   it('Should export a constant COUNTER_INCREMENT.', () => {
@@ -24,7 +24,7 @@ describe('(Redux Module) Counter', () => {
       expect(state).to.equal(0)
       state = counterReducer(state, { type: '@@@@@@@' })
       expect(state).to.equal(0)
-      state = counterReducer(state, increment(5))
+      state = counterReducer(state, createAction(COUNTER_INCREMENT, 5))
       expect(state).to.equal(5)
       state = counterReducer(state, { type: '@@@@@@@' })
       expect(state).to.equal(5)
@@ -32,20 +32,16 @@ describe('(Redux Module) Counter', () => {
   })
 
   describe('(Action Creator) increment', () => {
-    it('Should be exported as a function.', () => {
-      expect(increment).to.be.a('function')
-    })
-
     it('Should return an action with type "COUNTER_INCREMENT".', () => {
-      expect(increment()).to.have.property('type', COUNTER_INCREMENT)
+      expect(createAction(COUNTER_INCREMENT)).to.have.property('type', COUNTER_INCREMENT)
     })
 
     it('Should assign the first argument to the "payload" property.', () => {
-      expect(increment(5)).to.have.property('payload', 5)
+      expect(createAction(COUNTER_INCREMENT, 5)).to.have.property('payload', 5)
     })
 
     it('Should default the "payload" property to 1 if not provided.', () => {
-      expect(increment()).to.have.property('payload', 1)
+      expect(createAction(COUNTER_INCREMENT, 1)).to.have.property('payload', 1)
     })
   })
 
@@ -114,11 +110,11 @@ describe('(Redux Module) Counter', () => {
     it('Should increment the state by the action payload\'s "value" property.', () => {
       let state = counterReducer(undefined, {})
       expect(state).to.equal(0)
-      state = counterReducer(state, increment(1))
+      state = counterReducer(state, createAction(COUNTER_INCREMENT, 1))
       expect(state).to.equal(1)
-      state = counterReducer(state, increment(2))
+      state = counterReducer(state, createAction(COUNTER_INCREMENT, 2))
       expect(state).to.equal(3)
-      state = counterReducer(state, increment(-3))
+      state = counterReducer(state, createAction(COUNTER_INCREMENT, -3))
       expect(state).to.equal(0)
     })
   })

@@ -1,5 +1,6 @@
+import { createAction } from '@common/reducers/lib/ActionCreator';
 import { createRandomNumber } from 'connectors/ApiConnector';
-import { ICounter, IReduxAction } from './../../../Definitions';
+import { ICounter } from './../../../Definitions';
 
 // ------------------------------------
 // Constants
@@ -10,13 +11,6 @@ export const COUNTER_DOUBLE_ASYNC = 'COUNTER_DOUBLE_ASYNC'
 // ------------------------------------
 // Actions
 // ------------------------------------
-export function increment(value: number = 1): IReduxAction {
-  return {
-    payload : value,
-    type    : COUNTER_INCREMENT,
-  }
-}
-
 /*  This is a thunk, meaning it is a function that immediately
     returns a function for lazy evaluation. It is incredibly useful for
     creating async actions, especially when combined with redux-thunk! */
@@ -25,12 +19,9 @@ export const doubleAsync = () => {
   return async (dispatch, getState) => {
     try {
       await createRandomNumber(2000) // Mock API delay
-      dispatch({
-        payload : getState().counter,
-        type    : COUNTER_DOUBLE_ASYNC,
-      })
+      dispatch(createAction(COUNTER_DOUBLE_ASYNC, getState().counter))
     } catch (error) {
-      dispatch({type: 'ERROR_ERROR'})
+      dispatch(createAction(COUNTER_DOUBLE_ASYNC + '_ERROR'))
     }
   }
 }

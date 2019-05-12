@@ -12,8 +12,3 @@ export interface IRootState {
 
 // tslint:disable-next-line
 export interface ICounter extends Number {}
-
-export interface IReduxAction {
-  payload?: any,
-  type: string,
-}

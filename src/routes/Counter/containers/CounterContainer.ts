@@ -1,13 +1,15 @@
 import { connect } from 'react-redux'
 import { IRootState } from '../../../Definitions'
-import { doubleAsync, increment } from '../modules/counter'
+import { doubleAsync } from '../modules/counter'
 import { Defaults } from './../../../Constants';
+import { COUNTER_INCREMENT } from './../modules/counter';
 
 /*  This is a container component. Notice it does not contain any JSX,
     nor does it import React. This component is **only** responsible for
     wiring in the actions and state necessary to render a presentational
     component - in this case, the counter:   */
 
+import { createAction } from '@common/reducers/lib/ActionCreator';
 import Component from '../components/Counter'
 
 /*  Object of action creators (can also be function that returns object).
@@ -16,7 +18,7 @@ import Component from '../components/Counter'
 
 const mapDispatchToProps = {
   doubleAsync,
-  increment : () => increment(Defaults.Increment),
+  increment: () => createAction(COUNTER_INCREMENT, Defaults.Increment),
 }
 
 const mapStateToProps = (state: IRootState) => ({
