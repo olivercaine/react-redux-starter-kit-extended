@@ -1,7 +1,7 @@
+import { createAction } from '@common/reducers/lib/ActionCreator'
 import { Middleware } from 'redux';
 import { createRandomNumber } from '../connectors/ApiConnector';
 import { COUNTER_DOUBLE_ASYNC, COUNTER_INCREMENT } from '../routes/Counter/modules/counter'
-import { createAction } from '@common/reducers/lib/ActionCreator'
 
 // Receives all actions but only processes ones defined below before they reach the store's reducer.
 export const apiMiddleware: Middleware = (store) => (next) => (action) => {
