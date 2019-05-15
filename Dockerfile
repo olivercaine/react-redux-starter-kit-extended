@@ -1,7 +1,7 @@
 # --------------- STAGE 1: Dependencies ---------------
 FROM base:latest as stage-dependencies
 
-COPY package-lock.json ./
+COPY package*.json ./
 RUN npm install --prefer-offline
 
 # --------------- STAGE 2: Build ---------------
