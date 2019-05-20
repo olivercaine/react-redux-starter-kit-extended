@@ -18,7 +18,7 @@ FROM node:8.15-alpine
 WORKDIR /usr/src/app
 
 COPY --from=stage-build /project/dist .
-RUN npm install --prefer-offline
+RUN npm install
 
 USER node
 CMD ["node", "server.js"]
