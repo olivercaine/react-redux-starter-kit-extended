@@ -2,7 +2,9 @@
 FROM base:latest as stage-dependencies
 
 COPY package*.json ./
-RUN npm install --prefer-offline
+RUN npm install
+RUN git submodule update --init --recursive
+RUN npm install
 
 # --------------- STAGE 2: Build ---------------
 FROM stage-dependencies as stage-build
