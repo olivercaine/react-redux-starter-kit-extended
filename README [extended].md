@@ -1,5 +1,15 @@
 # README [extended]
 
+## Automatic pulling of submodules
+
+This project contains subprojects in the form of [git submodules](https://git-scm.com/docs/git-submodule) to benefit from pre-written and pre-tested reusable code. These submodules are referenced via a specific commit however when switching branches the code relating to the specific commit of the branch isn't automatically pulled.
+
+To enable automatic pulling of the specific commit of a submodule, run the following command (this enables automatic pulling system-wide so it'll also automatically pull submodules on your other projects):
+
+```shell
+git config --global submodule.recurse true
+```
+
 ## Develop the app using Docker
 
 ```shell
