@@ -20,7 +20,10 @@
     "hooks": {
       "pre-push": "npm run lint && npm test"
     }
-  },  
+  },
+  "engines": {
+    "node": ">=8.0.0 <9"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/davezuko/react-redux-starter-kit.git"
@@ -54,7 +57,7 @@
     "@types/node": "^10.12.29",
     "@types/react": "^16.8.6",
     "@types/react-dom": "^16.8.2",
-    "@types/sinon": "5.0.2",
+    "@types/sinon": "^5.0.7",
     "awesome-typescript-loader": "^3.2.2",
     "babel-core": "^6.24.1",
     "babel-eslint": "^7.2.3",
@@ -66,7 +69,7 @@
     "babel-preset-env": "^1.4.0",
     "babel-preset-react": "^6.24.1",
     "babel-runtime": "^6.20.0",
-    "chai": "^3.5.0",
+    "chai": "^4.2.0",
     "chai-as-promised": "^6.0.0",
     "chai-enzyme": "^1.0.0-beta.1",
     "chalk": "^1.1.3",
