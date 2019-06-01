@@ -1,5 +1,7 @@
 .git*
 dist
 node_modules
+coverage
 Dockerfile
 .dockerignore
+*.md
