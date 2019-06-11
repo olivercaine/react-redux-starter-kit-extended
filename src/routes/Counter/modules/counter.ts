@@ -1,6 +1,7 @@
 import { createAction } from '@common/reducers/lib/ActionCreator';
 import { createRandomNumber } from 'connectors/ApiConnector';
 import { ICounter } from './../../../Definitions';
+import { ERROR_SUFFIX } from './../../../middleware/ErrorLogger';
 
 // ------------------------------------
 // Constants
@@ -21,7 +22,7 @@ export const doubleAsync = () => {
       await createRandomNumber(2000) // Mock API delay
       dispatch(createAction(COUNTER_DOUBLE_ASYNC, getState().counter))
     } catch (error) {
-      dispatch(createAction(COUNTER_DOUBLE_ASYNC + '_ERROR'))
+      dispatch(createAction(COUNTER_DOUBLE_ASYNC + ERROR_SUFFIX, error))
     }
   }
 }

@@ -13,10 +13,8 @@ export const apiMiddleware: Middleware = (store) => (next) => (action) => {
         .then((response) => {
           store.dispatch(createAction(COUNTER_INCREMENT, response.randomNumber))
         })
-        .catch(() => {
-          store.dispatch({
-            type: 'ERROR_ERROR',
-          })
+        .catch((error) => {
+          store.dispatch(createAction(COUNTER_DOUBLE_ASYNC + '_ERROR', error))
         })
       break
   }
