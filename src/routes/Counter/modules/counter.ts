@@ -39,8 +39,7 @@ const ACTION_HANDLERS = {
 // Reducer
 // ------------------------------------
 const initialState: ICounter = 0
-// tslint:disable:no-default-export
-export default function counterReducer(state = initialState, action): ICounter {
+export function counterReducer(state = initialState, action): ICounter {
   const handler = ACTION_HANDLERS[action.type]
   return handler ? handler(state, action) : state
 }

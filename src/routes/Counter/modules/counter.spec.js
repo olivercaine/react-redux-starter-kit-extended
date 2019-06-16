@@ -1,7 +1,7 @@
 import {
   COUNTER_INCREMENT,
   doubleAsync,
-  default as counterReducer
+  counterReducer
 } from 'routes/Counter/modules/counter'
 import { createAction } from '@common/reducers/lib/ActionCreator'
 
