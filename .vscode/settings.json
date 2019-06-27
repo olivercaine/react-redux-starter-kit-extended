@@ -1,4 +1,7 @@
 {
-   "mochaExplorer.files": "src/**/*.spec.ts{,x}",
+   "workbench.colorCustomizations": {
+      "titleBar.activeForeground": "#83ACCE"
+   },
+   "mochaExplorer.files": "src/**/*.spec.ts",
    "mochaExplorer.require": "ts-node/register"
 }
