@@ -1,8 +1,7 @@
 {
-   "mocha.files.glob": "src/**/*.spec.ts",
-   "mocha.files.ignore": "**/.git/**/*,**/node_modules/**/*",
-   "mocha.runTestsOnSave": "true",
-   "mocha.requires": [
-      "ts-node/register"
-   ]
+   "workbench.colorCustomizations": {
+      "titleBar.activeForeground": "#83ACCE"
+   },
+   "mochaExplorer.files": "src/**/*.spec.ts",
+   "mochaExplorer.require": "ts-node/register"
 }
