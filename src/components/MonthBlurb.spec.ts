@@ -9,6 +9,6 @@ describe('Given GIVEN', () => {
 
             // Then
             expect(true).to.be.true;
-        });
-    });
-});
+        })
+    })
+})
