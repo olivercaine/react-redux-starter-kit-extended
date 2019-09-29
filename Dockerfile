@@ -1,5 +1,5 @@
 # --------------- STAGE 1: Dependencies ---------------
-FROM base:latest as stage-dependencies
+FROM boilerplate-stack/base:latest as stage-dependencies
 
 COPY package*.json ./
 RUN npm install
