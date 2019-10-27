@@ -19,7 +19,7 @@ module.exports = {
   externals: {},
   /** A hash map of variables and their values to expose globally */
   globals: {
-    analyticsId: 'UA-XXXXXXXX-1'
+    analyticsId: process.env.analyticsId || 'UA-XXXXXXXX-1'
   },
   /** Whether to enable verbose logging */
   verbose: false,

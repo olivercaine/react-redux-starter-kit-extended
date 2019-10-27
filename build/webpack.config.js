@@ -43,7 +43,8 @@ const config = {
       __DEV__,
       __TEST__,
       __PROD__,
-    }, project.globals))
+    }, project.globals)),
+    new webpack.EnvironmentPlugin(project.globals),
   ],
 }
 
