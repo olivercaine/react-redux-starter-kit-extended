@@ -49,3 +49,32 @@ Now the route is accessible, it's time to tidy up the new code:
 ## Accessing global state
 
 A Reducer only has access to a specific key however it's possible to access global scope in the `mapStateToProps` function which is how you can build the data object for a specific component.
+
+## Setting environment variables
+
+Environment variables are defined in the globals object inside project.config.js.
+
+These variables can have a default value and can be overridden by an NPM argument, e.g.
+
+```bash
+# analyticsId has the default value "UA-XXXXXXXX-1"
+globals: {
+	analyticsId: process.env.analyticsId || 'UA-XXXXXXXX-1'
+}
+
+# Which can be overridden during development...
+analyticsId=UA-PROD-1 yarn start
+
+# Or build...
+analyticsId=UA-PRODUCTION-1 npm run build
+```
+
+Access them in the app like so;
+
+```typescript
+import project from '../../../project.config'
+
+export const Component = () => (
+  <b>{project.globals.analyticsId}</b>
+)
+```
