@@ -78,3 +78,11 @@ export const Component = () => (
   <b>{project.globals.analyticsId}</b>
 )
 ```
+
+## Linting
+
+Most lint issues can be resolved automatically by using the TSLint extension in VSCode. Run the following command and restart VSCode to install it;
+
+```shell
+code --install-extension ms-vscode.vscode-typescript-tslint-plugin
+```
