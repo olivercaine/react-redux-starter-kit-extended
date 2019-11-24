@@ -11,6 +11,7 @@
     "start": "cross-env NODE_ENV=development node build/scripts/start",
     "test": "cross-env NODE_ENV=test karma start build/karma.config",
     "test:watch": "npm test -- --watch",
+    "test:full": "npm i && npm run lint && npm t && npm run build",
     "lint": "tslint -p ./tsconfig.json && eslint .",
     "lint:fix": "npm run lint -- --fix",
     "storybook": "start-storybook -p 6006 -s ./public",
