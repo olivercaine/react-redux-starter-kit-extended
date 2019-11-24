@@ -1,5 +1,5 @@
 # --------------- STAGE 1: Dependencies ---------------
-FROM olliecaine/base:1.0.2 as stage-dependencies
+FROM olliecaine/base:1.0.9 as stage-dependencies
 
 COPY package*.json ./
 RUN npm install
