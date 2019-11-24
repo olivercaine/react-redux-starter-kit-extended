@@ -1,5 +1,5 @@
 # --------------- STAGE 1: Dependencies ---------------
-FROM olliecaine/base:1.0.9 as stage-dependencies
+FROM olliecaine/dev:master as stage-dependencies
 
 COPY package*.json ./
 RUN npm install
@@ -13,7 +13,7 @@ RUN npm run lint
 RUN npm run build
 
 # --------------- STAGE 3: Host ---------------
-FROM node:8.15-alpine
+FROM olliecaine/base:master
 
 WORKDIR /usr/src/app
 
