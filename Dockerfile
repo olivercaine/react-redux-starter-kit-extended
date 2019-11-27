@@ -1,7 +1,6 @@
 # --------------- STAGE 1: Develop ---------------
 FROM olliecaine/dev:master as stage-develop
 
-# Only gets executed if ran (usually by docker-compose)
 CMD ["npm", "run", "dev"]
 
 # --------------- STAGE 2: Build ---------------
