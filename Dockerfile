@@ -1,11 +1,14 @@
-# --------------- STAGE 1: Dependencies ---------------
-FROM olliecaine/dev:master as stage-dependencies
+# --------------- STAGE 1: Develop ---------------
+FROM olliecaine/dev:master as stage-develop
 
-COPY package*.json ./
-RUN npm install
+CMD ["npm", "run", "dev"]
 
 # --------------- STAGE 2: Build ---------------
-FROM stage-dependencies as stage-build
+FROM stage-develop as stage-build
+
+# Install dependencies separately so image step cache isn't invalidated by source code change
+COPY package*.json ./
+RUN npm install
 
 COPY . ./
 RUN npm run lint
