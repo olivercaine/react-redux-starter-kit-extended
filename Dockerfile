@@ -1,11 +1,11 @@
-# --------------- STAGE 1: Dev Environment ---------------
-FROM olliecaine/dev:master as stage-dev-environment
+# --------------- STAGE 1: Develop ---------------
+FROM olliecaine/dev:master as stage-develop
 
 # Only gets executed if ran (usually by docker-compose)
 CMD ["npm", "run", "dev"]
 
 # --------------- STAGE 2: Build ---------------
-FROM stage-dev-environment as stage-build
+FROM stage-develop as stage-build
 
 # Building dependencies separately so it's cache isn't invalidated by source code change.
 # TODO: Install in running container with source code shared as volume so that container uses existing node_modules container.
