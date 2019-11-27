@@ -1,7 +1,8 @@
 # --------------- STAGE 1: Dev Environment ---------------
 FROM olliecaine/dev:master as stage-dev-environment
 
-# Used by docker-compose as development environment...
+# Only gets executed if ran (usually by docker-compose)
+CMD ["npm", "run", "dev"]
 
 # --------------- STAGE 2: Build ---------------
 FROM stage-dev-environment as stage-build
