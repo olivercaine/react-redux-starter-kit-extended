@@ -6,8 +6,7 @@ CMD ["npm", "run", "dev"]
 # --------------- STAGE 2: Build ---------------
 FROM stage-develop as stage-build
 
-# Building dependencies separately so it's cache isn't invalidated by source code change.
-# TODO: Install in running container with source code shared as volume so that container uses existing node_modules container.
+# Install dependencies separately so image step cache isn't invalidated by source code change
 COPY package*.json ./
 RUN npm install
 
