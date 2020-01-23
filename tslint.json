@@ -5,7 +5,8 @@
         "no-unused-variable": true,
         "semicolon": false,
         "member-access": [true, "no-public"],
-        "no-default-export": true,        
+        "max-line-length": [true, 160],
+        "no-default-export": true,
         "quotemark": [
             true,
             "single",
