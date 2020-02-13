@@ -6,23 +6,29 @@ It has worked previously, so the issue may relate to using `@edge` versions in D
 
 Any help appreciated!
 
-## Reproducing Bug
-
-*From inside the repo...*
+## Set Up (run once)
 
 ```shell
-# 1) Pull submodules (run once)
-git submodule update --init --recursive
+# Clone and cd into the repo
+git clone https://github.com/olivercaine/react-redux-starter-kit-extended.git -b bug/cant-run-unit-tests-in-docker;
 
-# 2) Run command to reproduce bug (re-run indefinitely). Takes a few minutes the first time.
+cd ./react-redux-starter-kit-extended;
+
+# Pull submodules
+git submodule update --init --recursive;
+```
+
+## Reproduce Bug (repeatable)
+
+```shell
+# Run command to reproduce bug
 ./reproduce-bug.sh
 ```
 
 ## Expected Outcome
 
 ```shell
-[list of passed tests]
-...
+[output of passed tests...]
 Finished in 0.026 secs / 0.031 secs @ 19:53:44 GMT+1100 (AEDT)
 SUMMARY:
 ✔ 46 tests completed
