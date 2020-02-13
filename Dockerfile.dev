@@ -4,16 +4,16 @@ WORKDIR /project
 
 # Install Chrome
 RUN apk update && apk upgrade \
-  && echo @v3.8 http://nl.alpinelinux.org/alpine/v3.8/community >> /etc/apk/repositories \
-  && echo @v3.8 http://nl.alpinelinux.org/alpine/v3.8/main >> /etc/apk/repositories \
+  && echo @edge http://nl.alpinelinux.org/alpine/v3.8/community >> /etc/apk/repositories \
+  && echo @edge http://nl.alpinelinux.org/alpine/v3.8/main >> /etc/apk/repositories \
   && apk add --no-cache \
-  chromium@v3.8 \
-  nss@v3.8 \
-  make@v3.8 \
-  python@v3.8 \      
-  freetype@v3.8 \
-  harfbuzz@v3.8 \
-  ttf-freefont@v3.8 \
-  freetype-dev@v3.8
+  chromium \
+  nss \
+  make@edge \
+  python@edge \      
+  freetype@edge \
+  harfbuzz@edge \
+  ttf-freefont@edge \
+  freetype-dev@edge
 ENV CHROME_BIN=/usr/bin/chromium-browser \
-  ec=/usr/lib/chromium/    
+  CHROME_PATH=/usr/lib/chromium/    
