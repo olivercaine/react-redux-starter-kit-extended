@@ -9,5 +9,5 @@ docker build . -f ./Dockerfile.base -t olliecaine/base:master
 # Build dev environment from base image (install Chrome etc)
 docker build . -f ./Dockerfile.dev -t olliecaine/dev:master
 
-# Run the dev environment and then run the client tests
-docker run --rm -v $(pwd):/project -p 3000:3000 olliecaine/dev:master sh -c "npm run test"
+# Run the dev environment and then attempt to run the client tests (currently fails)
+docker run --rm -v $(pwd):/project -p 3000:3000 olliecaine/dev:master sh -c "npm install && npm run test"
