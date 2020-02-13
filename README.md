@@ -1,31 +1,19 @@
 # Unit Test Bug
 
-I want to be able to run unit tests in Docker using Chromium.
+## Description
 
-It has worked previously, so the issue may relate to using `@edge` versions in Dockerfile.dev.
+I'm trying to run my frontend tests on Docker (node:8.15-alpine) using Chromium and Karma, however I'm getting lots of ChromeHeadless related errors.
 
-Any help appreciated!
+These tests used to work but recently they suddenly stopped, so I'm guessing it's either related to a third-party dependency (apk?), or the local Docker install.
 
-## Set Up (run once)
+I've created a branch on the repo with an easy to run command which reproduces the issue. README.md here: 
+https://github.com/olivercaine/react-redux-starter-kit-extended/tree/bug/cant-run-unit-tests-in-docker
 
-```shell
-# Clone and cd into the repo
-git clone https://github.com/olivercaine/react-redux-starter-kit-extended.git -b bug/cant-run-unit-tests-in-docker;
+Any help with this would be masively appreciated!
 
-cd ./react-redux-starter-kit-extended;
+Thanks.
 
-# Pull submodules
-git submodule update --init --recursive;
-```
-
-## Reproduce Bug (repeatable)
-
-```shell
-# Run command to reproduce bug
-./reproduce-bug.sh
-```
-
-## Expected Outcome
+### Expected Outcome
 
 ```shell
 [output of passed tests...]
@@ -36,7 +24,7 @@ SUMMARY:
 
 This can be seen when running `npm install && npm test` in the repo (using Node 8).
 
-## Actual Outcome
+### Actual Outcome
 
 ```shell
 13 02 2020 09:10:45.314:ERROR [launcher]: Cannot start ChromeHeadless
@@ -66,3 +54,28 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm ERR! A complete log of this run can be found in:
 npm ERR!     /root/.npm/_logs/2020-02-13T09_10_46_935Z-debug.log
 ```
+
+## Reproducing the Bug
+
+### Set Up (run once)
+
+```shell
+# Clone and cd into the repo
+git clone https://github.com/olivercaine/react-redux-starter-kit-extended.git -b bug/cant-run-unit-tests-in-docker;
+
+cd ./react-redux-starter-kit-extended;
+
+# Pull submodules
+git submodule update --init --recursive;
+```
+
+### Reproduce Bug (repeatable)
+
+```shell
+# Run command to reproduce bug
+./reproduce-bug.sh
+```
+
+## Links
+
+https://stackoverflow.com/questions/60204785/docker-node8-15-alpine-chromium-karma-unit-tests-not-working
