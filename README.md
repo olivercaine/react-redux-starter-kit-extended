@@ -8,11 +8,13 @@ Any help appreciated!
 
 ## Reproducing Bug
 
+*From inside the repo...*
+
 ```shell
 # 1) Pull submodules (run once)
 git submodule update --init --recursive
 
-# 2) Run command to reproduce bug (re-run indefinitely)
+# 2) Run command to reproduce bug (re-run indefinitely). Takes a few minutes the first time.
 ./reproduce-bug.sh
 ```
 
