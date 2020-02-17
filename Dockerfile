@@ -6,7 +6,7 @@ CMD ["npm", "run", "dev"]
 # --------------- STAGE 2: Build ---------------
 FROM stage-develop as stage-build
 
-# Install dependencies first so cache layer isn't nvalidated by source code change
+# Install dependencies first so that cache layer isn't invalidated by source code change
 COPY package*.json ./
 RUN npm install
 
