@@ -86,3 +86,28 @@ Most lint issues can be resolved automatically by using the TSLint extension in 
 ```shell
 code --install-extension ms-vscode.vscode-typescript-tslint-plugin
 ```
+
+## Redux Middleware Guide
+
+### Dispatching Events
+
+```javascript
+createStore(reducer,
+ applyMiddleware(
+ middlewareA,
+ middlewareB,
+ middlewareC
+ )
+);
+```
+
+Calling `next(action)` within middlewareB will cause the action to be passed to middlewareC and then the reducer.
+
+Calling `store.dispatch(action)` within middlewareB will cause the action to be passed to middlewareA, then middlewareB, then middlewareC, and finally to the reducer, returning the execution back to middlewareB. Calling dispatch() multiple times is a common and valid practice. next() can also be called more than once, but this is not recommended as any action passed to next() will skip the middleware before the current one (for example, potentially skipping the logging middleware).
+
+### Reducers
+
+It's *highly* recommended to use [Typed Reducers](https://github.com/olivercaine/common/tree/master/reducers/lib) to handle Redux events as they:
+
+1. Prevent developers from passing incorrect payload types to action creators
+2. Provide developers with the return type from the reducer
