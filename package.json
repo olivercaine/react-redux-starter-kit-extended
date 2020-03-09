@@ -19,7 +19,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "npm run lint && npm test && npm run build-storybook"
+      "pre-push": "concurrently 'npm run lint' 'npm test' 'npm run build-storybook'"
     }
   },
   "engines": {
