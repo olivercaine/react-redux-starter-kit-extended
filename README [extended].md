@@ -45,7 +45,6 @@ Now the route is accessible, it's time to tidy up the new code:
 
 1. Delete the folder named "components" in the new folder and create your new component in /src/components/.
 
-
 ## Accessing global state
 
 A Reducer only has access to a specific key however it's possible to access global scope in the `mapStateToProps` function which is how you can build the data object for a specific component.
