@@ -16,12 +16,9 @@ RUN npm run lint \
     && npm run build
 
 # --------------- STAGE 3: Host ---------------
-FROM olliecaine/base:master
+FROM nginx:alpine
 
-WORKDIR /usr/src/app
+COPY --from=stage-build /project/dist /usr/share/nginx/html
+COPY ./devops/nginx/nginx.conf.template /etc/nginx/conf.d/default.conf.template
 
-COPY --from=stage-build /project/dist .
-RUN npm install
-
-USER node
-CMD ["node", "server.js"]
+CMD /bin/sh -c "envsubst '\$PORT' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf" && nginx -g 'daemon off;'
