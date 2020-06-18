@@ -9,10 +9,10 @@ describe('(Component) Counter', () => {
   beforeEach(() => {
     _spies = {}
     _props = {
-      counter: 5,
+      counter : 5,
       ...bindActionCreators({
-        doubleAsync: (_spies.doubleAsync = sinon.spy()),
-        increment: (_spies.increment = sinon.spy())
+        doubleAsync : (_spies.doubleAsync = sinon.spy()),
+        increment   : (_spies.increment = sinon.spy())
       }, _spies.dispatch = sinon.spy())
     }
     _wrapper = shallow(<Counter {..._props} />)
@@ -65,7 +65,7 @@ describe('(Component) Counter', () => {
     let _button
 
     beforeEach(() => {
-      _button = _wrapper.find('button').filterWhere(a => a.text() === 'Double (Async*)')
+      _button = _wrapper.find('button').filterWhere(a => a.text() === 'Double (Async)')
     })
 
     it('exists', () => {
