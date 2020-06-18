@@ -65,7 +65,7 @@ describe('(Component) Counter', () => {
     let _button
 
     beforeEach(() => {
-      _button = _wrapper.find('button').filterWhere(a => a.text() === 'Double (Async-)')
+      _button = _wrapper.find('button').filterWhere(a => a.text() === 'Double (Async*)')
     })
 
     it('exists', () => {
