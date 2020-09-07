@@ -1,9 +1,6 @@
-import * as React from 'react';
 
 interface IProps {
     month: string
 }
 
-export const MonthBlurb = ({month}: IProps) => (
-    <h4>The month is {month} according to TypeScript</h4>
-)
+export const MonthBlurb = ({ month }: IProps) => `The current month is ${month} according to TypeScript`

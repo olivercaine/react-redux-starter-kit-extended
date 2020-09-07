@@ -1,14 +1,17 @@
 import { expect } from 'chai';
+import { MonthBlurb } from './MonthBlurb';
 
-describe('Given GIVEN', () => {
-    describe('When WHEN', () => {
-        it('Then THEN', () => {
-            // Given
+describe('Month is Feb', () => {
+    describe('Building blurb text', () => {
+        it('Returns which month it is', () => {
+            // Arrange
+            const month = 'feb'
 
-            // When
+            // Act
+            const text = MonthBlurb({ month })
 
-            // Then
-            expect(true).to.be.true;
+            // Assert
+            expect(text).to.equal('The current month is feb according to TypeScript');
         })
     })
 })

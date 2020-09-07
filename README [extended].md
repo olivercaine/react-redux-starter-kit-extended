@@ -16,6 +16,14 @@ git config --global submodule.recurse true
 docker-compose up
 ```
 
+## Unit testing
+
+Unit tests can be can and debugged using the VsCode debugger + the following extensions:
+
+1. [Test Explorer UI](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-test-explorer) (tested with v2.19.1)
+2. [Mocha Test Explorer](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-mocha-test-adapter) (tested with v2.7.2)
+
+
 ## Creating a new route
 
 1. Duplicate any folder inside /src/routes.
