@@ -1,6 +1,7 @@
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 import Counter from '../src/routes/Counter/components/Counter'
+import { Form } from '../src/routes/Form/components/Form'
 import HomeView from '../src/routes/Home/components/HomeView'
 
 // tslint:disable-next-line
@@ -11,3 +12,6 @@ storiesOf('Counter', module)
 
 storiesOf('HomeView', module)
     .add('default', () => <HomeView />)
+
+storiesOf('Form', module)
+    .add('default', () => <Form email='olliecaine@gmail.com' />)

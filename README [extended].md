@@ -118,3 +118,17 @@ It's *highly* recommended to use [Typed Reducers](https://github.com/olivercaine
 
 1. Prevent developers from passing incorrect payload types to action creators
 2. Provide developers with the return type from the reducer
+
+## Forms
+
+*Based on [Form Principles document](https://docs.google.com/document/d/1xQbRz0F6PJH-G_fwKGbxAiGKppDeVLXqdwx-A17Upqk/edit?usp=sharing).*
+
+### SignUp
+
+#### Functional Spec
+
+1. ~~Prefill email field~~
+2. Form shows error response
+3. ~~Add form component to Storybook~~
+4. Button action when submitting
+
