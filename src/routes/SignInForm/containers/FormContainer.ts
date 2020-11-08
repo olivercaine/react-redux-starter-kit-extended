@@ -6,9 +6,8 @@ import { createAction } from '@common/reducers/lib/ActionCreator';
 import { connect } from 'react-redux';
 import { Defaults } from '../../../Constants';
 import { IRootState } from '../../../Definitions';
-import { Form as Component } from '../components/Form';
+import { SignInFormWrapper as Component } from '../components/SignInForm';
 import { COUNTER_INCREMENT, doubleAsync } from '../modules/counter';
-
 
 /*  Object of action creators (can also be function that returns object).
     Keys will be passed as props to presentational components. Here we are

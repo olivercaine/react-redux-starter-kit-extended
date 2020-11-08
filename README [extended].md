@@ -132,3 +132,7 @@ It's *highly* recommended to use [Typed Reducers](https://github.com/olivercaine
 3. ~~Add form component to Storybook~~
 4. Button action when submitting
 
+### Technical Spec
+
+Two components: [ComponentName]Form (contains <form>) and [ComponentName]FormWrapper
+

@@ -10,7 +10,7 @@ export const PageLayout = ({ children }) => (
     {' · '}
     <Link to='/counter' activeClassName='page-layout__nav-item--active'>Counter</Link>
     {' · '}
-    <Link to='/form' activeClassName='page-layout__nav-item--active'>Form</Link>
+    <Link to='/form' activeClassName='page-layout__nav-item--active'>SignInFormWrapper</Link>
     <div className='page-layout__viewport'>
       {children}
     </div>

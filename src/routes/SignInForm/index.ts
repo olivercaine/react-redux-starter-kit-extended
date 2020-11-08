@@ -18,6 +18,6 @@ export default (store) => ({
       cb(null, Counter)
 
     /* Webpack named bundle   */
-    }, 'counter')
+    }, 'signInForm')
   },
 })

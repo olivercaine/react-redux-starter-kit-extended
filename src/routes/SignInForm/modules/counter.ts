@@ -1,7 +1,7 @@
 import { createAction } from '@common/reducers/lib/ActionCreator';
 import { createRandomNumber } from 'connectors/ApiConnector';
-import { ICounter } from './../../../Definitions';
-import { ERROR_SUFFIX } from './../../../middleware/ErrorLogger';
+import { ICounter } from '../../../Definitions';
+import { ERROR_SUFFIX } from '../../../middleware/ErrorLogger';
 
 // ------------------------------------
 // Constants

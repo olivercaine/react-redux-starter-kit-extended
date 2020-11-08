@@ -1,8 +1,8 @@
 // We only need to import the modules necessary for initial render
 import CoreLayout from '../layouts/PageLayout/PageLayout'
 import CounterRoute from './Counter'
-import FormRoute from './Form/index'
 import Home from './Home'
+import FormRoute from './SignInForm/index'
 
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */

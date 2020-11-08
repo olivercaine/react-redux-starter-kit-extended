@@ -1,8 +1,8 @@
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 import Counter from '../src/routes/Counter/components/Counter'
-import { Form } from '../src/routes/Form/components/Form'
 import HomeView from '../src/routes/Home/components/HomeView'
+import { SignInFormWrapper } from '../src/routes/SignInForm/components/SignInForm'
 
 // tslint:disable-next-line
 const customCallback = () => { console.info('Custom callback') }
@@ -13,5 +13,22 @@ storiesOf('Counter', module)
 storiesOf('HomeView', module)
     .add('default', () => <HomeView />)
 
-storiesOf('Form', module)
-    .add('default', () => <Form email='olliecaine@gmail.com' />)
+// storiesOf('SignInForm', module)
+//     .add('default', () => (
+//         <SignInForm
+//             handleFormSubmit={customCallback}
+//         />
+//     ))
+
+storiesOf('SignInFormWrapper', module)
+    .add('Default', () => (
+        <SignInFormWrapper
+            handleFormSubmit={customCallback}
+        />
+    ))
+    .add('With initial values', () => (
+        <SignInFormWrapper
+            initialValues={{ email: 'olliecaine@gmail.com', password: 'pass123' }}
+            handleFormSubmit={customCallback}
+        />
+    ))
