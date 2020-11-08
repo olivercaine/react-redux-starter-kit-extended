@@ -19,9 +19,9 @@ storiesOf('SignInFormWrapper', module)
             handleFormSubmit={customCallback}
         />
     ))
-    .add('With initial values', () => (
-        <SignInFormWrapper
-            initialValues={{ email: 'olliecaine@gmail.com', password: 'pass123' }}
-            handleFormSubmit={customCallback}
-        />
-    ))
+    // .add('With initial values', () => (
+    //     <SignInFormWrapper
+    //         initialValues={{ email: 'olliecaine@gmail.com', password: 'pass123' }}
+    //         handleFormSubmit={customCallback}
+    //     />
+    // ))

@@ -1,4 +1,4 @@
-import { emailValidation, passwordValidation } from '@common/validation/lib/index';
+import { emailValidation, passwordValidation } from '@common/validation/lib/YupValidators';
 import { FormikActions, FormikProps, withFormik } from 'formik';
 import * as React from 'react';
 import * as Yup from 'yup';
