@@ -68,7 +68,7 @@ export const SignInFormWrapper = withFormik<IProps, IFormValues>({
   }),
 
   handleSubmit: (formValues: IFormValues, actions: FormikActions<IFormValues>) => {
-    console.log(JSON.stringify(formValues))
+    // console.log(JSON.stringify(formValues))
     setTimeout(() => {
       actions.setSubmitting(false);
     }, 1000)

@@ -10,7 +10,6 @@ import { doubleAsync } from '../modules/counter';
 import { Defaults } from './../../../Constants';
 import { COUNTER_INCREMENT } from './../modules/counter';
 
-
 /*  Object of action creators (can also be function that returns object).
     Keys will be passed as props to presentational components. Here we are
     implementing our wrapper around increment; the component doesn't care   */
