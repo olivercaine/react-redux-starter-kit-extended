@@ -2,9 +2,9 @@ const path = require('path');
 const webpackConfig = require('../build/webpack.config')
 
 module.exports = {
-  resolve: {
-    extensions: ['*', '.js', '.jsx', '.json', '.ts', '.tsx'],
-  },
+	resolve: {
+		extensions: ['*', '.js', '.jsx', '.json', '.ts', '.tsx'],
+	},
 	module: {
 		rules: [
 			{
@@ -19,15 +19,15 @@ module.exports = {
 				include: path.resolve(__dirname, '../')
 			},
 			{
-        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-        loaders: ['file-loader'],
-        include: path.resolve(__dirname, '../')
-      },
-      {
-        test: /\.(ts|tsx)$/,
-        exclude: /node_modules/,
-        use: ['babel-loader', 'awesome-typescript-loader'],
-      }
+				test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+				loaders: ['file-loader'],
+				include: path.resolve(__dirname, '../')
+			},
+			{
+				test: /\.(ts|tsx)$/,
+				exclude: /node_modules/,
+				use: ['babel-loader', 'awesome-typescript-loader'],
+			}
 		]
 	}
 };
