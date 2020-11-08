@@ -1,6 +1,7 @@
 import { FormikActions, FormikProps, withFormik } from 'formik';
 import * as React from 'react';
 import * as Yup from 'yup';
+import { containsNumber, containsSpecialCharacter, containsUppercase } from '../../../components/MonthBlurb';
 
 interface IFormValues {
   email: string
@@ -9,7 +10,7 @@ interface IFormValues {
 
 export interface IProps {
   initialValues?: IFormValues
-  handleFormSubmit(): any // (formvalues: IFormValues)
+  handleFormSubmit(formValues: IFormValues): any
 }
 
 export const SignInForm = (props: IProps & FormikProps<IFormValues>) => (
@@ -57,9 +58,13 @@ const emailValidation = Yup.string()
   .required('Email is required')
   .email('Please enter a valid email address')
 
+export const minLength = 8
 const passwordValidation = Yup.string()
   .required('Password is required')
-  .min(6, 'Please enter a password which is at least 6 characters');
+  .test('containsUppercase', 'Password needs at least one uppercase letter', containsUppercase)
+  .test('containsNumber', 'Password needs at least one number', containsNumber)
+  .test('containsSpecialCharacter', 'Password needs at least one special character', containsSpecialCharacter)
+  .min(minLength, `Please enter a password which is at least ${minLength} characters`);
 // END: Move to common
 
 export const SignInFormWrapper = withFormik<IProps, IFormValues>({

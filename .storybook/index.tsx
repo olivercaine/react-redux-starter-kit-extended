@@ -13,13 +13,6 @@ storiesOf('Counter', module)
 storiesOf('HomeView', module)
     .add('default', () => <HomeView />)
 
-// storiesOf('SignInForm', module)
-//     .add('default', () => (
-//         <SignInForm
-//             handleFormSubmit={customCallback}
-//         />
-//     ))
-
 storiesOf('SignInFormWrapper', module)
     .add('Default', () => (
         <SignInFormWrapper
