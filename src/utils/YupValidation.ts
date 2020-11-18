@@ -1,5 +1,5 @@
+import { containsNumber, containsSpecialCharacter, containsUppercase } from '@common/validation/lib/StringValidation';
 import * as Yup from 'yup';
-import { containsNumber, containsSpecialCharacter, containsUppercase } from '../../common/validation/lib/StringValidation';
 
 // Ideally use '@common/validation/lib/YupValidators';
 
