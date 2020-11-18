@@ -12,16 +12,16 @@ export default (store) => ({
       /*  Webpack - use require callback to define
           dependencies for bundling   */
       const Counter = require('./containers/FormContainer').default
-      const reducer = require('./modules/counter').counterReducer
+      const reducer = require('../../reducers/SignInReducer').signinReducer
 
       /*  Add the reducer to the store on key 'counter'  */
-      injectReducer(store, { key: 'SignInForm', reducer })
+      injectReducer(store, { key: 'signInForm', reducer })
 
       /*  Return getComponent   */
       // tslint:disable-next-line
       cb(null, Counter)
 
     /* Webpack named bundle   */
-    }, 'signInForm')
+    }, 'project')
   },
 })

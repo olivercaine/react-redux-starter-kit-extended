@@ -1,8 +1,8 @@
 import { createAction } from '@common/reducers/lib/ActionCreator';
 import { Middleware } from 'redux';
 import { createRandomNumber } from '../connectors/ApiConnector';
+import { DID_SIGN_IN, SHOULD_SIGN_IN } from '../reducers/SignInReducer';
 import { COUNTER_DOUBLE_ASYNC, COUNTER_INCREMENT } from '../routes/Counter/modules/counter';
-import { DID_SIGN_IN, SHOULD_SIGN_IN } from '../routes/SignInForm/modules/counter';
 
 // Receives all actions but only processes ones defined below before they reach the store's reducer.
 export const apiMiddleware: Middleware = (store) => (next) => (action) => {
@@ -19,11 +19,11 @@ export const apiMiddleware: Middleware = (store) => (next) => (action) => {
         })
       break
     case SHOULD_SIGN_IN:
-      // Listen for double number action then add random number from API response
       setTimeout(() => {
-        store.dispatch(createAction(DID_SIGN_IN, {
+        const mockApiResponse = {
           generalErrors: ['Unable to connect to API', 'Internet connection very slow'],
-        }));
+        };
+        store.dispatch(createAction(DID_SIGN_IN, mockApiResponse));
       }, 2000);
       break
   }

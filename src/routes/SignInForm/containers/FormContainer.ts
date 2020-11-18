@@ -4,22 +4,22 @@
     component - in this case, the counter:   */
 import { createAction } from '@common/reducers/lib/ActionCreator';
 import { connect } from 'react-redux';
-import { IFormValues, SignInFormWrapper as Component } from '../components/SignInFormWrapper';
-import { SHOULD_SIGN_IN } from '../modules/counter';
+import { SHOULD_SIGN_IN } from '../../../reducers/SignInReducer';
+import { IPropsFromDispatch, IPropsFromState, IState, SignInFormWrapper as Component } from '../components/SignInFormWrapper';
+import { IRootState } from './../../../Definitions';
 
 /*  Object of action creators (can also be function that returns object).
     Keys will be passed as props to presentational components. Here we are
     implementing our wrapper around increment; the component doesn't care   */
 
-const mapDispatchToProps = {
-  handleFormSubmit: (formValues: IFormValues) =>
-    createAction(SHOULD_SIGN_IN, formValues),
+const mapDispatchToProps: IPropsFromDispatch = {
+  handleFormSubmit: (formValues: IState) => createAction(SHOULD_SIGN_IN, formValues),
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: IRootState): IPropsFromState => {
   return {
-    generalErrors: state.SignInForm.generalErrors,
-    submitting: state.SignInForm.submitting,
+    generalErrors: state.signInForm.generalErrors,
+    submitting: state.signInForm.submitting,
   };
 };
 
