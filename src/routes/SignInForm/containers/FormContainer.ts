@@ -4,23 +4,24 @@
     component - in this case, the counter:   */
 import { createAction } from '@common/reducers/lib/ActionCreator';
 import { connect } from 'react-redux';
-import { Defaults } from '../../../Constants';
-import { IRootState } from '../../../Definitions';
-import { SignInFormWrapper as Component } from '../components/SignInForm';
-import { COUNTER_INCREMENT, doubleAsync } from '../modules/counter';
+import { IFormValues, SignInFormWrapper as Component } from '../components/SignInFormWrapper';
+import { SHOULD_SIGN_IN } from '../modules/counter';
 
 /*  Object of action creators (can also be function that returns object).
     Keys will be passed as props to presentational components. Here we are
     implementing our wrapper around increment; the component doesn't care   */
 
 const mapDispatchToProps = {
-  doubleAsync,
-  increment: () => createAction(COUNTER_INCREMENT, Defaults.Increment),
-}
+  handleFormSubmit: (formValues: IFormValues) =>
+    createAction(SHOULD_SIGN_IN, formValues),
+};
 
-const mapStateToProps = (state: IRootState) => ({
-  counter : state.counter,
-})
+const mapStateToProps = (state) => {
+  return {
+    generalErrors: state.SignInForm.generalErrors,
+    submitting: state.SignInForm.submitting,
+  };
+};
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:
 
@@ -35,5 +36,6 @@ const mapStateToProps = (state: IRootState) => ({
     Selectors are efficient. A selector is not recomputed unless one of its arguments change.
     Selectors are composable. They can be used as input to other selectors.
     https://github.com/reactjs/reselect    */
+
 // tslint:disable:no-default-export
-export default connect(mapStateToProps, mapDispatchToProps)(Component)
+export default connect(mapStateToProps, mapDispatchToProps)(Component);

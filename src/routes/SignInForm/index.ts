@@ -1,3 +1,5 @@
+import { injectReducer } from '../../store/reducers'
+
 // tslint:disable-next-line
 export default (store) => ({
   path : 'form',
@@ -10,10 +12,10 @@ export default (store) => ({
       /*  Webpack - use require callback to define
           dependencies for bundling   */
       const Counter = require('./containers/FormContainer').default
-      // const reducer = require('./modules/counter').counterReducer
+      const reducer = require('./modules/counter').counterReducer
 
       /*  Add the reducer to the store on key 'counter'  */
-      // injectReducer(store, { key: 'counter', reducer })
+      injectReducer(store, { key: 'SignInForm', reducer })
 
       /*  Return getComponent   */
       // tslint:disable-next-line
