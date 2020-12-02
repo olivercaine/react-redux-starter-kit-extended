@@ -21,7 +21,8 @@
   },
   "exclude": [
     "node_modules",
-    "common"
+    "common",
+    "*/**/*.spec.ts"
   ],
   "diagnostics": true,
   "noUnusedLocals": true,
