@@ -1,3 +1,4 @@
+import { expect } from "chai";
 import { MonthBlurb } from "./MonthBlurb";
 
 describe("Month is Feb", () => {
@@ -7,10 +8,10 @@ describe("Month is Feb", () => {
       const month = "feb";
 
       // Act
-      const text = MonthBlurb();
+      const text = MonthBlurb({ month });
 
       // Assert
-      // expect(text).to.equal('The current month is feb according to TypeScript');
+      expect(text).to.equal("The current month is feb according to TypeScript");
     });
   });
 });
