@@ -13,12 +13,13 @@
     "test:watch": "npm test -- --watch",
     "test:full": "npm i && npm run lint && npm t && npm run build",
     "lint": "tslint -p ./tsconfig.json && eslint .",
-    "lint:fix": "npm run lint -- --fix",
+    "lint:fix": "tslint --fix src/**/*.{ts,tsx}",
     "storybook": "start-storybook -p 6006 -s ./public",
     "build-storybook": "build-storybook -o ./dist/storybook"
   },
   "husky": {
     "hooks": {
+      "post-commit": "npm run lint:fix",
       "pre-push": "concurrently 'npm run lint' 'npm test' 'npm run build-storybook'"
     }
   },
