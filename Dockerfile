@@ -11,9 +11,7 @@ COPY package*.json ./
 RUN npm install
 
 COPY . ./
-RUN npm run lint \
-    && npm run test \
-    && npm run build
+RUN npm run test:full
 
 # --------------- STAGE 3: Host ---------------
 FROM nginx:alpine

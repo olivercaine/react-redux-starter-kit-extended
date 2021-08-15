@@ -12,6 +12,7 @@
     "test": "cross-env NODE_ENV=test karma start build/karma.config",
     "test:watch": "npm test -- --watch",
     "test:full": "npm i && npm run lint && npm t && npm run build",
+    "test:storybook": "start-storybook --smoke-test",
     "lint": "tslint -p ./tsconfig.json && eslint .",
     "lint:fix": "tslint --fix src/**/*.{ts,tsx}",
     "storybook": "start-storybook -p 6006 -s ./public",
