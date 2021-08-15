@@ -21,7 +21,7 @@
   "husky": {
     "hooks": {
       "post-commit": "npm run lint:fix",
-      "pre-push": "concurrently 'npm run lint' 'npm test' 'npm run build-storybook'"
+      "pre-push": "npm run test:full"
     }
   },
   "engines": {
