@@ -1,4 +1,4 @@
-import { Months } from '@common/month-enum-ts/lib/Months'
+import { Months } from '@olliecaine/months'
 import React from 'react'
 import { MonthBlurb } from '../../../components/MonthBlurb'
 import DuckImage from '../assets/Duck.jpg'
@@ -10,5 +10,3 @@ export const HomeView = () => (
     <img alt='This is a duck, because Redux!' className='duck' src={DuckImage} />
   </div>
 )
-
-export default HomeView
