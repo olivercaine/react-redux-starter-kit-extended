@@ -38,7 +38,7 @@
     "@common/month-enum-ts": "file:common/month-enum-ts",
     "@common/reducers": "file:common/reducers",
     "@common/validation": "file:common/validation",
-    "@olliecaine/months": "^1.0.0",
+    "@olliecaine/months": "^1.0.1",
     "bootstrap": "^4.3.1",
     "compression": "^1.6.2",
     "express": "^4.14.0",
