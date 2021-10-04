@@ -1,4 +1,4 @@
-import { Months } from '@olliecaine/Months'
+import { Months } from '@olliecaine/months'
 import React from 'react'
 import { MonthBlurb } from '../../../components/MonthBlurb'
 import DuckImage from '../assets/Duck.jpg'
