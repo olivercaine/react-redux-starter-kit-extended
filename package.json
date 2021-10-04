@@ -16,12 +16,12 @@
     "start": "cross-env NODE_ENV=development node build/scripts/start",
     "build": "npm run clean && npm run build-storybook && cross-env NODE_ENV=production npm run compile",
     "build-storybook": "build-storybook -o ./dist/storybook",
-    "test:full": "npm i && concurrently 'npm run lint' 'npm test' 'npm run test:storybook' 'npm run build-storybook'"
+    "health-check": "npm i && concurrently 'npm run lint' 'npm test' 'npm run test:storybook' 'npm run build-storybook'"
   },
   "husky": {
     "hooks": {
       "post-commit": "npm run lint:fix",
-      "pre-push": "npm run test:full"
+      "pre-push": "npm run health-check"
     }
   },
   "engines": {
