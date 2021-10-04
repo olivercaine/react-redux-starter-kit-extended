@@ -1,9 +1,8 @@
+import { createAction } from '@olliecaine/reducers'
 import {
-  COUNTER_INCREMENT,
-  doubleAsync,
-  counterReducer
+  counterReducer, COUNTER_INCREMENT,
+  doubleAsync
 } from 'routes/Counter/modules/counter'
-import { createAction } from '@common/reducers/lib/ActionCreator'
 
 describe('(Redux Module) Counter', () => {
   it('Should export a constant COUNTER_INCREMENT.', () => {
@@ -52,12 +51,12 @@ describe('(Redux Module) Counter', () => {
 
     beforeEach(() => {
       _globalState = {
-        counter : counterReducer(undefined, {})
+        counter: counterReducer(undefined, {})
       }
       _dispatchSpy = sinon.spy((action) => {
         _globalState = {
           ..._globalState,
-          counter : counterReducer(_globalState.counter, action)
+          counter: counterReducer(_globalState.counter, action)
         }
       })
       _getStateSpy = sinon.spy(() => {
