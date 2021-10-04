@@ -1,0 +1,62 @@
+{
+  "name": "@common/fetch",
+  "version": "1.0.0",
+  "description": "Some simple HTTP fetch functions",
+  "main": "typescript-library-boilerplate.bundle.js",
+  "jsnext:main": "index.js",
+  "module": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "nyc --include lib/**/*.ts --extension .ts --require ts-node/register mocha lib/**/*.spec.ts && shx rm -rf ./coverage",
+    "test:watch": "mocha -w --compilers ts:ts-node/register 'lib/**/*.spec.ts'",
+    "build": "rimraf dist && tsc -p tsconfig-esm.json && rollup -c rollup.config.js dist/index.js > dist/typescript-library-boilerplate.bundle.js && cp package.json dist && ts-node tools/cleanup.ts && cp README.md dist",
+    "lint": "tslint -c tslint.json lib/**/*.ts",
+    "prepush": "npm test",
+    "commit": "git-cz"
+  },
+  "engines": {
+    "node": ">=6.0.0 <9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/goldenbearkin/typescript-library-boilerplate.git"
+  },
+  "keywords": [
+    "typescript",
+    "boilerplate",
+    "es2015",
+    "mocha"
+  ],
+  "author": "goldenbearkin <huihangkin@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/goldenbearkin/typescript-library-boilerplate/issues"
+  },
+  "homepage": "https://github.com/goldenbearkin/typescript-library-boilerplate#readme",
+  "devDependencies": {
+    "@types/chai": "^4.1.3",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^10.12.29",
+    "chai": "^4.1.2",
+    "commitizen": "^2.10.1",
+    "cz-conventional-changelog": "^2.1.0",
+    "husky": "^0.14.3",
+    "mocha": "^5.2.0",
+    "nyc": "^11.8.0",
+    "rimraf": "^2.6.3",
+    "rollup": "^0.59.3",
+    "shx": "^0.2.2",
+    "ts-node": "^6.0.5",
+    "tslint": "^5.13.1",
+    "typescript": "^2.8.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "cross-fetch": "^3.0.4",
+    "merge-anything": "^3.0.5"
+  }
+}

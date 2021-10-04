@@ -1,0 +1,58 @@
+{
+  "name": "@common/month-enum-ts",
+  "version": "1.0.0",
+  "description": "A simple months enum",
+  "main": "month-enum-ts.bundle.js",
+  "jsnext:main": "index.js",
+  "module": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "nyc --include lib/**/*.ts --extension .ts --require ts-node/register mocha lib/**/*.spec.ts && shx rm -rf ./coverage",
+    "test:watch": "mocha -w --compilers ts:ts-node/register 'lib/**/*.spec.ts'",
+    "build": "rimraf dist && tsc -p tsconfig-esm.json && rollup -c rollup.config.js dist/index.js > dist/month-enum-ts.bundle.js && cp package.json dist && ts-node tools/cleanup.ts && cp README.md dist",
+    "lint": "tslint -c tslint.json lib/**/*.ts",
+    "prepush": "npm test",
+    "commit": "git-cz"
+  },
+  "engines": {
+    "node": ">=6.0.0 <9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/olivercaine/common.git"
+  },
+  "keywords": [
+    "typescript",
+    "boilerplate",
+    "es2015",
+    "mocha"
+  ],
+  "author": "olivercaine <olliecaine@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/olivercaine/common/issues"
+  },
+  "homepage": "https://github.com/olivercaine/common#readme",
+  "devDependencies": {
+    "@types/chai": "^4.1.3",
+    "@types/mocha": "^5.2.0",
+    "@types/node": "^10.1.2",
+    "chai": "^4.1.2",
+    "commitizen": "^2.10.1",
+    "cz-conventional-changelog": "^2.1.0",
+    "husky": "^0.14.3",
+    "mocha": "^5.2.0",
+    "nyc": "^11.8.0",
+    "rimraf": "^2.6.2",
+    "rollup": "^0.59.3",
+    "shx": "^0.2.2",
+    "ts-node": "^6.0.5",
+    "tslint": "^5.8.0",
+    "typescript": "^2.8.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}

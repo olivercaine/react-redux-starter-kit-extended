@@ -2,7 +2,3 @@
 	path = devops
 	url = https://github.com/olivercaine/devops.git
 	branch = master
-[submodule "common"]
-	path = common
-	url = https://github.com/olivercaine/common.git
-	branch = master
