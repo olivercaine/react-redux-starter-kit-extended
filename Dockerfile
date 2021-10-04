@@ -11,7 +11,7 @@ COPY package*.json ./
 RUN npm install
 
 COPY . ./
-RUN npm run test:full
+RUN npm run health-check
 
 # --------------- STAGE 3: Host ---------------
 FROM nginx:alpine
