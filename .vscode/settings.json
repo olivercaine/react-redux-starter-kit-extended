@@ -1,12 +1,11 @@
 {
-   "editor.formatOnSave": true,
-   "editor.codeActionsOnSave": {
-      "source.fixAll": true,
-      "source.organizeImports": true
-   },
-   "workbench.colorCustomizations": {
-      "titleBar.activeForeground": "#83ACCE"
-   },
-   "mochaExplorer.files": "src/**/*.spec.ts",
-   "mochaExplorer.require": "ts-node/register"
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true
+  },
+  "workbench.colorCustomizations": {
+    "titleBar.activeForeground": "#83ACCE"
+  },
+  "mochaExplorer.files": "src/**/*.spec.ts",
+  "mochaExplorer.require": "ts-node/register"
 }

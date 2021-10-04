@@ -1,4 +1,4 @@
-import { createAction } from '@common/reducers/lib/ActionCreator';
+import { createAction } from '@olliecaine/reducers';
 import { Middleware } from 'redux';
 import { createRandomNumber } from '../connectors/ApiConnector';
 import { DID_SIGN_IN, SHOULD_SIGN_IN } from '../reducers/SignInReducer';

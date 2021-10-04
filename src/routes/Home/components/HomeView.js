@@ -1,4 +1,4 @@
-import { Months } from '@common/month-enum-ts/lib/Months'
+import { Months } from '@olliecaine/Months'
 import React from 'react'
 import { MonthBlurb } from '../../../components/MonthBlurb'
 import DuckImage from '../assets/Duck.jpg'
