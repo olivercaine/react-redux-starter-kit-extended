@@ -34,10 +34,6 @@
   "author": "David Zukowski <david@zuko.me> (http://zuko.me)",
   "license": "MIT",
   "dependencies": {
-    "@common/fetch": "file:common/fetch",
-    "@common/month-enum-ts": "file:common/month-enum-ts",
-    "@common/reducers": "file:common/reducers",
-    "@common/validation": "file:common/validation",
     "bootstrap": "^4.3.1",
     "compression": "^1.6.2",
     "express": "^4.14.0",
