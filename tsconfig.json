@@ -20,8 +20,7 @@
     ]
   },
   "exclude": [
-    "node_modules",
-    "common"
+    "node_modules"
   ],
   "diagnostics": true,
   "noUnusedLocals": true,
