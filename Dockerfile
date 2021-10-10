@@ -1,5 +1,5 @@
 # --------------- STAGE 1: Develop ---------------
-FROM olliecaine/dev:master as stage-develop
+FROM olliecaine/dev:node10alpine as stage-develop
 
 CMD ["npm", "run", "dev"]
 
