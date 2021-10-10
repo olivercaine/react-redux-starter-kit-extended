@@ -26,3 +26,5 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm run health-check
+    - run: git submodule update --init --recursive
+    - run: docker build .    
