@@ -12,5 +12,4 @@ export interface IRootState {
 //   normalizedEntities: []
 // }
 
-// tslint:disable-next-line
 export interface ICounter extends Number {}

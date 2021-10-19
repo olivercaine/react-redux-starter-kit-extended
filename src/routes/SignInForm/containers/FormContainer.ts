@@ -9,7 +9,7 @@ import {
   IPropsFromDispatch,
   IPropsFromState,
   IState,
-  SignInFormWrapper as Component,
+  SignInFormWrapper as Component
 } from '../components/SignInFormWrapper';
 import { IRootState } from './../../../Definitions';
 
@@ -43,5 +43,4 @@ const mapStateToProps = (state: IRootState): IPropsFromState => {
     Selectors are composable. They can be used as input to other selectors.
     https://github.com/reactjs/reselect    */
 
-// tslint:disable:no-default-export
 export default connect(mapStateToProps, mapDispatchToProps)(Component);
