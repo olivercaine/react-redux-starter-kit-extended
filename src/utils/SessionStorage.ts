@@ -8,7 +8,6 @@ export const saveState = (state: IRootState) => {
 
 export const loadState = (): IRootState => {
   const state = sessionStorage.getItem(GLOBAL_STATE)
-  // tslint:disable-next-line
   return state === null ? null : JSON.parse(state)
 }
 

@@ -2,7 +2,6 @@ import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 import { SignInFormWrapper } from './SignInFormWrapper'
 
-// tslint:disable-next-line
 const customCallback = () => { console.info('Custom callback') }
 
 storiesOf('SignInFormWrapper', module)

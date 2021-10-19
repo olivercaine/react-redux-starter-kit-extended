@@ -1,6 +1,5 @@
 import { injectReducer } from '../../store/reducers'
 
-// tslint:disable-next-line
 export default (store) => ({
   path : 'form',
   /*  Async getComponent is only invoked when route matches   */
@@ -18,7 +17,6 @@ export default (store) => ({
       injectReducer(store, { key: 'signInForm', reducer })
 
       /*  Return getComponent   */
-      // tslint:disable-next-line
       cb(null, Counter)
 
     /* Webpack named bundle   */
