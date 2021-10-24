@@ -1,0 +1,7 @@
+{
+  "presets": [
+    ["@babel/env", { "targets": "> 0.25%", "useBuiltIns": "usage", "corejs": 2 }],
+    "@babel/preset-react",
+    ["@babel/preset-typescript", { "allExtensions": true, "isTSX": true }]
+  ]
+}

@@ -1,12 +1,12 @@
+import { browserHistory } from 'react-router'
 import { applyMiddleware, compose, createStore as createReduxStore } from 'redux'
 import thunk from 'redux-thunk'
-import { browserHistory } from 'react-router'
-import makeRootReducer from './reducers'
-import { updateLocation } from './location'
 import { apiMiddleware } from '../middleware/ApiMiddleware'
 import { errorLoggerMiddleware } from '../middleware/ErrorLogger'
+import { updateLocation } from './location'
+import makeRootReducer from './reducers'
 
-const createStore = (initialState = {}) => {
+const createStore = () => {
   // ======================================================
   // Middleware Configuration
   // ======================================================
@@ -29,7 +29,6 @@ const createStore = (initialState = {}) => {
   // ======================================================
   const store = createReduxStore(
     makeRootReducer(),
-    initialState,
     composeEnhancers(
       applyMiddleware(...middleware),
       ...enhancers

@@ -1,12 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import createStore from './store/createStore'
-import { initialRootState } from './State'
 import './styles/main.scss'
 
 // Store Initialization
 // ------------------------------------
-const store = createStore(initialRootState)
+const store = createStore()
 
 // Render Setup
 // ------------------------------------
@@ -47,10 +46,10 @@ if (__DEV__) {
       './components/App',
       './routes/index',
     ], () =>
-      setImmediate(() => {
+      setTimeout(() => {
         ReactDOM.unmountComponentAtNode(MOUNT_NODE)
         render()
-      })
+      }, 0)
     )
   }
 }
