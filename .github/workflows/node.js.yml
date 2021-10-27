@@ -2,7 +2,7 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ modpack/latest ]
+    branches: ['**']
   pull_request:
     branches: [ modpack/latest ]
   schedule:
