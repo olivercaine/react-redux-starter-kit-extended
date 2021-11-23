@@ -27,7 +27,7 @@ export const initialState: ISignInState | null = { submitting: false };
 // ------------------------------------
 // Reducer
 // ------------------------------------
-export function signinReducer(
+export function signinReducer (
   state: ISignInState | null = initialState,
   action: SignInAction,
 ): ISignInState | null {

@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "compile": "node build/scripts/compile",
-    "lint": "eslint .",
+    "lint": "eslint . --ext .ts,.tsx,.js",
     "lint:fix": "npm run lint -- --fix",
     "test": "cross-env NODE_ENV=none karma start build/karma.config",
     "test:watch": "npm test -- --watch",
@@ -100,6 +100,7 @@
     "eslint-config-standard-react": "^5.0.0",
     "eslint-plugin-babel": "^4.1.1",
     "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-no-null": "^1.0.2",
     "eslint-plugin-node": "^4.2.2",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^7.12.4",

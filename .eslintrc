@@ -12,6 +12,7 @@
   "plugins": [
     "babel",
     "react",
+    "no-null",
     "promise"
   ],
   "env": {
@@ -33,6 +34,8 @@
     "jsx-quotes"           : [2, "prefer-single"],
     "max-len"              : [2, 120, 2],
     "object-curly-spacing" : [2, "always"],
+    "no-null/no-null"      : 2,
+    "semi"                 : "off",
     "comma-dangle"         : "off",
     "no-undef"             : "off"
   }

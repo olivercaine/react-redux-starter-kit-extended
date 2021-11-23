@@ -1,4 +1,4 @@
 export default {
-    form:         '/form',
-    randomNumber: '/random-number',
+  form:         '/form',
+  randomNumber: '/random-number',
 }
