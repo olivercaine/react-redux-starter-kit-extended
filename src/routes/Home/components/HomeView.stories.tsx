@@ -1,6 +1,10 @@
-import { storiesOf } from '@storybook/react'
-import * as React from 'react'
-import HomeView from './HomeView'
+import { Meta } from '@storybook/react';
+import * as React from 'react';
+import { HomeView } from './HomeView';
 
-storiesOf('HomeView', module)
-    .add('default', () => <HomeView />)
+export default {
+    component: HomeView,
+    title: 'Components/HomeView',
+} as Meta;
+
+export const Default: React.VFC<{}> = () => <HomeView />;

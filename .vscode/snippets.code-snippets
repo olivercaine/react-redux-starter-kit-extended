@@ -16,23 +16,24 @@
   // 	],
   // 	"description": "Log output to console"
   // }
-  "Basic React Component": {
-    "prefix": "rcb",
+  "React Component (Functional)": {
+    "description": "A functional React component",
+    "prefix": "rcf",
     "body": [
       "import * as React from 'react';",
+      "",
       "export interface IProps {",
       "    title: string",
       "}",
       "",
-      "export const ${1:ComponentName} = (props: IProps) => (",
+      "export const ${1:ComponentName} = (props: IProps) => ",
       "    <b>{props.title}</b>",
-      ")"
-    ],
-    "description": "Basic React Component"
+    ]
   },
 
-  "React Component": {
-    "prefix": "rc",
+  "React Component (Class)": {
+    "description": "A class-based React component",
+    "prefix": "rcc",
     "body": [
       "import * as React from 'react';",
       "",
@@ -63,7 +64,6 @@
       "    }",
       "",
       "}"
-    ],
-    "description": "React Component"
+    ]
   }
 }
