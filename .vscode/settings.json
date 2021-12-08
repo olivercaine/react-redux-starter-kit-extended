@@ -3,6 +3,8 @@
     "source.fixAll": true,
     "source.organizeImports": true
   },
+  "eslint.alwaysShowStatus": true,
+  "editor.formatOnSave": true,
   "workbench.colorCustomizations": {
     "titleBar.activeForeground": "#83ACCE"
   },
