@@ -27,4 +27,4 @@ jobs:
         cache: 'npm'
     - run: npm run health-check
     - run: git submodule update --init --recursive
-    - run: docker build .    
+    - run: docker build .
