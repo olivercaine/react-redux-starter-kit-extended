@@ -16,7 +16,7 @@ export const containsNumber = (s: string | null | undefined): boolean => {
 export const containsSpecialCharacter = (
   s: string | null | undefined,
 ): boolean => {
-  return !!s && /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(s);
+  return !!s && /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(s); // eslint-disable-line no-useless-escape
 };
 // end/ TODO: switch to using @olliecaine package
 
