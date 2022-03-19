@@ -17,23 +17,25 @@
   // 	"description": "Log output to console"
   // }
   "React Component (Functional)": {
-    "description": "A functional React component",
     "prefix": "rcf",
+    "description": "A functional React component",
     "body": [
       "import * as React from 'react';",
       "",
       "export interface IProps {",
-      "    title: string",
+      "  /**",
+      "  Description of the title prop",
+      "  */",
+      "  title: string",
       "}",
       "",
-      "export const ${1:ComponentName} = (props: IProps) => ",
-      "    <b>{props.title}</b>",
+      "export const ComponentName = (props: IProps) =>",
+      "  <b>{props.title}</b>"
     ]
   },
-
   "React Component (Class)": {
-    "description": "A class-based React component",
     "prefix": "rcc",
+    "description": "A class-based React component",
     "body": [
       "import * as React from 'react';",
       "",

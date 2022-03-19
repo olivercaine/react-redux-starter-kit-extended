@@ -2,8 +2,17 @@ import * as React from 'react'
 import { Button } from '../../../components/Button'
 
 export interface IProps {
+  /**
+  The current counter value
+  */
   counter: string
+  /**
+  The callback to synchronously increase the counter value
+  */
   increment: () => void
+  /**
+  The callback to asynchronously increase the counter value
+  */
   doubleAsync: () => void
 }
 
