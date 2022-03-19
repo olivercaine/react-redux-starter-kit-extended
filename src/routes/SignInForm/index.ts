@@ -1,9 +1,10 @@
 import { injectReducer } from '../../store/reducers'
 
 export default (store) => ({
-  path : 'form',
+  path: 'form',
   /*  Async getComponent is only invoked when route matches   */
-  getComponent (nextState, cb) {
+  // @ts-ignore
+  getComponent(nextState, cb) {
     /*  Webpack - use 'require.ensure' to create a split point
     and embed an async module loader (jsonp) when bundling   */
     // @ts-ignore
@@ -19,7 +20,7 @@ export default (store) => ({
       /*  Return getComponent   */
       cb(undefined, Counter)
 
-    /* Webpack named bundle   */
+      /* Webpack named bundle   */
     }, 'project')
   },
 })
