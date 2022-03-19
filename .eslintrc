@@ -30,6 +30,7 @@
     "__COVERAGE__" : false
   },
   "rules": {
+    "no-unused-vars"       : "off",
     "key-spacing"          : "off",
     "jsx-quotes"           : [2, "prefer-single"],
     "max-len"              : [2, 120, 2],
