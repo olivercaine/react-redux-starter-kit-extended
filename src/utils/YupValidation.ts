@@ -2,11 +2,11 @@ import * as Yup from 'yup';
 
 // TODO: switch to using @olliecaine package
 export const containsUppercase = (s: string | null | undefined): boolean => {
-  return !!s && s.length - s.replace(/[A-Z]/g, '').length > 0;
+  return !!s && s.length - s.replace(/[A-Z]/g, '').length > 0; // eslint-disable-line no-useless-escape
 };
 
 export const containsLowercase = (s: string | null | undefined): boolean => {
-  return !!s && s.length - s.replace(/[a-z]/g, '').length > 0;
+  return !!s && s.length - s.replace(/[a-z]/g, '').length > 0; // eslint-disable-line no-useless-escape
 };
 
 export const containsNumber = (s: string | null | undefined): boolean => {
@@ -16,7 +16,7 @@ export const containsNumber = (s: string | null | undefined): boolean => {
 export const containsSpecialCharacter = (
   s: string | null | undefined,
 ): boolean => {
-  return !!s && /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(s);
+  return !!s && /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(s); // eslint-disable-line no-useless-escape
 };
 // end/ TODO: switch to using @olliecaine package
 

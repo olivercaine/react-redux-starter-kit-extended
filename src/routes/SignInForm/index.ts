@@ -4,7 +4,7 @@ export default (store) => ({
   path: 'form',
   /*  Async getComponent is only invoked when route matches   */
   // @ts-ignore
-  getComponent(nextState, cb) {
+  getComponent (nextState, cb) {
     /*  Webpack - use 'require.ensure' to create a split point
     and embed an async module loader (jsonp) when bundling   */
     // @ts-ignore
@@ -18,7 +18,7 @@ export default (store) => ({
       injectReducer(store, { key: 'signInForm', reducer })
 
       /*  Return getComponent   */
-      cb(null, Counter)
+      cb(undefined, Counter)
 
       /* Webpack named bundle   */
     }, 'project')

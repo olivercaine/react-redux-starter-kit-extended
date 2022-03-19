@@ -8,7 +8,7 @@ export const saveState = (state: IRootState) => {
 
 export const loadState = (): IRootState => {
   const state = sessionStorage.getItem(GLOBAL_STATE)
-  return state === null ? null : JSON.parse(state)
+  return state === null ? null : JSON.parse(state) // eslint-disable-line no-null/no-null
 }
 
 export const clearState = (): void => {
