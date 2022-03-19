@@ -1,14 +1,21 @@
 {
-  "compilerOptions": {
-    "jsx": "react",
-    "baseUrl": "src",
-    "target": "es5",
-    "module": "commonjs",
-    "sourceMap": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "strictNullChecks": true,
-    "lib": ["es2015", "dom"],
+  "compilerOptions": { // https://www.typescriptlang.org/tsconfig
+    "baseUrl": "src", // Set a base directory to resolve non-absolute module names.
+    "jsx": "react", // Use typescript to transpile jsx to js
+    "target": "es5", // Target es5 for IE9/10 strict
+    "module": "commonjs", // https://www.typescriptlang.org/tsconfig#module
+    "sourceMap": true, // Enables the generation of sourcemap files to display original TypeScript source code
+    "emitDecoratorMetadata": true, // Enables experimental support for emitting type metadata for decorators
+    "experimentalDecorators": true, // Enables experimental support for decorators
+    "strictNullChecks": true, // https://www.typescriptlang.org/tsconfig#strictNullChecks
+    // "strict": true, // Results in stronger guarantees of program correctness
+    "diagnostics": true, // Used to output diagnostic information for debugging
+    "noUnusedLocals": true, // Report errors on unused local variables
+    "noUnusedParameters": true, // Report errors on unused parameters in functions
+    "lib": [
+      "es2015",
+      "dom"
+    ],
     "typeRoots": [
       "./node_modules/@types",
       "./node_modules"
@@ -21,8 +28,5 @@
   },
   "exclude": [
     "node_modules"
-  ],
-  "diagnostics": true,
-  "noUnusedLocals": true,
-  "noUnusedParameters": true
+  ]
 }
