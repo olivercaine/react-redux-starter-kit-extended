@@ -135,4 +135,3 @@ It's *highly* recommended to use [Typed Reducers](https://github.com/olivercaine
 ### Technical Spec
 
 Two components: [ComponentName]Form (contains <form>) and [ComponentName]FormWrapper
-
