@@ -5,7 +5,7 @@
 import { createAction } from '@olliecaine/reducers';
 import { connect } from 'react-redux';
 import { IRootState } from '../../../Definitions';
-import Component from '../components/Counter';
+import { Counter as Component } from '../components/Counter';
 import { doubleAsync } from '../modules/counter';
 import { Defaults } from './../../../Constants';
 import { COUNTER_INCREMENT } from './../modules/counter';

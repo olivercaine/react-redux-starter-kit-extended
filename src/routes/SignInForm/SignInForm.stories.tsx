@@ -1,0 +1,16 @@
+import { Meta } from '@storybook/react';
+import * as React from 'react';
+import CoreLayout from '../../layouts/PageLayout/PageLayout';
+import { SignInFormWrapper } from './components/SignInFormWrapper';
+
+export default {
+  component: SignInFormWrapper,
+  title: 'Features/SignInForm'
+} as Meta;
+
+export const Default: React.VFC<{}> = () =>
+  <CoreLayout>
+    <SignInFormWrapper
+      handleFormSubmit={() => { console.info('Custom callback') }}
+    />
+  </CoreLayout>

@@ -1,5 +1,6 @@
 const argv = require('yargs').argv
 const webpackConfig = require('./webpack.config')
+const project = require('../project.config')
 
 const TEST_BUNDLER = './tests/test-bundler.js'
 
@@ -44,6 +45,7 @@ const karmaConfig = {
   },
   webpack: {
     entry: TEST_BUNDLER,
+    mode: project.env,
     devtool: 'cheap-module-source-map',
     module: webpackConfig.module,
     plugins: webpackConfig.plugins,

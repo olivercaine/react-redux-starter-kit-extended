@@ -3,20 +3,18 @@ name: Node.js CI
 on:
   push:
     branches: ['**']
-  pull_request:
-    branches: [ modpack/latest ]
   schedule:
     - cron: "0 18 * * FRI" # Every Friday at 6pm
   workflow_dispatch: # Enables running workflow manually
 
 jobs:
   build:
-
+    timeout-minutes: 10
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [8.x,10.x]
+        node-version: [10.x, 12.x, 14.x]
 
     steps:
     - uses: actions/checkout@v2

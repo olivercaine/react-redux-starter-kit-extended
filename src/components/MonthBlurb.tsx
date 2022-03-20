@@ -1,6 +1,5 @@
-
 interface IProps {
-    month: string
+  month: string
 }
 
 export const MonthBlurb = ({ month }: IProps) => `The current month is ${month} according to TypeScript`

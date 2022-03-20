@@ -1,5 +1,5 @@
 {
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "extends": [
     "standard",
     "standard-react"
@@ -17,7 +17,8 @@
   ],
   "env": {
     "browser" : true,
-    "mocha" : true
+    "mocha" : true,
+    "node": true
   },
   "globals": {
     "expect"       : false,
@@ -29,11 +30,14 @@
     "__COVERAGE__" : false
   },
   "rules": {
+    "no-unused-vars"       : "off",
     "key-spacing"          : "off",
     "jsx-quotes"           : [2, "prefer-single"],
     "max-len"              : [2, 120, 2],
     "object-curly-spacing" : [2, "always"],
     "no-null/no-null"      : 2,
-    "comma-dangle"         : "off"
+    "semi"                 : "off",
+    "comma-dangle"         : "off",
+    "no-undef"             : "off"
   }
 }
