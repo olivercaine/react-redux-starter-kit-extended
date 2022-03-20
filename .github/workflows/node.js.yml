@@ -4,7 +4,7 @@ on:
   push:
     branches: ['**']
   schedule:
-    - cron: "0 18 * * FRI" # Every Friday at 6pm
+    - cron: '0 18 * * FRI' # Every Friday at 6pm
   workflow_dispatch: # Enables running workflow manually
 
 jobs:
@@ -17,12 +17,12 @@ jobs:
         node-version: [10.x, 12.x, 14.x]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm run health-check
-    - run: git submodule update --init --recursive
-    - run: docker build .
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - run: npm run health-check
+      - run: git submodule update --init --recursive
+      - run: docker build .
