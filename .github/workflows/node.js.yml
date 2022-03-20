@@ -3,8 +3,6 @@ name: Node.js CI
 on:
   push:
     branches: ['**']
-  pull_request:
-    branches: [ modpack/latest ]
   schedule:
     - cron: "0 18 * * FRI" # Every Friday at 6pm
   workflow_dispatch: # Enables running workflow manually
