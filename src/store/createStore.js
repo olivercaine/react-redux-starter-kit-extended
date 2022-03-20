@@ -6,7 +6,7 @@ import { errorLoggerMiddleware } from '../middleware/ErrorLogger'
 import { updateLocation } from './location'
 import makeRootReducer from './reducers'
 
-const createStore = () => {
+const createStore = (initialState = {}) => {
   // ======================================================
   // Middleware Configuration
   // ======================================================
@@ -29,6 +29,7 @@ const createStore = () => {
   // ======================================================
   const store = createReduxStore(
     makeRootReducer(),
+    initialState,
     composeEnhancers(
       applyMiddleware(...middleware),
       ...enhancers
