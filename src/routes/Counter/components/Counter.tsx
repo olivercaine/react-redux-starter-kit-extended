@@ -5,7 +5,7 @@ export interface IProps {
   /**
   The current counter value
   */
-  counter: string
+  counter: number
   /**
   The callback to synchronously increase the counter value
   */

@@ -4,7 +4,7 @@ import { createRandomNumber } from '../connectors/ApiConnector';
 import { DID_SIGN_IN, SHOULD_SIGN_IN } from '../reducers/SignInReducer';
 import {
   COUNTER_DOUBLE_ASYNC,
-  COUNTER_INCREMENT,
+  COUNTER_INCREMENT
 } from '../routes/Counter/modules/counter';
 
 // Receives all actions but only processes ones defined below before they reach the store's reducer.

@@ -2,7 +2,7 @@
   "compilerOptions": { // https://www.typescriptlang.org/tsconfig
     "baseUrl": "src", // Set a base directory to resolve non-absolute module names.
     "jsx": "react", // Use typescript to transpile jsx to js
-    "target": "es5", // Target es5 for IE9/10 strict
+    "target": "es5", // Target es5 for IE9/10 strict - https://www.typescriptlang.org/tsconfig#target
     "module": "commonjs", // https://www.typescriptlang.org/tsconfig#module
     "sourceMap": true, // Enables the generation of sourcemap files to display original TypeScript source code
     "emitDecoratorMetadata": true, // Enables experimental support for emitting type metadata for decorators

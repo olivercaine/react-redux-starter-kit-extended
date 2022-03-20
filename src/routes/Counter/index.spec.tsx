@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import CounterRoute from 'routes/Counter'
+import CounterRoute from 'routes/Counter';
 
 describe('(Route) Counter', () => {
   it('returns a route configuration object', () => {
