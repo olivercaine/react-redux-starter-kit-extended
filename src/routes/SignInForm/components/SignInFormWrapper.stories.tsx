@@ -8,10 +8,10 @@ export default {
   title: 'Components/SignInFormWrapper',
 } as Meta;
 
-const handleFormSubmit = action("handleFormSubmit callback")
+const handleFormSubmit = action('handleFormSubmit callback')
 
 export const Default: React.VFC<{}> = () => <SignInFormWrapper
-  handleFormSubmit={action("handleFormSubmit callback")}
+  handleFormSubmit={action('handleFormSubmit callback')}
 />;
 
 export const WithInitalValues: React.VFC<{}> = () => <SignInFormWrapper

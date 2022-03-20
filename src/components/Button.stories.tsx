@@ -8,4 +8,4 @@ export default {
   title: 'Basics/Button',
 } as Meta;
 
-export const Default: React.VFC<{}> = () => <Button text='Sample text' callback={action("Clicked")} />;
+export const Default: React.VFC<{}> = () => <Button text='Sample text' callback={action('Clicked')} />;

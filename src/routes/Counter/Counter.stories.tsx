@@ -13,7 +13,7 @@ export const Default: React.VFC<{}> = () =>
   <CoreLayout>
     <Counter
       counter={1}
-      increment={action("Increment callback")}
-      doubleAsync={action("DoubleAsync callback")}
+      increment={action('Increment callback')}
+      doubleAsync={action('DoubleAsync callback')}
     />
   </CoreLayout>
