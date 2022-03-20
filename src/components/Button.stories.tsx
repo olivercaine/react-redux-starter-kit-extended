@@ -1,5 +1,6 @@
+import { action } from '@storybook/addon-actions';
 import { Meta } from '@storybook/react';
-import * as React from 'react';
+import React from 'react';
 import { Button } from './Button';
 
 export default {
@@ -7,6 +8,4 @@ export default {
   title: 'Basics/Button',
 } as Meta;
 
-const customCallback = () => { console.info('Custom callback') }
-
-export const Default: React.VFC<{}> = () => <Button text='Sample text' callback={customCallback} />;
+export const Default: React.VFC<{}> = () => <Button text='Sample text' callback={action("Clicked")} />;

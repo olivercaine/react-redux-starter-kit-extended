@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import { Meta } from '@storybook/react';
 import * as React from 'react';
 import CoreLayout from '../../layouts/PageLayout/PageLayout';
@@ -8,13 +9,11 @@ export default {
   title: 'Features/Counter'
 } as Meta;
 
-const customCallback = () => { console.info('Custom callback') }
-
 export const Default: React.VFC<{}> = () =>
   <CoreLayout>
     <Counter
       counter={1}
-      increment={customCallback}
-      doubleAsync={customCallback}
+      increment={action("Increment callback")}
+      doubleAsync={action("DoubleAsync callback")}
     />
   </CoreLayout>
