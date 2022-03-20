@@ -13,9 +13,9 @@ const config: StorybookConfig = {
   core: {
     "builder": "webpack5"
   },
-  // features: { // Was failing node 10 build
-  //   storyStoreV7: true, // https://storybook.js.org/docs/react/configure/webpack#bundle-splitting
-  // },
+  features: { // Was failing node 10 build
+    storyStoreV7: true, // https://storybook.js.org/docs/react/configure/webpack#bundle-splitting
+  },
   typescript: {
     check: true
   },
