@@ -8,6 +8,7 @@
     "emitDecoratorMetadata": true, // Enables experimental support for emitting type metadata for decorators
     "experimentalDecorators": true, // Enables experimental support for decorators
     "noImplicitReturns": true, // Ensure all code paths in a function to ensure they return a value
+    "noImplicitAny": false, // Don't throw errors by falling back to type any for JS imports https://www.typescriptlang.org/tsconfig#noImplicitAny
     "resolveJsonModule": true, // Allows importing modules with a ‘.json’ extension
     "forceConsistentCasingInFileNames": true, // Forces case sensitivity on file imports - forces compatibility on case-sensitive/case-insensitive systems
     "allowSyntheticDefaultImports": true, // Allows you name `* as` in import, e.g. `import React from "react"`
