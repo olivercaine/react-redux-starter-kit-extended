@@ -4,8 +4,7 @@ const path = require('path');
 
 const config: StorybookConfig = {
   stories: [
-    "../src/**/*.stories.mdx",
-    "../src/**/*.stories.@(js|jsx|ts|tsx)"
+    "../src/**/*.stories.@(ts|tsx)"
   ],
   addons: [
     "@storybook/addon-links",
@@ -13,6 +12,9 @@ const config: StorybookConfig = {
   ],
   core: {
     "builder": "webpack5"
+  },
+  features: {
+    storyStoreV7: true, // https://storybook.js.org/docs/react/configure/webpack#bundle-splitting
   },
   typescript: {
     check: true
