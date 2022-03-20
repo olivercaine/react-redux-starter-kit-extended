@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import { Meta } from '@storybook/react';
 import * as React from 'react';
 import { Counter } from './Counter';
@@ -7,7 +8,5 @@ export default {
   title: 'Components/Counter',
 } as Meta;
 
-const customCallback = () => { console.info('Custom callback') }
-
 export const Default: React.VFC<{}> = () =>
-  <Counter counter={5} doubleAsync={customCallback} increment={customCallback} />;
+  <Counter counter={5} doubleAsync={action('DoubleAsync callback')} increment={action('Increment callback')} />;
