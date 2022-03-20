@@ -1,18 +1,23 @@
+import { StorybookConfig } from '@storybook/core-common';
+import webpack from 'webpack';
 const path = require('path');
 
-module.exports = {
-  "stories": [
+const config: StorybookConfig = {
+  stories: [
     "../src/**/*.stories.mdx",
     "../src/**/*.stories.@(js|jsx|ts|tsx)"
   ],
-  "addons": [
+  addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
   ],
-  "core": {
+  core: {
     "builder": "webpack5"
   },
-  webpackFinal: async (config, { configType }) => {
+  typescript: {
+    check: true
+  },
+  webpackFinal: async (config: webpack.Configuration/*, { configType }*/) => {
     // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
     // You can change the configuration based on that.
     // 'PRODUCTION' is used when building the static version of storybook.
@@ -28,3 +33,5 @@ module.exports = {
     return config;
   },
 }
+
+module.exports = config;

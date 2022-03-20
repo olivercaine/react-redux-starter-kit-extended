@@ -9,4 +9,4 @@ export default {
 
 const customCallback = () => { console.info('Custom callback') }
 
-export const Default: React.VFC<{}> = () => <Button wrong='true' text='Sample text' callback={customCallback} />;
+export const Default: React.VFC<{}> = () => <Button text='Sample text' callback={customCallback} />;
