@@ -7,6 +7,9 @@
     "sourceMap": true, // Enables the generation of sourcemap files to display original TypeScript source code
     "emitDecoratorMetadata": true, // Enables experimental support for emitting type metadata for decorators
     "experimentalDecorators": true, // Enables experimental support for decorators
+    "noImplicitReturns": true, // Ensure all code paths in a function to ensure they return a value
+    "resolveJsonModule": true, // Allows importing modules with a ‘.json’ extension
+    "allowSyntheticDefaultImports": true, // Allows you name `* as` in import, e.g. `import React from "react"`
     "strictNullChecks": true, // https://www.typescriptlang.org/tsconfig#strictNullChecks
     // "strict": true, // Results in stronger guarantees of program correctness
     "diagnostics": true, // Used to output diagnostic information for debugging
