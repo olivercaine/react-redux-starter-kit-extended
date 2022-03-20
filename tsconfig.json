@@ -9,6 +9,7 @@
     "experimentalDecorators": true, // Enables experimental support for decorators
     "noImplicitReturns": true, // Ensure all code paths in a function to ensure they return a value
     "resolveJsonModule": true, // Allows importing modules with a ‘.json’ extension
+    "forceConsistentCasingInFileNames": true, // Forces case sensitivity on file imports - forces compatibility on case-sensitive/case-insensitive systems
     "allowSyntheticDefaultImports": true, // Allows you name `* as` in import, e.g. `import React from "react"`
     "strictNullChecks": true, // https://www.typescriptlang.org/tsconfig#strictNullChecks
     "strict": true, // Results in stronger guarantees of program correctness
