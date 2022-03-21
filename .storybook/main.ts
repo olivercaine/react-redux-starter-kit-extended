@@ -19,7 +19,7 @@ const config: StorybookConfig = {
   typescript: {
     check: true
   },
-  webpackFinal: async (config: webpack.Configuration/*, { configType }*/) => {
+  webpackFinal: async (config: webpack.Configuration/*, { configType }*/): Promise<webpack.Configuration> => {
     // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
     // You can change the configuration based on that.
     // 'PRODUCTION' is used when building the static version of storybook.
@@ -31,8 +31,7 @@ const config: StorybookConfig = {
       include: path.resolve(__dirname, '../'),
     });
 
-    // Return the altered config
-    return config;
+    return config; // Return custom config
   },
 }
 
