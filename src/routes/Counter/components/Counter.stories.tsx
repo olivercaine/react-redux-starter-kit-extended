@@ -1,12 +1,19 @@
 import { action } from '@storybook/addon-actions';
-import { Meta } from '@storybook/react';
-import * as React from 'react';
-import { Counter } from './Counter';
+import { ComponentMeta } from '@storybook/react';
+import { templateForComponent } from '../../../../.storybook/helper';
+import { Counter, IProps } from './Counter';
 
 export default {
   component: Counter,
   title: 'Components/Counter',
-} as Meta;
+} as ComponentMeta<typeof Counter>;
 
-export const Default: React.VFC<{}> = () =>
-  <Counter counter={5} doubleAsync={action('DoubleAsync callback')} increment={action('Increment callback')} />;
+const template = templateForComponent(Counter);
+
+const defaultArgs: IProps = {
+  counter: 0,
+  doubleAsync: action('DoubleAsync callback'),
+  increment: action('Increment callback')
+}
+
+export const Default = template({ ...defaultArgs });

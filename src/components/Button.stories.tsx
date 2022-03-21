@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
+import { ComponentMeta } from '@storybook/react';
+import { templateForComponent } from '../../.storybook/helper';
 import { Button, IProps } from './Button';
 
 export default {
@@ -8,12 +8,11 @@ export default {
   title: 'Basics/Button',
 } as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (args: IProps) => <Button {...args} />;
+const template = templateForComponent(Button);
 
 const defaultArgs: IProps = {
   text: 'Button text',
   callback: action('Clicked')
 }
 
-export const Basic = Template.bind({});
-Basic.args = { ...defaultArgs, text: 'Button text override' }
+export const Default = template({ ...defaultArgs, text: 'Button text override' });
