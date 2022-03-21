@@ -15,4 +15,4 @@ const defaultArgs: IProps = {
   callback: action('Clicked')
 }
 
-export const Default = template({ ...defaultArgs, text: 'Button text override', wrong: true });
+export const Default = template({ ...defaultArgs, text: 'Button text override' });
