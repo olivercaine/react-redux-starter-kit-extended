@@ -1,11 +1,19 @@
 import { action } from '@storybook/addon-actions';
-import { Meta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import { Button } from './Button';
+import { Button, IProps } from './Button';
 
 export default {
   component: Button,
   title: 'Basics/Button',
-} as Meta;
+} as ComponentMeta<typeof Button>;
 
-export const Default: React.VFC<{}> = () => <Button text='Sample text' callback={action('Clicked')} />;
+const Template: ComponentStory<typeof Button> = (args: IProps) => <Button {...args} />;
+
+const defaultArgs: IProps = {
+  text: 'Button text',
+  callback: action('Clicked')
+}
+
+export const Basic = Template.bind({});
+Basic.args = { ...defaultArgs, text: 'Button text override' }
