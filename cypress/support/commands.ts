@@ -23,3 +23,17 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+// declare global {
+//   namespace Cypress { // eslint-disable-line @typescript-eslint/no-namespace
+//     interface Chainable<Subject> {
+//       login(username: string, password: string): void;
+//     }
+//   }
+// }
+
+// Cypress.Commands.add('login', (username, password) => {
+//   cy.get('input[type=text]').type(username);
+//   cy.get('input[type=password]').type(password);
+//   cy.get('form:first').submit();
+// });

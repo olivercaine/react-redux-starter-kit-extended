@@ -36,6 +36,7 @@
   "author": "David Zukowski <david@zuko.me> (http://zuko.me)",
   "license": "MIT",
   "dependencies": {
+    "@olliecaine/fetch": "^1.0.0",
     "@olliecaine/form-validation": "^1.0.0",
     "@olliecaine/months": "^1.0.2",
     "@olliecaine/reducers": "^1.0.8",

@@ -1,6 +1,5 @@
-import { IActionWithPayload } from '@olliecaine/reducers';
+import { createAction, IActionWithPayload } from '@olliecaine/reducers';
 import { IState } from './../routes/SignInForm/components/SignInFormWrapper';
-
 export interface ISignInState {
   submitting: boolean;
   generalErrors?: string[];
@@ -20,9 +19,17 @@ export type SignInAction =
   | IActionWithPayload<typeof DID_SIGN_IN, ISignInState>;
 
 // ------------------------------------
+// Action Creators
+// ------------------------------------
+export const SignInActions = {
+  shouldSignIn: (payload: IState): SignInAction => createAction(SHOULD_SIGN_IN, payload),
+  didSignIn: (payload: ISignInState): SignInAction => createAction(DID_SIGN_IN, payload)
+}
+
+// ------------------------------------
 // Domain & State
 // ------------------------------------
-export const initialState: ISignInState | null = { submitting: false };
+export const initialState: ISignInState | null = { submitting: false }; // TODO: why eslint no-null not working?
 
 // ------------------------------------
 // Reducer

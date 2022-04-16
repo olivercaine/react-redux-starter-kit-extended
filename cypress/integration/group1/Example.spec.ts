@@ -1,3 +1,5 @@
+import { LoginResponse } from './../../../src/connectors/ApiConnector';
+
 describe('Example', () => {
   beforeEach(() => {
     cy.visit('/')
@@ -20,10 +22,18 @@ describe('Example', () => {
     cy.contains('Counter: 2')
   })
 
-  it.skip('SignInFormWrapper', () => {
+  it('SignInFormWrapper', () => {
     cy.get('a:contains(SignInFormWrapper)').click()
-    cy.intercept('GET', 'random-number?t=*', (req) => {
-      req.reply({ 'randomNumber': 55 }); // TODO add typing to this
+    // TODO: use Cypress login() command instead
+    cy.get('input[type=email]').type('me@mail.com');
+    cy.get('input[type=password]').type('paS$w0rd');
+
+    cy.intercept('POST', 'http://www.google.com/authenticate', (req) => {
+      // TODO: Use LoginResponse from ApiConnector
+      req.reply({ submitting: false, generalErrors: ['Mocked API response'] } as LoginResponse); 
     });
+
+    cy.get('form:first').submit();
+    cy.contains('Mocked API response')
   })
 })
