@@ -1,5 +1,4 @@
 import { createAction } from '@olliecaine/reducers';
-import { createRandomNumber } from 'connectors/ApiConnector';
 import { ICounter } from './../../../Definitions';
 import { ERROR_SUFFIX } from './../../../middleware/ErrorLogger';
 
@@ -15,11 +14,10 @@ export const COUNTER_DOUBLE_ASYNC = 'COUNTER_DOUBLE_ASYNC';
 /*  This is a thunk, meaning it is a function that immediately
     returns a function for lazy evaluation. It is incredibly useful for
     creating async actions, especially when combined with redux-thunk! */
-
 export const doubleAsync = () => {
   return async (dispatch, getState) => {
     try {
-      await createRandomNumber(2000); // Mock API delay
+      await setTimeout(() => { console.log('Mocking delay') }, 1000)
       dispatch(createAction(COUNTER_DOUBLE_ASYNC, getState().counter));
     } catch (error) {
       dispatch(createAction(COUNTER_DOUBLE_ASYNC + ERROR_SUFFIX, error));
@@ -31,8 +29,7 @@ export const doubleAsync = () => {
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-  [COUNTER_INCREMENT]: (state: number, action): ICounter =>
-    state + action.payload,
+  [COUNTER_INCREMENT]: (state: number, action): ICounter => state + action.payload,
   [COUNTER_DOUBLE_ASYNC]: (state: number): ICounter => state * 2,
 };
 
