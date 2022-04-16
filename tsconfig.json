@@ -15,8 +15,8 @@
     "strictNullChecks": true, // https://www.typescriptlang.org/tsconfig#strictNullChecks
     "strict": true, // Results in stronger guarantees of program correctness
     "diagnostics": true, // Used to output diagnostic information for debugging
-    "noUnusedLocals": true, // Report errors on unused local variables
-    "noUnusedParameters": true, // Report errors on unused parameters in functions
+    "noUnusedLocals": false, // Report errors on unused local variables
+    "noUnusedParameters": false, // Report errors on unused parameters in functions
     "lib": [
       "es2015",
       "dom"
