@@ -30,7 +30,7 @@ describe('Example', () => {
 
     cy.intercept('POST', 'http://www.google.com/authenticate', (req) => {
       // TODO: Use LoginResponse from ApiConnector
-      req.reply({ submitting: false, generalErrors: ['Mocked API response'] } as LoginResponse); 
+      req.reply({ submitting: false, generalErrors: ['Mocked API response'] } as LoginResponse);
     });
 
     cy.get('form:first').submit();
