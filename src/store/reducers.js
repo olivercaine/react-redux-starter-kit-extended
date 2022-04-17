@@ -1,11 +1,9 @@
 import { combineReducers } from 'redux'
-import { initialRootState } from '../State'
 import locationReducer from './location'
 
 export const makeRootReducer = (asyncReducers) => {
   return combineReducers({
     location: locationReducer,
-    initialRootState,
     ...asyncReducers
   })
 }

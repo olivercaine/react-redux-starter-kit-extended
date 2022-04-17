@@ -1,6 +1,8 @@
 import { createAction, IActionWithPayload } from '@olliecaine/reducers';
-import { IState } from './../routes/SignInForm/components/SignInFormWrapper';
-export interface ISignInState {
+import { IState } from '../routes/SignInForm/components/SignInFormWrapper';
+
+export interface IAuthState {
+  token: string | undefined;
   submitting: boolean;
   generalErrors?: string[];
 }
@@ -16,28 +18,28 @@ export const DID_SIGN_IN = 'DID_SIGN_IN';
 // ------------------------------------
 export type SignInAction =
   | IActionWithPayload<typeof SHOULD_SIGN_IN, IState>
-  | IActionWithPayload<typeof DID_SIGN_IN, ISignInState>;
+  | IActionWithPayload<typeof DID_SIGN_IN, IAuthState>;
 
 // ------------------------------------
 // Action Creators
 // ------------------------------------
-export const SignInActions = {
+export const AuthActions = {
   shouldSignIn: (payload: IState): SignInAction => createAction(SHOULD_SIGN_IN, payload),
-  didSignIn: (payload: ISignInState): SignInAction => createAction(DID_SIGN_IN, payload)
+  didSignIn: (payload: IAuthState): SignInAction => createAction(DID_SIGN_IN, payload)
 }
 
 // ------------------------------------
 // Domain & State
 // ------------------------------------
-export const initialState: ISignInState | null = { submitting: false }; // TODO: why eslint no-null not working?
+export const initialState: IAuthState = { submitting: false, token: undefined };
 
 // ------------------------------------
 // Reducer
 // ------------------------------------
-export function signinReducer (
-  state: ISignInState | null = initialState,
+export const authReducer = (
+  state: IAuthState = initialState,
   action: SignInAction,
-): ISignInState | null {
+): IAuthState => {
   switch (action.type) {
     case SHOULD_SIGN_IN:
       const shouldSignInState = Object.assign({}, state);
@@ -47,6 +49,7 @@ export function signinReducer (
     case DID_SIGN_IN:
       const didSignInState = Object.assign({}, state);
       didSignInState.submitting = false;
+      didSignInState.token = action.payload.token;
       didSignInState.generalErrors = action.payload.generalErrors;
       return didSignInState;
     default:

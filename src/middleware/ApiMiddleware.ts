@@ -1,26 +1,34 @@
+import { IHttpResponse } from '@olliecaine/fetch';
 import { Dispatch, Middleware } from 'redux';
-import { login } from '../connectors/ApiConnector';
-import { ISignInState, SHOULD_SIGN_IN } from '../reducers/SignInReducer';
-import { SignInActions } from './../reducers/SignInReducer';
+import { login, LoginResponse } from '../connectors/ApiConnector';
+import { AuthActions, SHOULD_SIGN_IN } from '../reducers/AuthReducer';
 
 // Receives all actions but only processes ones defined below before they reach the store's reducer.
 export const apiMiddleware: Middleware = (store) => (next: Dispatch<any>) => (action) => {
+  // TODO switch to async
   switch (action.type) {
     case SHOULD_SIGN_IN:
       login()
-        .then((response) => {
-          // @ts-ignore
-          if (response.ok) store.dispatch(SignInActions.didSignIn(response.parsedBody));
+        .then((response: IHttpResponse<LoginResponse>) => {
+          store.dispatch(
+            AuthActions.didSignIn({
+              submitting: false,
+              token: response.parsedBody?.token,
+              generalErrors: []
+            })
+          )
         })
         .catch(() => {
-          let signInResponse: ISignInState = {
-            submitting: false,
-            generalErrors: [
-              'Unable to connect to API',
-              'Internet connection very slow',
-            ],
-          }
-          store.dispatch(SignInActions.didSignIn(signInResponse));
+          store.dispatch(
+            AuthActions.didSignIn({
+              token: undefined,
+              submitting: false,
+              generalErrors: [
+                'Unable to connect to API',
+                'Internet connection very slow',
+              ],
+            })
+          );
         })
 
       break;
