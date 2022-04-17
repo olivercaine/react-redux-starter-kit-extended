@@ -2,7 +2,7 @@ import { createAction, IActionWithPayload } from '@olliecaine/reducers';
 import { IState } from '../routes/SignInForm/components/SignInFormWrapper';
 
 export interface IAuthState {
-  token: string | undefined;
+  token?: string;
   submitting: boolean;
   generalErrors?: string[];
 }
@@ -31,7 +31,7 @@ export const AuthActions = {
 // ------------------------------------
 // Domain & State
 // ------------------------------------
-export const initialState: IAuthState = { submitting: false, token: undefined };
+export const initialState: IAuthState = { submitting: false };
 
 // ------------------------------------
 // Reducer

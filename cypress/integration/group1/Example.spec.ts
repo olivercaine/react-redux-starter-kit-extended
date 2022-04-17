@@ -5,23 +5,33 @@ describe('Example', () => {
     cy.visit('/')
   })
 
-  describe('UI', () => {
+  describe('Home', () => {
     it('Contains header "React Redux Starter Kit"', () => {
       cy.contains('React Redux Starter Kit').screenshot()
     })
   })
 
-  it('Increment button increases the counter value', () => {
-    cy.get('a:contains(Counter)').click()
-    cy.get('button:contains(Increment)').click()
-    cy.contains('Counter: 1')
-  })
+  describe('Counter', () => {
+    it('Increment button increases the counter value', () => {
+      cy.get('a:contains(Counter)').click()
+      cy.get('button:contains(Increment)').click()
+      cy.contains('Counter: 1')
+    })
 
-  it('Double (Async) doubles the counter value', () => {
-    cy.get('a:contains(Counter)').click()
-    cy.get('button:contains(Increment)').click()
-    cy.get('button:contains(Double (Async))').click()
-    cy.contains('Counter: 2')
+    it('Double (Async) doubles the counter value', () => {
+      cy.get('a:contains(Counter)').click()
+      cy.get('button:contains(Increment)').click()
+      cy.get('button:contains(Double (Async))').click()
+      cy.contains('Counter: 2')
+    })
+
+    it('State is retained on reload', () => {
+      cy.get('a:contains(Counter)').click()
+      cy.get('button:contains(Increment)').click()
+      cy.contains('Counter: 1')
+      cy.reload()
+      cy.contains('Counter: 1')
+    })
   })
 
   it('SignInFormWrapper performs auth request', () => {
