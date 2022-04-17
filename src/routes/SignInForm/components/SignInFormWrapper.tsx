@@ -12,6 +12,7 @@ export interface IPropsFromState {
   initialValues?: IState
   customProp?: string
   submitting?: boolean
+  token?: string
   generalErrors?: string[]
 }
 
@@ -85,6 +86,9 @@ export const SignInFormWrapper = withFormik<IProps, IState>({
     <br />
 
     <input disabled={props.submitting} type='submit' value={!props.submitting ? 'Login' : 'Logging in...'} />
+
+    <p>Token: {props.token}</p>
+
   </form>
 
 ));

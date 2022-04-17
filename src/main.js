@@ -1,11 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { initialRootState } from './State'
 import createStore from './store/createStore'
 import './styles/main.scss'
 
-// Store Initialization
-// ------------------------------------
-const store = createStore()
+// Store Initialization - with state
+const store = createStore(JSON.parse(sessionStorage.getItem('ROOT_STATE')) || initialRootState)
+
+// Persist state
+store.subscribe(() => {
+  sessionStorage.setItem('ROOT_STATE', JSON.stringify(store.getState()))
+})
 
 // Render Setup
 // ------------------------------------

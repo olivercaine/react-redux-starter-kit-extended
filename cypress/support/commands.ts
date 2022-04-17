@@ -1,3 +1,4 @@
+/// <reference types="cypress" />
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -23,3 +24,19 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+declare global {
+  namespace Cypress { // eslint-disable-line @typescript-eslint/no-namespace
+    interface Chainable<Subject> {
+      login(username: string, password: string): void;
+    }
+  }
+}
+
+Cypress.Commands.add('login', (username, password) => {
+  cy.get('input[type=email]').type(username);
+  cy.get('input[type=password]').type(password);
+  cy.get('form:first').submit();
+});
+
+export { }; // Convert this to a module so Cypress can be defined globally

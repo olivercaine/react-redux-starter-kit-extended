@@ -1,37 +1,36 @@
-import { createAction } from '@olliecaine/reducers';
-import { Middleware } from 'redux';
-import { createRandomNumber } from '../connectors/ApiConnector';
-import { DID_SIGN_IN, SHOULD_SIGN_IN } from '../reducers/SignInReducer';
-import {
-  COUNTER_DOUBLE_ASYNC,
-  COUNTER_INCREMENT
-} from '../routes/Counter/modules/counter';
+import { IHttpResponse } from '@olliecaine/fetch';
+import { Dispatch, Middleware } from 'redux';
+import { login, LoginResponse } from '../connectors/ApiConnector';
+import { AuthActions, SHOULD_SIGN_IN } from '../reducers/AuthReducer';
 
 // Receives all actions but only processes ones defined below before they reach the store's reducer.
-export const apiMiddleware: Middleware = (store) => (next) => (action) => {
+export const apiMiddleware: Middleware = (store) => (next: Dispatch<any>) => (action) => {
+  // TODO switch to async
   switch (action.type) {
-    case COUNTER_DOUBLE_ASYNC:
-      // Listen for double number action then add random number from API response
-      createRandomNumber(3000)
-        .then((response) => {
+    case SHOULD_SIGN_IN:
+      login()
+        .then((response: IHttpResponse<LoginResponse>) => {
           store.dispatch(
-            createAction(COUNTER_INCREMENT, response.randomNumber),
+            AuthActions.didSignIn({
+              submitting: false,
+              token: response.parsedBody?.token,
+              generalErrors: []
+            })
+          )
+        })
+        .catch(() => {
+          store.dispatch(
+            AuthActions.didSignIn({
+              token: undefined,
+              submitting: false,
+              generalErrors: [
+                'Unable to connect to API',
+                'Internet connection very slow',
+              ],
+            })
           );
         })
-        .catch((error) => {
-          store.dispatch(createAction(COUNTER_DOUBLE_ASYNC + '_ERROR', error));
-        });
-      break;
-    case SHOULD_SIGN_IN:
-      setTimeout(() => {
-        const mockApiResponse = {
-          generalErrors: [
-            'Unable to connect to API',
-            'Internet connection very slow',
-          ],
-        };
-        store.dispatch(createAction(DID_SIGN_IN, mockApiResponse));
-      }, 2000);
+
       break;
   }
   return next(action);

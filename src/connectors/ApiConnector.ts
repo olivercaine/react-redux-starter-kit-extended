@@ -1,10 +1,7 @@
-import Urls from '../routes/Urls';
+import { IHttpResponse, post } from '@olliecaine/fetch';
 
-async function fetchAsync (url: string) {
-  const response = await fetch(url);
-  return response.json();
-}
-
-export async function createRandomNumber (delay: number): Promise<{ randomNumber: number }> {
-  return fetchAsync(`${Urls.randomNumber}?t=${delay}`);
-}
+export interface LoginResponse {
+  token: string
+};
+export const login = async (creds = undefined): Promise<IHttpResponse<LoginResponse>> =>
+  post<LoginResponse>(`http://www.google.com/authenticate`, creds)

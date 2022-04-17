@@ -12,7 +12,7 @@ export default (store) => ({
       /*  Webpack - use require callback to define
           dependencies for bundling   */
       const Counter = require('./containers/FormContainer').default
-      const reducer = require('../../reducers/SignInReducer').signinReducer
+      const reducer = require('../../reducers/AuthReducer').authReducer
 
       /*  Add the reducer to the store on key 'counter'  */
       injectReducer(store, { key: 'signInForm', reducer })
