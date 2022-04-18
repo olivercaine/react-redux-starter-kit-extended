@@ -24,6 +24,12 @@ if (project.env === 'development') {
     path: '/__webpack_hmr'
   }))
 
+  // Useful when needing a fake endpoint
+  app.post('/mock', (req, res) => {
+    let delay = isNaN(req.query.t) ? 2000 : parseInt(req.query.t)
+    setTimeout(() => res.status(200).send({ token: Math.floor(Math.random() * 11) }), delay)
+  })
+
   // Serve static assets from ~/public since Webpack is unaware of
   // these files. This middleware doesn't need to be enabled outside
   // of development since this directory will be copied into ~/dist

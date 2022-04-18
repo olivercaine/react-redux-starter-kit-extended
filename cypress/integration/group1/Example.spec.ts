@@ -1,13 +1,14 @@
-import { LoginResponse } from './../../../src/connectors/ApiConnector';
+import { authApi, LoginResponse } from './../../../src/connectors/ApiConnector';
 
 describe('Example', () => {
   beforeEach(() => {
     cy.visit('/')
+    sessionStorage.clear()
   })
 
   describe('Home', () => {
     it('Contains header "React Redux Starter Kit"', () => {
-      cy.contains('React Redux Starter Kit').screenshot()
+      cy.contains('React Redux Starter Kit')
     })
   })
 
@@ -32,13 +33,27 @@ describe('Example', () => {
       cy.reload()
       cy.contains('Counter: 1')
     })
+
+    it('Increases on login attempt', () => {
+      cy.get('a:contains(SignInFormWrapper)').click()
+
+      cy.intercept('POST', authApi, (req) => {
+        req.reply({
+          token: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0b3B0YWwuY29tIiwiZXhw`
+        } as LoginResponse);
+      });
+
+      cy.login('me@mail.com', 'paS$w0rd')
+
+      cy.contains('Login attempts: 1')
+    })
   })
 
   it('SignInFormWrapper performs auth request', () => {
     cy.get('a:contains(SignInFormWrapper)').click()
     cy.login('me@mail.com', 'paS$w0rd')
 
-    cy.intercept('POST', 'http://www.google.com/authenticate', (req) => {
+    cy.intercept('POST', authApi, (req) => {
       req.reply({
         token: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0b3B0YWwuY29tIiwiZXhw`
       } as LoginResponse);

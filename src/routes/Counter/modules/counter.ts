@@ -5,6 +5,11 @@ import { ERROR_SUFFIX } from './../../../middleware/ErrorLogger';
 // ------------------------------------
 // Constants
 // ------------------------------------
+export const DEFAULT_INCREMENT = 1;
+
+// ------------------------------------
+// Action names
+// ------------------------------------
 export const COUNTER_INCREMENT = 'COUNTER_INCREMENT';
 export const COUNTER_DOUBLE_ASYNC = 'COUNTER_DOUBLE_ASYNC';
 
@@ -24,6 +29,13 @@ export const doubleAsync = () => {
     }
   };
 };
+
+// ------------------------------------
+// Action Creators
+// ------------------------------------
+export const CounterActions = {
+  increment: (number: number = DEFAULT_INCREMENT) => createAction(COUNTER_INCREMENT, number),
+}
 
 // ------------------------------------
 // Action Handlers

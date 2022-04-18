@@ -1,3 +1,4 @@
 export default {
-  form:         '/form',
+  form: '/form',
+  authApi: 'http://www.google.com/authenticate'
 }

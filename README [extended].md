@@ -1,49 +1,25 @@
 # README [extended]
 
-## Automatic pulling of submodules
-
-This project contains subprojects in the form of [git submodules](https://git-scm.com/docs/git-submodule) to benefit from pre-written and pre-tested reusable code. These submodules are referenced via a specific commit however when switching branches the code relating to the specific commit of the branch isn't automatically pulled.
-
-To enable automatic pulling of the specific commit of a submodule, run the following command (this enables automatic pulling system-wide so it'll also automatically pull submodules on your other projects):
-
-```shell
-git config --global submodule.recurse true
-```
-
-## Develop the app using Docker
-
-```shell
-docker-compose up
-```
-
-## Unit testing
-
-Unit tests can be can and debugged using the VsCode debugger + the following extensions:
-
-1. [Test Explorer UI](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-test-explorer) (tested with v2.19.1)
-2. [Mocha Test Explorer](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-mocha-test-adapter) (tested with v2.7.2)
-
-
-## Creating a new route
+## ## Creating a new route
 
 1. Duplicate any folder inside /src/routes.
 
-1. Rename the new folder to something sensible, e.g. "ContactUs".
+2. Rename the new folder to something sensible, e.g. "ContactUs".
 
-1. Inside the new folder, open index.js and update the path property to the URL of your new route, e.g. "contact-us"
+3. Inside the new folder, open index.js and update the path property to the URL of your new route, e.g. "contact-us"
 
-1. Open /src/routes/index.js and add the new route to the child routes, e.g.
+4. Open /src/routes/index.js and add the new route to the child routes, e.g.
 
 ```javascript
 import ContactUs from './ContactUs'
 
 export const createRoutes = (store) => ({
-	path        : '/',
-	component   : CoreLayout,
-	indexRoute  : Home,
-	childRoutes : [
-		ContactUs(store)
-	]
+    path        : '/',
+    component   : CoreLayout,
+    indexRoute  : Home,
+    childRoutes : [
+        ContactUs(store)
+    ]
 })
 ```
 
@@ -52,10 +28,6 @@ export const createRoutes = (store) => ({
 Now the route is accessible, it's time to tidy up the new code:
 
 1. Delete the folder named "components" in the new folder and create your new component in /src/components/.
-
-## Accessing global state
-
-A Reducer only has access to a specific key however it's possible to access global scope in the `mapStateToProps` function which is how you can build the data object for a specific component.
 
 ## Setting environment variables
 
@@ -66,7 +38,7 @@ These variables can have a default value and can be overridden by an NPM argumen
 ```bash
 # analyticsId has the default value "UA-XXXXXXXX-1"
 globals: {
-	analyticsId: process.env.analyticsId || 'UA-XXXXXXXX-1'
+    analyticsId: process.env.analyticsId || 'UA-XXXXXXXX-1'
 }
 
 # Which can be overridden during development...
@@ -86,15 +58,7 @@ export const Component = () => (
 )
 ```
 
-## Linting
-
-Most lint issues can be resolved automatically by using the TSLint extension in VSCode. Run the following command and restart VSCode to install it;
-
-```shell
-code --install-extension ms-vscode.vscode-typescript-tslint-plugin
-```
-
-## Redux Middleware Guide
+## Redux Middleware
 
 ### Dispatching Events
 
@@ -119,19 +83,10 @@ It's *highly* recommended to use [Typed Reducers](https://github.com/olivercaine
 1. Prevent developers from passing incorrect payload types to action creators
 2. Provide developers with the return type from the reducer
 
-## Forms
+### Mapping State to the UI
 
-*Based on [Form Principles document](https://docs.google.com/document/d/1xQbRz0F6PJH-G_fwKGbxAiGKppDeVLXqdwx-A17Upqk/edit?usp=sharing).*
+These are sometimes referred to as Redux Selectors, however they're simply methods which return Redux state to React container components. See `mapStateToProps` in [FormContainer](./src/routes/SignInForm/containers/FormContainer.ts) for an example.
 
-### SignUp
+## Linting
 
-#### Functional Spec
-
-1. ~~Prefill email field~~
-2. Form shows error response
-3. ~~Add form component to Storybook~~
-4. Button action when submitting
-
-### Technical Spec
-
-Two components: [ComponentName]Form (contains <form>) and [ComponentName]FormWrapper
+Install the recommended plugins listed in the .vscode folder to automatically fix most lint issues
