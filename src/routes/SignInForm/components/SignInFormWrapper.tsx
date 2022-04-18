@@ -49,7 +49,7 @@ export const SignInFormWrapper = withFormik<IProps, IState>({
 
     {props.customProp && <h2>{props.customProp}</h2>}
 
-    <p>Login attempts: {props.loginAttempts}</p>
+    <p>Login attempts: {props.loginAttempts || 0}</p>
 
     {!!props.generalErrors && <ul>{props.generalErrors.map((generalError, i) => <li key={i}>{generalError}</li>)}</ul>}
 
