@@ -20,7 +20,7 @@ const mapDispatchToProps: IPropsFromDispatch = {
   handleFormSubmit: (formValues: IState) => AuthActions.shouldSignIn(formValues),
 };
 
-/*  
+/*
 Note: mapStateToProps is where you should use `reselect` to create selectors, ie:
 
 import { createSelector } from 'reselect'
