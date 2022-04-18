@@ -1,4 +1,4 @@
-import { LoginResponse } from './../../../src/connectors/ApiConnector';
+import { authApi, LoginResponse } from './../../../src/connectors/ApiConnector';
 
 describe('Example', () => {
   beforeEach(() => {
@@ -34,21 +34,17 @@ describe('Example', () => {
     })
 
     it.skip('Increases on login attempt', () => { // TODO: Fix this test
-      cy.get('a:contains(Counter)').click()
-      cy.contains('Counter: 0')
-
       cy.get('a:contains(SignInFormWrapper)').click()
       cy.login('me@mail.com', 'paS$w0rd')
 
-      cy.intercept('POST', 'http://www.google.com/authenticate', (req) => {
+      cy.intercept('POST', authApi, (req) => {
         req.reply({
           token: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0b3B0YWwuY29tIiwiZXhw`
         } as LoginResponse);
       });
-      cy.get('button:contains(Login)').click().pause()
+      cy.get('button:contains(Login)').click()
 
-      cy.get('a:contains(Counter)').click()
-      cy.contains('Counter: 1')
+      cy.contains('Login attempts: 1')
     })
   })
 
@@ -56,7 +52,7 @@ describe('Example', () => {
     cy.get('a:contains(SignInFormWrapper)').click()
     cy.login('me@mail.com', 'paS$w0rd')
 
-    cy.intercept('POST', 'http://www.google.com/authenticate', (req) => {
+    cy.intercept('POST', authApi, (req) => {
       req.reply({
         token: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0b3B0YWwuY29tIiwiZXhw`
       } as LoginResponse);

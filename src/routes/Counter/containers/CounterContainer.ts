@@ -6,8 +6,7 @@ import { createAction } from '@olliecaine/reducers';
 import { connect } from 'react-redux';
 import { IRootState } from '../../../Definitions';
 import { Counter as Component } from '../components/Counter';
-import { doubleAsync } from '../modules/counter';
-import { Defaults } from './../../../Constants';
+import { DEFAULT_INCREMENT, doubleAsync } from '../modules/counter';
 import { COUNTER_INCREMENT } from './../modules/counter';
 
 /*  Object of action creators (can also be function that returns object).
@@ -16,7 +15,7 @@ import { COUNTER_INCREMENT } from './../modules/counter';
 
 const mapDispatchToProps = {
   doubleAsync,
-  increment: () => createAction(COUNTER_INCREMENT, Defaults.Increment),
+  increment: () => createAction(COUNTER_INCREMENT, DEFAULT_INCREMENT),
 };
 
 const mapStateToProps = (state: IRootState) => ({
