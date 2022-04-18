@@ -14,6 +14,7 @@ export interface IPropsFromState {
   submitting?: boolean
   token?: string
   generalErrors?: string[]
+  loginAttempts: Number
 }
 
 export interface IPropsFromDispatch {
@@ -47,6 +48,8 @@ export const SignInFormWrapper = withFormik<IProps, IState>({
   <form autoComplete='on' noValidate onSubmit={props.handleSubmit}>
 
     {props.customProp && <h2>{props.customProp}</h2>}
+
+    <p>Login attempts: {props.loginAttempts}</p>
 
     {!!props.generalErrors && <ul>{props.generalErrors.map((generalError, i) => <li key={i}>{generalError}</li>)}</ul>}
 
@@ -85,7 +88,9 @@ export const SignInFormWrapper = withFormik<IProps, IState>({
 
     <br />
 
-    <input disabled={props.submitting} type='submit' value={!props.submitting ? 'Login' : 'Logging in...'} />
+    <button disabled={props.submitting}>
+      {!props.submitting ? 'Login' : 'Logging in...'}
+    </button>
 
     <p>Token: {props.token}</p>
 
