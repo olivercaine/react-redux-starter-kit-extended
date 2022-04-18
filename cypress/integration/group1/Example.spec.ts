@@ -34,16 +34,16 @@ describe('Example', () => {
       cy.contains('Counter: 1')
     })
 
-    it.skip('Increases on login attempt', () => { // TODO: Fix this test
+    it('Increases on login attempt', () => {
       cy.get('a:contains(SignInFormWrapper)').click()
-      cy.login('me@mail.com', 'paS$w0rd')
 
       cy.intercept('POST', authApi, (req) => {
         req.reply({
           token: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0b3B0YWwuY29tIiwiZXhw`
         } as LoginResponse);
       });
-      cy.get('button:contains(Login)').click()
+
+      cy.login('me@mail.com', 'paS$w0rd')
 
       cy.contains('Login attempts: 1')
     })

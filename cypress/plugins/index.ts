@@ -14,8 +14,8 @@
 /**
  * @type {Cypress.PluginConfig}
  */
-// eslint-disable-next-line no-unused-vars
 export default function (/*on: any, config: any*/) {
+  // TODO https://selleo.com/til/posts/rvajzbhbww-loading-react-redux-dev-tools-in-cypress
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
 }
