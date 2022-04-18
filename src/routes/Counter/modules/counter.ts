@@ -31,6 +31,13 @@ export const doubleAsync = () => {
 };
 
 // ------------------------------------
+// Action Creators
+// ------------------------------------
+export const CounterActions = {
+  increment: (number: number = DEFAULT_INCREMENT) => createAction(COUNTER_INCREMENT, number),
+}
+
+// ------------------------------------
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {

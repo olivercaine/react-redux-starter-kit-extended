@@ -3,11 +3,12 @@ import { authApi, LoginResponse } from './../../../src/connectors/ApiConnector';
 describe('Example', () => {
   beforeEach(() => {
     cy.visit('/')
+    sessionStorage.clear()
   })
 
   describe('Home', () => {
     it('Contains header "React Redux Starter Kit"', () => {
-      cy.contains('React Redux Starter Kit').screenshot()
+      cy.contains('React Redux Starter Kit')
     })
   })
 
