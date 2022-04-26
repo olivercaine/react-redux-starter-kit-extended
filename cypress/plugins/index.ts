@@ -14,7 +14,7 @@
 /**
  * @type {Cypress.PluginConfig}
  */
-export default function (/*on: any, config: any*/) {
+export default function (/* on: Cypress.PluginEvents, config: Cypress.PluginConfigOptions */) {
   // TODO https://selleo.com/til/posts/rvajzbhbww-loading-react-redux-dev-tools-in-cypress
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
