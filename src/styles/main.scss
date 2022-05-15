@@ -1,7 +1,9 @@
 @use './colors';
 @import '~bootstrap/scss/bootstrap.scss';
 @import './best-practice-defaults';
+@import './fonts';
 
 body {
   background-color: colors.$brand-primary;
+  font-family: "LiberationSans";
 }
