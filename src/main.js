@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { initialRootState } from './State'
 import createStore from './store/createStore'
-import './styles/main.scss'
 
 // Store Initialization - with state
 const store = createStore(JSON.parse(sessionStorage.getItem('ROOT_STATE')) || initialRootState)
