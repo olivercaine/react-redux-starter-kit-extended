@@ -1,3 +1,5 @@
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
@@ -6,9 +8,21 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  viewport: {
+    defaultViewport: 'iphone5',
+    viewports: INITIAL_VIEWPORTS
+  },
   options: {
     storySort: {
-      order: ['Principles', 'Basics', 'Components', 'Templates', 'Features', '*'],
+      order: [
+        'Applications',
+        'Features',
+        'Templates',
+        'Components',
+        'Basics',
+        'Principles',
+        '*'
+      ],
     },
   },
 }

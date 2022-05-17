@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import { ComponentMeta } from '@storybook/react';
-import { templateForComponent } from '../../../../.storybook/helper';
+import { componentTemplate } from '../../../../.storybook/helper';
 import { Counter, IProps } from './Counter';
 
 export default {
@@ -8,7 +8,7 @@ export default {
   title: 'Components/Counter',
 } as ComponentMeta<typeof Counter>;
 
-const template = templateForComponent(Counter);
+const template = componentTemplate(Counter);
 
 const defaultArgs: IProps = {
   counter: 0,
