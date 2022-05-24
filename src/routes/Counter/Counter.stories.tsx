@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import { Meta } from '@storybook/react';
 import * as React from 'react';
-import CoreLayout from '../../layouts/PageLayout/PageLayout';
+import CoreLayout from '../../layouts/PageLayout';
 import { Counter } from './components/Counter';
 
 export default {

@@ -1,5 +1,5 @@
 // We only need to import the modules necessary for initial render
-import CoreLayout from '../layouts/PageLayout/PageLayout'
+import CoreLayout from '../layouts/PageLayout'
 import CounterRoute from './Counter'
 import Home from './Home'
 import FormRoute from './SignInForm/index'

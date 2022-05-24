@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react';
 import * as React from 'react';
-import CoreLayout from '../../layouts/PageLayout/PageLayout';
+import CoreLayout from '../../layouts/PageLayout';
 import { SignInFormWrapper } from './components/SignInFormWrapper';
 
 export default {
