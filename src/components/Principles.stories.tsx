@@ -6,7 +6,7 @@ export default {
   title: 'Principles',
   parameters: {
     viewport: {
-      defaultViewport: null,
+      defaultViewport: 'desktop',
     },
   },
 } as Meta;
