@@ -17,6 +17,7 @@
     "diagnostics": true, // Used to output diagnostic information for debugging
     "noUnusedLocals": false, // Report errors on unused local variables
     "noUnusedParameters": false, // Report errors on unused parameters in functions
+    "removeComments": true, // Strip all comments from TypeScript files when converting into JavaScript
     "lib": [
       "es2015",
       "dom"
