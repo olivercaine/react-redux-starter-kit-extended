@@ -16,7 +16,7 @@ store.subscribe(() => {
 const MOUNT_NODE = document.getElementById('root')
 
 let render = () => {
-  const App = require('./components/App').default
+  const App = require('./App').default
   const routes = require('./routes').default(store)
 
   ReactDOM.render(
@@ -47,7 +47,7 @@ if (__DEV__) {
 
     // Setup hot module replacement
     module.hot.accept([
-      './components/App',
+      './App',
       './routes/index',
     ], () =>
       setTimeout(() => {
