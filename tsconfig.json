@@ -17,6 +17,7 @@
     "diagnostics": true, // Used to output diagnostic information for debugging
     "noUnusedLocals": false, // Report errors on unused local variables
     "noUnusedParameters": false, // Report errors on unused parameters in functions
+    "noFallthroughCasesInSwitch": true, // Report errors for fallthrough cases in switch statements to prevent a case fallthrough bug
     "lib": [
       "es2015",
       "dom"
