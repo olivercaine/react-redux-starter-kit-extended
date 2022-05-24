@@ -11,7 +11,7 @@ const config: StorybookConfig = {
     "@storybook/addon-essentials",
   ],
   core: {
-    "builder": "webpack5"
+    builder: "webpack5"
   },
   features: { // Was failing node 10 build
     storyStoreV7: true, // https://storybook.js.org/docs/react/configure/webpack#bundle-splitting
