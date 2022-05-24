@@ -17,6 +17,8 @@
     "diagnostics": true, // Used to output diagnostic information for debugging
     "noUnusedLocals": false, // Report errors on unused local variables
     "noUnusedParameters": false, // Report errors on unused parameters in functions
+    "noFallthroughCasesInSwitch": true, // Report errors for fallthrough cases in switch statements to prevent a case fallthrough bug
+    "allowUnreachableCode": false, // Raise compiler error if code is unreachable
     "esModuleInterop": true, // Import non-ES modules as default imports.
     "removeComments": true, // Strip all comments from TypeScript files when converting into JavaScript
     "lib": [
