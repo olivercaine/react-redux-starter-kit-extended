@@ -17,6 +17,7 @@
     "diagnostics": true, // Used to output diagnostic information for debugging
     "noUnusedLocals": false, // Report errors on unused local variables
     "noUnusedParameters": false, // Report errors on unused parameters in functions
+    "esModuleInterop": true, // Import non-ES modules as default imports.
     "lib": [
       "es2015",
       "dom"
