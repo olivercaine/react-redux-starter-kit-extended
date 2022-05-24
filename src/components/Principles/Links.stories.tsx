@@ -14,6 +14,11 @@ export default {
 export const Links: Story = () => <div>
   <h2>Design</h2>
   <ol>
-    <li>Link text should be descriptive, e.g. "If you want to learn more, <a href='#'>read our documentation</a>" is a lot easier for users to find than "If you want to learn more, read our documentation <a href='#'>here</a>"</li>
+    <li>Link text should be descriptive so that users can quickly find what they're looking for.
+      <ol>
+        <li>Ok: "If you want to learn more, read our documentation <a href='#'>here</a>"</li>
+        <li>Better: "If you want to learn more, <a href='#'>read our documentation</a>"</li>
+      </ol>
+    </li>
   </ol>
 </div>
