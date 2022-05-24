@@ -18,6 +18,7 @@
     "noUnusedLocals": false, // Report errors on unused local variables
     "noUnusedParameters": false, // Report errors on unused parameters in functions
     "esModuleInterop": true, // Import non-ES modules as default imports.
+    "removeComments": true, // Strip all comments from TypeScript files when converting into JavaScript
     "lib": [
       "es2015",
       "dom"
