@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button } from '../../../components/Button'
+import { Button } from '../../../ui/basics/Button'
 
 export interface IProps {
   /**
