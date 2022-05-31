@@ -18,7 +18,7 @@
     "integration": "start-server-and-test start 3000 'cypress run --headed --browser chrome'",
     "build": "npm run clean && npm run build-storybook && cross-env NODE_ENV=production npm run compile",
     "build-storybook": "build-storybook -o ./dist/storybook",
-    "health-check": "concurrently 'npm run lint' 'npm test' 'npm run test:storybook' 'npm run build'"
+    "health-check": "concurrently 'npm run lint --quiet' 'npm test' 'npm run test:storybook' 'npm run build'"
   },
   "husky": {
     "hooks": {
