@@ -1,7 +1,7 @@
+import { emailValidation, passwordValidation } from '@olliecaine/form-validation';
 import { FormikBag, FormikProps, withFormik } from 'formik';
 import * as React from 'react';
 import * as Yup from 'yup';
-import { emailValidation, passwordValidation } from '../../../utils/YupValidation';
 
 export interface IState { // (form values)
   email: string
