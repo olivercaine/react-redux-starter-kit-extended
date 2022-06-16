@@ -1,4 +1,4 @@
-import { authApi, LoginResponse } from './../../../src/connectors/ApiConnector';
+import { authApi, LoginResponse } from '../../../src/connectors/ApiConnector';
 
 describe('Example', () => {
   beforeEach(() => {
