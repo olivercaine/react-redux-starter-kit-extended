@@ -9,7 +9,7 @@ FROM stage-develop as stage-build
 # Install dependencies first so cache layer isn't invalidated by source code changes. 
 # TODO: Switch to sharing volume with running container.
 COPY package*.json ./
-RUN npm ci
+RUN npm ci --no-audit
 
 COPY . ./
 RUN npm run health-check
