@@ -15,7 +15,7 @@ const config: StorybookConfig = {
   core: {
     builder: "webpack5"
   },
-  features: { // Was failing node 10 build
+  features: {
     interactionsDebugger: true, // Enable playback controls
     storyStoreV7: true, // https://storybook.js.org/docs/react/configure/webpack#bundle-splitting
   },
