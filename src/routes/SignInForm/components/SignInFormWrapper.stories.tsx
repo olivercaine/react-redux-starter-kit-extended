@@ -12,7 +12,7 @@ export default {
 const template = componentTemplate(SignInFormWrapper);
 
 const defaultArgs: IProps = {
-  handleFormSubmit: action('Clicked')
+  onSubmit: action('Clicked')
 }
 
 export const Default = template({ ...defaultArgs });
