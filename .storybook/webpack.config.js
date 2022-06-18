@@ -1,5 +1,4 @@
 const path = require('path');
-const webpackConfig = require('../build/webpack.config')
 
 module.exports = {
 	resolve: {
