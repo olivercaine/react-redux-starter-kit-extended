@@ -1,7 +1,7 @@
+import { emailValidation, passwordValidation } from '@olliecaine/form-validation';
 import { FormikBag, FormikProps, withFormik } from 'formik';
-import * as React from 'react';
+import React, { FC } from 'react';
 import * as Yup from 'yup';
-import { emailValidation, passwordValidation } from '../../../utils/YupValidation';
 
 export interface IState { // (form values)
   email: string
@@ -18,12 +18,12 @@ export interface IPropsFromState {
 }
 
 export interface IPropsFromDispatch {
-  handleFormSubmit(formValues: IState): any
+  onSubmit(formValues: IState): any
 }
 
-interface IProps extends IPropsFromDispatch, IPropsFromState { }
+export interface IProps extends IPropsFromDispatch, IPropsFromState { }
 
-export const SignInFormWrapper = withFormik<IProps, IState>({
+const SignInForm = withFormik<IProps, IState>({
 
   // Set up form
   mapPropsToValues: (props: IPropsFromState): IState => {
@@ -39,7 +39,7 @@ export const SignInFormWrapper = withFormik<IProps, IState>({
   }),
 
   handleSubmit: (formValues: IState, formikBag: FormikBag<IProps, IState>) => {
-    formikBag.props.handleFormSubmit(formValues);
+    formikBag.props.onSubmit(formValues);
   },
   // END: Set up form
 
@@ -57,6 +57,7 @@ export const SignInFormWrapper = withFormik<IProps, IState>({
       <label htmlFor='email'>Email</label>
       <input
         autoFocus
+        data-testid='email'
         name='email'
         type='email'
         onBlur={props.handleBlur}
@@ -76,6 +77,7 @@ export const SignInFormWrapper = withFormik<IProps, IState>({
       <input
         name='password'
         type='password'
+        data-testid='password'
         placeholder='password'
         onBlur={props.handleBlur}
         onChange={props.handleChange}
@@ -97,3 +99,5 @@ export const SignInFormWrapper = withFormik<IProps, IState>({
   </form>
 
 ));
+
+export const SignInFormWrapper: FC<IProps> = (props: IProps) => <SignInForm {...props} />

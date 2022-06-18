@@ -35,7 +35,7 @@
     "no-unused-vars"       : "off",
     "key-spacing"          : "off",
     "jsx-quotes"           : [2, "prefer-single"],
-    "max-len"              : [2, 120, 2],
+    "max-len"              : [2, 140, 2],
     "object-curly-spacing" : [2, "always"],
     "no-null/no-null"      : 2,
     "semi"                 : "off",

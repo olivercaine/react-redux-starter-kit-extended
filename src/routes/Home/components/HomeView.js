@@ -1,6 +1,6 @@
 import { Months } from '@olliecaine/months'
 import React from 'react'
-import { MonthBlurb } from '../../../components/MonthBlurb'
+import { MonthBlurb } from '../../../ui/components/MonthBlurb'
 import DuckImage from '../assets/Duck.jpg'
 import './HomeView.scss'
 

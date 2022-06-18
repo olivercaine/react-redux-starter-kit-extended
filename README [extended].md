@@ -1,6 +1,6 @@
 # README [extended]
 
-## ## Creating a new route
+## Creating a new route
 
 1. Duplicate any folder inside /src/routes.
 

@@ -1,37 +1,67 @@
 import { action } from '@storybook/addon-actions';
-import { Meta } from '@storybook/react';
-import * as React from 'react';
-import { SignInFormWrapper } from './SignInFormWrapper';
+import { ComponentMeta } from '@storybook/react';
+import { userEvent, within } from '@storybook/testing-library';
+import { componentTemplate } from '../../../../.storybook/helper';
+import { IProps, SignInFormWrapper } from './SignInFormWrapper';
 
 export default {
   component: SignInFormWrapper,
   title: 'Components/SignInFormWrapper',
-} as Meta;
+} as ComponentMeta<typeof SignInFormWrapper>;
 
-const handleFormSubmit = action('handleFormSubmit callback')
+const template = componentTemplate(SignInFormWrapper);
 
-export const Default: React.VFC<{}> = () => <SignInFormWrapper
-  handleFormSubmit={action('handleFormSubmit callback')}
-/>;
+const defaultArgs: IProps = {
+  onSubmit: action('Clicked')
+}
 
-export const WithInitalValues: React.VFC<{}> = () => <SignInFormWrapper
-  initialValues={{ email: 'olliecaine@gmail.com', password: 'pass123' }}
-  handleFormSubmit={handleFormSubmit}
-/>;
+export const Default = template({ ...defaultArgs });
 
-export const Submitting: React.VFC<{}> = () => <SignInFormWrapper
-  initialValues={{ email: 'olliecaine@gmail.com', password: 'pass123' }}
-  handleFormSubmit={handleFormSubmit}
-  submitting
-/>;
+export const WithInitialValues = template({
+  ...defaultArgs,
+  initialValues: {
+    email: 'olliecaine@gmail.com',
+    password: 'pass123'
+  }
+})
 
-export const WithErrors: React.VFC<{}> = () => <SignInFormWrapper
-  generalErrors={['Server validation failed']}
-  handleFormSubmit={handleFormSubmit}
-/>;
+export const WithProp = template({
+  ...defaultArgs,
+  customProp: 'A custom prop'
+})
 
-export const WithProp: React.VFC<{}> = () => <SignInFormWrapper
-  customProp='A custom prop'
-  generalErrors={['Server validation failed']}
-  handleFormSubmit={handleFormSubmit}
-/>;
+export const WithGeneralErrors = template({
+  ...defaultArgs,
+  generalErrors: ['Server validation failed']
+})
+
+export const RequiresEmail = template({ ...defaultArgs });
+RequiresEmail.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  await userEvent.click(canvas.getByRole('button'));
+  // await expect(canvas.getByText('Email is required')).toBeInTheDocument();
+}
+
+export const PasswordIsRequired = template({ ...defaultArgs });
+PasswordIsRequired.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  await userEvent.type(canvas.getByTestId('email'), 'me@mail.com');
+  await userEvent.click(canvas.getByRole('button'));
+  // await expect(canvas.getByText('Password is required')).toBeInTheDocument();
+}
+
+export const Submitting = template({
+  ...defaultArgs,
+  initialValues: {
+    email: 'olliecaine@gmail.com',
+    password: 'pass123'
+  },
+  submitting: true
+})
+Submitting.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  await userEvent.type(canvas.getByTestId('email'), 'michael@chromatic.com');
+  await userEvent.type(canvas.getByTestId('password'), 'pass');
+  await userEvent.click(canvas.getByRole('button'));
+  // await expect(canvas.getByText('Password needs at least one uppercase letter')).toBeInTheDocument();
+}

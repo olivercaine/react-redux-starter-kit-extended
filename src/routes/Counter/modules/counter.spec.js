@@ -1,7 +1,7 @@
 import { createAction } from '@olliecaine/reducers'
 import {
   counterReducer, COUNTER_INCREMENT,
-  doubleAsync
+  onDoubleAsync
 } from 'routes/Counter/modules/counter'
 
 describe('(Redux Module) Counter', () => {
@@ -44,7 +44,7 @@ describe('(Redux Module) Counter', () => {
     })
   })
 
-  describe('(Action Creator) doubleAsync', () => {
+  describe('(Action Creator) onDoubleAsync', () => {
     let _globalState
     let _dispatchSpy
     let _getStateSpy
@@ -65,19 +65,19 @@ describe('(Redux Module) Counter', () => {
     })
 
     it('Should be exported as a function.', () => {
-      expect(doubleAsync).to.be.a('function')
+      expect(onDoubleAsync).to.be.a('function')
     })
 
     it('Should return a function (is a thunk).', () => {
-      expect(doubleAsync()).to.be.a('function')
+      expect(onDoubleAsync()).to.be.a('function')
     })
 
     it('Should return a promise from that thunk that gets fulfilled.', () => {
-      return doubleAsync()(_dispatchSpy, _getStateSpy).should.eventually.be.fulfilled
+      return onDoubleAsync()(_dispatchSpy, _getStateSpy).should.eventually.be.fulfilled
     })
 
     it('Should call dispatch and getState exactly once.', () => {
-      doubleAsync()(_dispatchSpy, _getStateSpy)
+      onDoubleAsync()(_dispatchSpy, _getStateSpy)
         .then(() => {
           _dispatchSpy.should.have.been.calledOnce()
           _getStateSpy.should.have.been.calledOnce()
@@ -87,12 +87,12 @@ describe('(Redux Module) Counter', () => {
     it('Should produce a state that is double the previous state.', () => {
       _globalState = { counter: 2 }
 
-      doubleAsync()(_dispatchSpy, _getStateSpy)
+      onDoubleAsync()(_dispatchSpy, _getStateSpy)
         .then(() => {
           _dispatchSpy.should.have.been.calledOnce()
           _getStateSpy.should.have.been.calledOnce()
           expect(_globalState.counter).to.equal(4)
-          doubleAsync()(_dispatchSpy, _getStateSpy)
+          onDoubleAsync()(_dispatchSpy, _getStateSpy)
         })
         .then(() => {
           _dispatchSpy.should.have.been.calledTwice()

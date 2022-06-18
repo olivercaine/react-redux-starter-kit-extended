@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react';
-import * as React from 'react';
-import CoreLayout from '../../layouts/PageLayout/PageLayout';
+import React from 'react';
+import CoreLayout from '../../ui/templates/PageLayout';
 import { HomeView } from './components/HomeView';
 
 export default {

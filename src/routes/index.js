@@ -1,5 +1,5 @@
 // We only need to import the modules necessary for initial render
-import CoreLayout from '../layouts/PageLayout/PageLayout'
+import CoreLayout from '../ui/templates/PageLayout'
 import CounterRoute from './Counter'
 import Home from './Home'
 import FormRoute from './SignInForm/index'
@@ -22,7 +22,7 @@ export const createRoutes = (store) => ({
 
     getChildRoutes (location, cb) {
       require.ensure([], (require) => {
-        cb(null, [
+        cb(undefined, [
           // Remove imports!
           require('./Counter').default(store)
         ])
