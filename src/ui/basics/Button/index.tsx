@@ -5,7 +5,7 @@ export interface IProps {
   /**
   The onClick callback
   */
-  callback: any
+  onClick: any
   /**
   Text to be shown in the button
   */
@@ -13,6 +13,6 @@ export interface IProps {
 }
 
 export const Button = (props: IProps) =>
-  <button className='btn btn-primary' onClick={props.callback}>
+  <button className='btn btn-primary' onClick={props.onClick}>
     {props.text}
   </button>

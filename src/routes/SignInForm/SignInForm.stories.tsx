@@ -11,6 +11,6 @@ export default {
 export const Default: React.VFC<{}> = () =>
   <CoreLayout>
     <SignInFormWrapper
-      handleFormSubmit={() => { console.info('Custom callback') }}
+      onSubmit={() => { console.info('Custom callback') }}
     />
   </CoreLayout>

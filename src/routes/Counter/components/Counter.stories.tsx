@@ -12,8 +12,8 @@ const template = componentTemplate(Counter);
 
 const defaultArgs: IProps = {
   counter: 0,
-  doubleAsync: action('DoubleAsync callback'),
-  increment: action('Increment callback')
+  onDoubleAsync: action('DoubleAsync callback'),
+  onIncrement: action('Increment callback')
 }
 
 export const Default = template({ ...defaultArgs });

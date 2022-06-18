@@ -17,7 +17,7 @@ import { IRootState } from './../../../Definitions';
     implementing our wrapper around increment; the component doesn't care   */
 
 const mapDispatchToProps: IPropsFromDispatch = {
-  handleFormSubmit: (formValues: IState) => AuthActions.shouldSignIn(formValues),
+  onSubmit: (formValues: IState) => AuthActions.shouldSignIn(formValues),
 };
 
 /*

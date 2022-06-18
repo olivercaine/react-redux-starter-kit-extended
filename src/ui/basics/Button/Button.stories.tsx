@@ -12,7 +12,7 @@ const template = componentTemplate(Button);
 
 const defaultArgs: IProps = {
   text: 'Button text',
-  callback: action('Clicked')
+  onClick: action('Clicked')
 }
 
 export const Default = template({ ...defaultArgs, text: 'Button text override' });

@@ -18,7 +18,7 @@ export interface IPropsFromState {
 }
 
 export interface IPropsFromDispatch {
-  handleFormSubmit(formValues: IState): any
+  onSubmit(formValues: IState): any
 }
 
 interface IProps extends IPropsFromDispatch, IPropsFromState { }
@@ -39,7 +39,7 @@ export const SignInFormWrapper = withFormik<IProps, IState>({
   }),
 
   handleSubmit: (formValues: IState, formikBag: FormikBag<IProps, IState>) => {
-    formikBag.props.handleFormSubmit(formValues);
+    formikBag.props.onSubmit(formValues);
   },
   // END: Set up form
 

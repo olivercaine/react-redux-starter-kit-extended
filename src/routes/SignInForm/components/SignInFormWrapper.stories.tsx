@@ -11,27 +11,27 @@ export default {
 const handleFormSubmit = action('handleFormSubmit callback')
 
 export const Default: React.VFC<{}> = () => <SignInFormWrapper
-  handleFormSubmit={action('handleFormSubmit callback')}
+  onSubmit={action('handleFormSubmit callback')}
 />;
 
 export const WithInitalValues: React.VFC<{}> = () => <SignInFormWrapper
   initialValues={{ email: 'olliecaine@gmail.com', password: 'pass123' }}
-  handleFormSubmit={handleFormSubmit}
+  onSubmit={handleFormSubmit}
 />;
 
 export const Submitting: React.VFC<{}> = () => <SignInFormWrapper
   initialValues={{ email: 'olliecaine@gmail.com', password: 'pass123' }}
-  handleFormSubmit={handleFormSubmit}
+  onSubmit={handleFormSubmit}
   submitting
 />;
 
 export const WithErrors: React.VFC<{}> = () => <SignInFormWrapper
   generalErrors={['Server validation failed']}
-  handleFormSubmit={handleFormSubmit}
+  onSubmit={handleFormSubmit}
 />;
 
 export const WithProp: React.VFC<{}> = () => <SignInFormWrapper
   customProp='A custom prop'
   generalErrors={['Server validation failed']}
-  handleFormSubmit={handleFormSubmit}
+  onSubmit={handleFormSubmit}
 />;
