@@ -1,37 +1,40 @@
-import { action } from '@storybook/addon-actions';
 import { Meta } from '@storybook/react';
-import * as React from 'react';
-import { SignInFormWrapper } from './SignInFormWrapper';
+import { IProps, SignInFormWrapper } from './SignInFormWrapper';
 
 export default {
   component: SignInFormWrapper,
   title: 'Components/SignInFormWrapper',
 } as Meta;
 
-const handleFormSubmit = action('handleFormSubmit callback')
+import { userEvent, within } from '@storybook/testing-library';
 
-export const Default: React.VFC<{}> = () => <SignInFormWrapper
-  handleFormSubmit={action('handleFormSubmit callback')}
-/>;
+// export const CanHaveDefaultValues = {
+//   args: {
+//     initialValues: {
+//       email: "john@mail.com",
+//       password: "123"
+//     }
+//   } as IProps,
+//   play: async ({ canvasElement }) => {
+//     const canvas = within(canvasElement);
+//     // expect username to be john@mail.com
+//     // expect password to be 123
+//     // await expect(canvas.getByText('Password needs at least one uppercase letter')).to.be.true;
+//   },
+// };
 
-export const WithInitalValues: React.VFC<{}> = () => <SignInFormWrapper
-  initialValues={{ email: 'olliecaine@gmail.com', password: 'pass123' }}
-  handleFormSubmit={handleFormSubmit}
-/>;
-
-export const Submitting: React.VFC<{}> = () => <SignInFormWrapper
-  initialValues={{ email: 'olliecaine@gmail.com', password: 'pass123' }}
-  handleFormSubmit={handleFormSubmit}
-  submitting
-/>;
-
-export const WithErrors: React.VFC<{}> = () => <SignInFormWrapper
-  generalErrors={['Server validation failed']}
-  handleFormSubmit={handleFormSubmit}
-/>;
-
-export const WithProp: React.VFC<{}> = () => <SignInFormWrapper
-  customProp='A custom prop'
-  generalErrors={['Server validation failed']}
-  handleFormSubmit={handleFormSubmit}
-/>;
+export const ExpectsPasswordToBe8Characters = {
+  args: {
+    initialValues: {
+      email: "lol",
+      password: "pop"
+    }
+  } as IProps,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.type(canvas.getByTestId('email'), 'michael@chromatic.com');
+    await userEvent.type(canvas.getByTestId('password'), 'pass');
+    await userEvent.click(canvas.getByRole('button'));
+    // await expect(canvas.getByText('Password needs at least one uppercase letter')).to.be.true;
+  },
+};

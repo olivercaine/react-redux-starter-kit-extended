@@ -21,7 +21,7 @@ export interface IPropsFromDispatch {
   handleFormSubmit(formValues: IState): any
 }
 
-interface IProps extends IPropsFromDispatch, IPropsFromState { }
+export interface IProps extends IPropsFromDispatch, IPropsFromState { }
 
 export const SignInFormWrapper = withFormik<IProps, IState>({
 
@@ -57,6 +57,7 @@ export const SignInFormWrapper = withFormik<IProps, IState>({
       <label htmlFor='email'>Email</label>
       <input
         autoFocus
+        data-testid='email'
         name='email'
         type='email'
         onBlur={props.handleBlur}
@@ -76,6 +77,7 @@ export const SignInFormWrapper = withFormik<IProps, IState>({
       <input
         name='password'
         type='password'
+        data-testid='email'
         placeholder='password'
         onBlur={props.handleBlur}
         onChange={props.handleChange}

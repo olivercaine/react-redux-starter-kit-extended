@@ -2,6 +2,7 @@ import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import '../src/styles/main.scss';
 
 export const parameters = {
+  // actions: { argTypesRegex: '^on.*' }
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
     matchers: {

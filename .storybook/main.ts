@@ -8,12 +8,15 @@ const config: StorybookConfig = {
   ],
   addons: [
     "@storybook/addon-links",
+    "@storybook/addon-actions",
     "@storybook/addon-essentials",
+    "@storybook/addon-interactions",
   ],
   core: {
     builder: "webpack5"
   },
   features: { // Was failing node 10 build
+    interactionsDebugger: true, // Enable playback controls
     storyStoreV7: true, // https://storybook.js.org/docs/react/configure/webpack#bundle-splitting
   },
   typescript: {
