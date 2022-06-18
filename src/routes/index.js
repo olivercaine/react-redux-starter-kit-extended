@@ -22,7 +22,7 @@ export const createRoutes = (store) => ({
 
     getChildRoutes (location, cb) {
       require.ensure([], (require) => {
-        cb(null, [
+        cb(undefined, [
           // Remove imports!
           require('./Counter').default(store)
         ])

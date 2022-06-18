@@ -1,3 +1,4 @@
+import React from 'react'
 import { bindActionCreators } from 'redux'
 import { Counter } from 'routes/Counter/components/Counter'
 import { shallow } from '../../../../tests/enzyme-wrapper'
