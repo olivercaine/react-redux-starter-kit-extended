@@ -37,7 +37,7 @@
     "prefix": "rcc",
     "description": "A class-based React component",
     "body": [
-      "import * as React from 'react';",
+      "import React from 'react';",
       "",
       "export interface IProps {",
       "    handleClickProp: (message: string) => void",
