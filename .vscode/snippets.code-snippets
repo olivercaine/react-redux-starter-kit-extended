@@ -20,7 +20,7 @@
     "prefix": "rcf",
     "description": "A functional React component",
     "body": [
-      "import * as React from 'react';",
+      "import React, { FC } from 'react';",
       "",
       "export interface IProps {",
       "  /**",
@@ -29,7 +29,7 @@
       "  title: string",
       "}",
       "",
-      "export const ComponentName = (props: IProps) =>",
+      "export const ComponentName: FC<IProps> = (props: IProps) =>",
       "  <b>{props.title}</b>"
     ]
   },
@@ -37,7 +37,7 @@
     "prefix": "rcc",
     "description": "A class-based React component",
     "body": [
-      "import * as React from 'react';",
+      "import React from 'react';",
       "",
       "export interface IProps {",
       "    handleClickProp: (message: string) => void",

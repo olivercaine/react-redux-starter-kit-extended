@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import './Button.scss';
 
 export interface IProps {
@@ -12,7 +12,7 @@ export interface IProps {
   text: string
 }
 
-export const Button = (props: IProps) =>
+export const Button: FC<IProps> = (props: IProps) =>
   <button className='btn btn-primary' onClick={props.callback}>
     {props.text}
   </button>

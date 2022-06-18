@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/react';
-import * as React from 'react';
+import React from 'react';
 import { HomeView } from './HomeView';
 
 export default {
