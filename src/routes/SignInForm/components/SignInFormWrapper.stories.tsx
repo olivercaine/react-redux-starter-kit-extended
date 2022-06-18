@@ -1,12 +1,12 @@
 import { Meta } from '@storybook/react';
 import { IProps, SignInFormWrapper } from './SignInFormWrapper';
 
+import { userEvent, within } from '@storybook/testing-library';
+
 export default {
   component: SignInFormWrapper,
   title: 'Components/SignInFormWrapper',
 } as Meta;
-
-import { userEvent, within } from '@storybook/testing-library';
 
 // export const CanHaveDefaultValues = {
 //   args: {
@@ -26,8 +26,8 @@ import { userEvent, within } from '@storybook/testing-library';
 export const ExpectsPasswordToBe8Characters = {
   args: {
     initialValues: {
-      email: "lol",
-      password: "pop"
+      email: 'lol',
+      password: 'pop'
     }
   } as IProps,
   play: async ({ canvasElement }) => {
