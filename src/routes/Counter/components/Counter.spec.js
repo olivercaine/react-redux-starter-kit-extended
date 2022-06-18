@@ -1,4 +1,3 @@
-import React from 'react'
 import { bindActionCreators } from 'redux'
 import { Counter } from 'routes/Counter/components/Counter'
 import { shallow } from '../../../../tests/enzyme-wrapper'
@@ -11,7 +10,7 @@ describe('(Component) Counter', () => {
     _props = {
       counter : 5,
       ...bindActionCreators({
-        doubleAsync : (_spies.doubleAsync = sinon.spy()),
+        onDoubleAsync: (_spies.onDoubleAsync = sinon.spy()),
         increment   : (_spies.increment = sinon.spy())
       }, _spies.dispatch = sinon.spy())
     }
@@ -76,13 +75,13 @@ describe('(Component) Counter', () => {
       expect(_button.hasClass('btn btn-secondary')).to.be.true()
     })
 
-    it('Calls props.doubleAsync when clicked', () => {
+    it('Calls props.onDoubleAsync when clicked', () => {
       _spies.dispatch.should.have.not.been.called()
 
       _button.simulate('click')
 
       _spies.dispatch.should.have.been.called()
-      _spies.doubleAsync.should.have.been.called()
+      _spies.onDoubleAsync.should.have.been.called()
     })
   })
 })

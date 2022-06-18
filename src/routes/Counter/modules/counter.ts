@@ -19,7 +19,7 @@ export const COUNTER_DOUBLE_ASYNC = 'COUNTER_DOUBLE_ASYNC';
 /*  This is a thunk, meaning it is a function that immediately
     returns a function for lazy evaluation. It is incredibly useful for
     creating async actions, especially when combined with redux-thunk! */
-export const doubleAsync = () => {
+export const onDoubleAsync = () => {
   return async (dispatch, getState) => {
     try {
       await setTimeout(() => { console.log('Mocking delay') }, 1000)

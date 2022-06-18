@@ -1,11 +1,14 @@
-import * as React from 'react'
+import React from 'react'
 import { Button } from '../../../ui/basics/Button'
 
-export interface IProps {
+export interface IPropsFromState {
   /**
   The current counter value
   */
-  counter: number
+  counter: Number
+}
+
+export interface IPropsFromDispatch {
   /**
   The callback to synchronously increase the counter value
   */
@@ -15,6 +18,8 @@ export interface IProps {
   */
   onDoubleAsync: () => void
 }
+
+export interface IProps extends IPropsFromDispatch, IPropsFromState { }
 
 export const Counter = (props: IProps) =>
   <div style={{ margin: '0 auto' }} >
