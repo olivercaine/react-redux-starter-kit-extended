@@ -2,7 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const project = require('../project.config')
+const project = require('./project.config')
 
 const inProject = path.resolve.bind(path, project.basePath)
 const inProjectSrc = (file) => inProject(project.srcDir, file)
@@ -153,13 +153,13 @@ config.plugins.push(extractStyles)
 // Images
 // ------------------------------------
 config.module.rules.push({
-  test : /\.(png|jpg|gif)$/,
+  test: /\.(png|jpg|gif)$/,
   dependency: { not: ['url'] },
-  use : [
+  use: [
     {
       loader: 'url-loader',
-      options : {
-        limit : 8192,
+      options: {
+        limit: 8192,
       },
     }
   ],
@@ -173,35 +173,35 @@ config.module.rules.push({
   type: 'asset/inline'
 })
 
-// Fonts
-// ------------------------------------
-;[
-  ['woff', 'application/font-woff'],
-  ['woff2', 'application/font-woff2'],
-  ['otf', 'font/opentype'],
-  ['ttf', 'application/octet-stream'],
-  ['eot', 'application/vnd.ms-fontobject'],
-  ['svg', 'image/svg+xml'],
-].forEach((font) => {
-  const extension = font[0]
-  const mimetype = font[1]
+  // Fonts
+  // ------------------------------------
+  ;[
+    ['woff', 'application/font-woff'],
+    ['woff2', 'application/font-woff2'],
+    ['otf', 'font/opentype'],
+    ['ttf', 'application/octet-stream'],
+    ['eot', 'application/vnd.ms-fontobject'],
+    ['svg', 'image/svg+xml'],
+  ].forEach((font) => {
+    const extension = font[0]
+    const mimetype = font[1]
 
-  config.module.rules.push({
-    test    : new RegExp(`\\.${extension}$`),
-    dependency: { not: ['url'] },
-    use  : [
-      {
-        loader: 'url-loader',
-        options : {
-          name  : 'fonts/[name].[ext]',
-          limit : 10000,
-          mimetype,
-        },
-      }
-    ],
-    type: 'javascript/auto'
+    config.module.rules.push({
+      test: new RegExp(`\\.${extension}$`),
+      dependency: { not: ['url'] },
+      use: [
+        {
+          loader: 'url-loader',
+          options: {
+            name: 'fonts/[name].[ext]',
+            limit: 10000,
+            mimetype,
+          },
+        }
+      ],
+      type: 'javascript/auto'
+    })
   })
-})
 
 // HTML Template
 // ------------------------------------
