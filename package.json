@@ -18,7 +18,7 @@
     "integration": "start-server-and-test start 3000 'cypress run --headed --browser chrome'",
     "build": "npm run clean && npm run build-storybook && cross-env NODE_ENV=production npm run compile",
     "build-storybook": "build-storybook -o ./dist/storybook",
-    "api:download-schema": "rover graph introspect http://localhost:3001/graphql > prod-schema.graphql",
+    "api:download-schema": "rover graph introspect http://localhost:3001/graphql > schema.graphql",
     "health-check": "concurrently 'npm run lint --quiet' 'npm test' 'npm run test:storybook' 'npm run build'"
   },
   "husky": {
@@ -62,6 +62,7 @@
     "yup": "^0.27.0"
   },
   "devDependencies": {
+    "@apollo/rover": "^0.7.0",
     "@babel/core": "^7.0.0",
     "@babel/eslint-parser": "^7.15.4",
     "@babel/plugin-proposal-class-properties": "^7.0.0",

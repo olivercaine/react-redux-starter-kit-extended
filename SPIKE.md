@@ -7,6 +7,8 @@ https://www.brianperry.dev/til/2021/using-apollo-without-react/
 
 ## Instructions
 
+### JS Client
+
 npm install @apollo/client graphql
 
 ```
@@ -34,3 +36,19 @@ import { ApolloClient } from '@apollo/client/core';
 ```
 
 And it's working! Start the app and login (using fake data) and you'll see the request in the browser's Network tab
+
+### Downloading schema
+
+1. npm install --save-dev @apollo/rover
+
+2. In package.json > scripts:
+
+```
+"api:schema-download": "rover graph introspect http://localhost:3001/graphql > schema.graphql",
+```
+
+3. Download the schema
+
+```
+npm run api:schema-download
+```
