@@ -9,15 +9,20 @@ export interface LoginResponse {
 export const authApi = '/mock'
 export const login = async (creds = undefined): Promise<IHttpResponse<LoginResponse>> => {
   const client = new ApolloClient({
-    uri: 'https://48p1r2roz4.sse.codesandbox.io',
+    uri: 'http://localhost:3001/graphql',
     cache: new InMemoryCache()
   });
   let otherOptions = {};
   client.query({
     query: gql`
-      query GetRates {
-        rates(currency: "USD") {
-          currency
+      query getUsers{
+        users{
+          firstName
+          email
+        }
+        pets{
+          id
+          name
         }
       }
     `,

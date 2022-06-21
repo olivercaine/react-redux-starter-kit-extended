@@ -18,6 +18,7 @@
     "integration": "start-server-and-test start 3000 'cypress run --headed --browser chrome'",
     "build": "npm run clean && npm run build-storybook && cross-env NODE_ENV=production npm run compile",
     "build-storybook": "build-storybook -o ./dist/storybook",
+    "api:download-schema": "rover graph introspect http://localhost:3001/graphql > prod-schema.graphql",
     "health-check": "concurrently 'npm run lint --quiet' 'npm test' 'npm run test:storybook' 'npm run build'"
   },
   "husky": {
@@ -41,11 +42,11 @@
     "@olliecaine/form-validation": "^1.0.0",
     "@olliecaine/months": "^1.0.2",
     "@olliecaine/reducers": "^1.0.8",
+    "apollo": "^2.34.0",
     "bootstrap": "^4.3.1",
     "compression": "^1.6.2",
     "express": "^4.14.0",
     "formik": "^1.5.8",
-    "graphql": "^16.5.0",
     "object-assign": "^4.1.1",
     "promise": "^7.1.1",
     "prop-types": "^15.7.2",
