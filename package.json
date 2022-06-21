@@ -36,6 +36,7 @@
   "author": "David Zukowski <david@zuko.me> (http://zuko.me)",
   "license": "MIT",
   "dependencies": {
+    "@apollo/client": "^3.6.8",
     "@olliecaine/fetch": "^1.0.0",
     "@olliecaine/form-validation": "^1.0.0",
     "@olliecaine/months": "^1.0.2",
@@ -44,6 +45,7 @@
     "compression": "^1.6.2",
     "express": "^4.14.0",
     "formik": "^1.5.8",
+    "graphql": "^16.5.0",
     "object-assign": "^4.1.1",
     "promise": "^7.1.1",
     "prop-types": "^15.7.2",
