@@ -1,5 +1,5 @@
 import { createAction, IActionWithPayload } from '@olliecaine/reducers';
-import { IState } from '../routes/SignInForm/components/SignInFormWrapper';
+import { IState } from '../routes/SignInForm/components/SignInForm';
 
 export interface IAuthState {
   token?: string;

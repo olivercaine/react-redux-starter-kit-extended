@@ -1,16 +1,16 @@
 import { Meta } from '@storybook/react';
 import React from 'react';
 import CoreLayout from '../../ui/templates/PageLayout';
-import { SignInFormWrapper } from './components/SignInFormWrapper';
+import { SignInForm } from './components/SignInForm';
 
 export default {
-  component: SignInFormWrapper,
+  component: SignInForm,
   title: 'Features/SignIn'
 } as Meta;
 
 export const Default: React.VFC<{}> = () =>
   <CoreLayout>
-    <SignInFormWrapper
+    <SignInForm
       onSubmit={() => { console.info('Custom callback') }}
     />
   </CoreLayout>

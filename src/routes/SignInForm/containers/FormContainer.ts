@@ -8,8 +8,8 @@ import {
   IPropsFromDispatch,
   IPropsFromState,
   IState,
-  SignInFormWrapper as Component
-} from '../components/SignInFormWrapper';
+  SignInForm as Component
+} from '../components/SignInForm';
 import { IRootState } from './../../../Definitions';
 
 /*  Object of action creators (can also be function that returns object).
