@@ -20,4 +20,3 @@ const defaultArgs: IProps = {
 }
 
 export const Default = template({ ...defaultArgs });
-
