@@ -1,16 +1,20 @@
+import { action } from '@storybook/addon-actions';
 import { Meta } from '@storybook/react';
 import React from 'react';
-import CoreLayout from '../../ui/templates/PageLayout';
-import { SignInForm } from './components/SignInForm';
+import { storyTemplate } from '../../../.storybook/helpers';
+import PageLayout from '../../ui/templates/PageLayout';
+import { IProps, SignInForm } from './components/SignInForm';
 
 export default {
   component: SignInForm,
-  title: 'Features/SignIn'
+  title: 'Features/SignIn',
+  decorators: [(Story) => (<PageLayout><Story /></PageLayout>)]
 } as Meta;
 
-export const Default: React.VFC<{}> = () =>
-  <CoreLayout>
-    <SignInForm
-      onSubmit={() => { console.info('Custom callback') }}
-    />
-  </CoreLayout>
+const template = storyTemplate(SignInForm)
+
+const defaultArgs: IProps = {
+  onSubmit: action('Clicked')
+}
+
+export const Default = template({ ...defaultArgs });

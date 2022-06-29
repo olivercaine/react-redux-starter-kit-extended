@@ -73,7 +73,7 @@
     "body": [
       "import { action } from '@storybook/addon-actions';",
       "import { ComponentMeta } from '@storybook/react';",
-      "import { componentTemplate } from '../../.storybook/helper';",
+      "import { storyTemplate } from '../../.storybook/helpers';",
       "import { Button, IProps } from './Button';",
       "",
       "export default {",
@@ -81,7 +81,7 @@
       "  title: 'Basics/Button',",
       "} as ComponentMeta<typeof Button>;",
       "",
-      "const template = componentTemplate(Button);",
+      "const template = storyTemplate(Button);",
       "",
       "const defaultArgs: IProps = {",
       "  text: 'Button text',",

@@ -23,6 +23,8 @@ export interface IPropsFromDispatch {
 
 export interface IProps extends IPropsFromDispatch, IPropsFromState { }
 
+export const SignInForm: FC<IProps> = (props: IProps) => <SignInFormFormik {...props} />
+
 const SignInFormFormik = withFormik<IProps, IState>({
 
   // Set up form
@@ -100,4 +102,3 @@ const SignInFormFormik = withFormik<IProps, IState>({
 
 ))
 
-export const SignInForm: FC<IProps> = (props: IProps) => <SignInFormFormik {...props} />

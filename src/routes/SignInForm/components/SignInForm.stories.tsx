@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import { ComponentMeta } from '@storybook/react';
 import { userEvent, within } from '@storybook/testing-library';
-import { componentTemplate } from '../../../../.storybook/helper';
+import { storyTemplate } from '../../../../.storybook/helpers';
 import { IProps, SignInForm } from './SignInForm';
 
 export default {
@@ -9,7 +9,7 @@ export default {
   title: 'Components/SignInForm',
 } as ComponentMeta<typeof SignInForm>;
 
-const template = componentTemplate(SignInForm);
+const template = storyTemplate(SignInForm);
 
 const defaultArgs: IProps = {
   onSubmit: action('Clicked')
