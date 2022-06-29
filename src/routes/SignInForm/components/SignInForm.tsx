@@ -3,11 +3,6 @@ import { FormikBag, FormikProps, withFormik } from 'formik';
 import React, { FC } from 'react';
 import * as Yup from 'yup';
 
-export interface IState { // (form values)
-  email: string
-  password: string
-}
-
 export interface IPropsFromState {
   initialValues?: IState
   customProp?: string
@@ -17,13 +12,20 @@ export interface IPropsFromState {
   loginAttempts?: Number
 }
 
+export interface IState { // Form values which get passed to callback
+  email: string
+  password: string
+}
+
 export interface IPropsFromDispatch {
   onSubmit(formValues: IState): any
 }
 
 export interface IProps extends IPropsFromDispatch, IPropsFromState { }
 
-const SignInForm = withFormik<IProps, IState>({
+export const SignInForm: FC<IProps> = (props: IProps) => <SignInFormFormik {...props} />
+
+const SignInFormFormik = withFormik<IProps, IState>({
 
   // Set up form
   mapPropsToValues: (props: IPropsFromState): IState => {
@@ -83,7 +85,7 @@ const SignInForm = withFormik<IProps, IState>({
         onChange={props.handleChange}
         required
         value={props.values.password}
-        />
+      />
       <br />
       {(props.submitCount || props.touched.password) && props.errors.password}
     </div>
@@ -98,6 +100,4 @@ const SignInForm = withFormik<IProps, IState>({
 
   </form>
 
-));
-
-export const SignInFormWrapper: FC<IProps> = (props: IProps) => <SignInForm {...props} />
+))

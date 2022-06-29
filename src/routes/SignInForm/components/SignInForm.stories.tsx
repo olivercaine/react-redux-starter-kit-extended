@@ -1,15 +1,15 @@
 import { action } from '@storybook/addon-actions';
 import { ComponentMeta } from '@storybook/react';
 import { userEvent, within } from '@storybook/testing-library';
-import { componentTemplate } from '../../../../.storybook/helper';
-import { IProps, SignInFormWrapper } from './SignInFormWrapper';
+import { storyTemplate } from '../../../../.storybook/helpers';
+import { IProps, SignInForm } from './SignInForm';
 
 export default {
-  component: SignInFormWrapper,
-  title: 'Components/SignInFormWrapper',
-} as ComponentMeta<typeof SignInFormWrapper>;
+  component: SignInForm,
+  title: 'Components/SignInForm',
+} as ComponentMeta<typeof SignInForm>;
 
-const template = componentTemplate(SignInFormWrapper);
+const template = storyTemplate(SignInForm);
 
 const defaultArgs: IProps = {
   onSubmit: action('Clicked')

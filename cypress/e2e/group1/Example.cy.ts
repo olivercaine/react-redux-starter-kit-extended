@@ -35,7 +35,7 @@ describe('Example', () => {
     })
 
     it('Increases on login attempt', () => {
-      cy.get('a:contains(SignInFormWrapper)').click()
+      cy.get('a:contains(SignInForm)').click()
 
       cy.intercept('POST', authApi, (req) => {
         req.reply({
@@ -49,8 +49,8 @@ describe('Example', () => {
     })
   })
 
-  it('SignInFormWrapper performs auth request', () => {
-    cy.get('a:contains(SignInFormWrapper)').click()
+  it('SignInForm performs auth request', () => {
+    cy.get('a:contains(SignInForm)').click()
     cy.login('me@mail.com', 'paS$w0rd')
 
     cy.intercept('POST', authApi, (req) => {
