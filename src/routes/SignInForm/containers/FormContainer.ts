@@ -8,8 +8,8 @@ import {
   IPropsFromDispatch,
   IPropsFromState,
   IState,
-  SignInFormWrapper as Component
-} from '../components/SignInFormWrapper';
+  SignInForm as Component
+} from '../components/SignInForm';
 import { IRootState } from './../../../Definitions';
 
 /*  Object of action creators (can also be function that returns object).
@@ -17,7 +17,7 @@ import { IRootState } from './../../../Definitions';
     implementing our wrapper around increment; the component doesn't care   */
 
 const mapDispatchToProps: IPropsFromDispatch = {
-  handleFormSubmit: (formValues: IState) => AuthActions.shouldSignIn(formValues),
+  onSubmit: (formValues: IState) => AuthActions.shouldSignIn(formValues),
 };
 
 /*

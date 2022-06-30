@@ -1,6 +1,6 @@
 import { ComponentStory, Story } from '@storybook/react';
 
-export const componentTemplate = <P,>(Component: (props: P) => any) => (
+export const storyTemplate = <P,>(Component: (props: P) => any) => (
   props: P
 ): Story<P> => {
   const template: ComponentStory<typeof Component> = (args) => Component(args);
@@ -9,7 +9,7 @@ export const componentTemplate = <P,>(Component: (props: P) => any) => (
   return story;
 }
 
-export enum InterfaceTypes {
+export enum StoryTypes {
   /** Applications are things which contain a unique set of Features, e.g. a ticket booking application */
   Applications = "Applications",
   /** Features are the interfaces that when working together, allow users to accomplish a task or solve a problem, e.g. a sign up wizard */

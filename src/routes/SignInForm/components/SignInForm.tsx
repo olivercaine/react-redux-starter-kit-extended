@@ -1,12 +1,7 @@
 import { emailValidation, passwordValidation } from '@olliecaine/form-validation';
 import { FormikBag, FormikProps, withFormik } from 'formik';
-import * as React from 'react';
+import React, { FC } from 'react';
 import * as Yup from 'yup';
-
-export interface IState { // (form values)
-  email: string
-  password: string
-}
 
 export interface IPropsFromState {
   initialValues?: IState
@@ -17,13 +12,20 @@ export interface IPropsFromState {
   loginAttempts?: Number
 }
 
-export interface IPropsFromDispatch {
-  handleFormSubmit(formValues: IState): any
+export interface IState { // Form values which get passed to callback
+  email: string
+  password: string
 }
 
-interface IProps extends IPropsFromDispatch, IPropsFromState { }
+export interface IPropsFromDispatch {
+  onSubmit(formValues: IState): any
+}
 
-export const SignInFormWrapper = withFormik<IProps, IState>({
+export interface IProps extends IPropsFromDispatch, IPropsFromState { }
+
+export const SignInForm: FC<IProps> = (props: IProps) => <SignInFormFormik {...props} />
+
+const SignInFormFormik = withFormik<IProps, IState>({
 
   // Set up form
   mapPropsToValues: (props: IPropsFromState): IState => {
@@ -39,7 +41,7 @@ export const SignInFormWrapper = withFormik<IProps, IState>({
   }),
 
   handleSubmit: (formValues: IState, formikBag: FormikBag<IProps, IState>) => {
-    formikBag.props.handleFormSubmit(formValues);
+    formikBag.props.onSubmit(formValues);
   },
   // END: Set up form
 
@@ -57,6 +59,7 @@ export const SignInFormWrapper = withFormik<IProps, IState>({
       <label htmlFor='email'>Email</label>
       <input
         autoFocus
+        data-testid='email'
         name='email'
         type='email'
         onBlur={props.handleBlur}
@@ -76,12 +79,13 @@ export const SignInFormWrapper = withFormik<IProps, IState>({
       <input
         name='password'
         type='password'
+        data-testid='password'
         placeholder='password'
         onBlur={props.handleBlur}
         onChange={props.handleChange}
         required
         value={props.values.password}
-        />
+      />
       <br />
       {(props.submitCount || props.touched.password) && props.errors.password}
     </div>
@@ -96,4 +100,4 @@ export const SignInFormWrapper = withFormik<IProps, IState>({
 
   </form>
 
-));
+))

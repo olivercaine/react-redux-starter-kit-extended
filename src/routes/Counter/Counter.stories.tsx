@@ -1,19 +1,22 @@
 import { action } from '@storybook/addon-actions';
 import { Meta } from '@storybook/react';
-import * as React from 'react';
-import CoreLayout from '../../ui/templates/PageLayout';
-import { Counter } from './components/Counter';
+import React from 'react';
+import { storyTemplate } from '../../../.storybook/helpers';
+import PageLayout from '../../ui/templates/PageLayout';
+import { Counter, IProps } from './components/Counter';
 
 export default {
   component: Counter,
-  title: 'Features/Counter'
+  title: 'Features/Counter',
+  decorators: [(Story) => (<PageLayout><Story /></PageLayout>)]
 } as Meta;
 
-export const Default: React.VFC<{}> = () =>
-  <CoreLayout>
-    <Counter
-      counter={1}
-      increment={action('Increment callback')}
-      doubleAsync={action('DoubleAsync callback')}
-    />
-  </CoreLayout>
+const template = storyTemplate(Counter)
+
+const defaultArgs: IProps = {
+  counter: 1,
+  onIncrement: action('Increment callback'),
+  onDoubleAsync: action('DoubleAsync callback')
+}
+
+export const Default = template({ ...defaultArgs });
