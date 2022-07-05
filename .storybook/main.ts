@@ -27,6 +27,8 @@ const config: StorybookConfig = {
     // You can change the configuration based on that.
     // 'PRODUCTION' is used when building the static version of storybook.
 
+    // TODO: https://storybook.js.org/docs/react/builders/webpack#using-your-existing-config
+
     // Make whatever fine-grained changes you need
     config.module?.rules?.push({
       test: /\.scss$/,
