@@ -1,14 +1,14 @@
-import { action } from '@storybook/addon-actions';
-import { ComponentMeta } from '@storybook/react';
-import { storyTemplate } from '../../../../.storybook/helpers';
-import { Counter, IProps } from './Counter';
+import { action } from '@storybook/addon-actions'
+import { ComponentMeta } from '@storybook/react'
+import { storyTemplate } from '../../../../.storybook/helpers'
+import { Counter, IProps } from './Counter'
 
 export default {
   component: Counter,
   title: 'Components/Counter',
-} as ComponentMeta<typeof Counter>;
+} as ComponentMeta<typeof Counter>
 
-const template = storyTemplate(Counter);
+const template = storyTemplate(Counter)
 
 const defaultArgs: IProps = {
   counter: 0,
@@ -16,4 +16,4 @@ const defaultArgs: IProps = {
   onIncrement: action('Increment callback')
 }
 
-export const Default = template({ ...defaultArgs });
+export const Default = template({ ...defaultArgs })

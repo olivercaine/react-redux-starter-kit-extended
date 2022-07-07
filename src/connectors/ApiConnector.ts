@@ -1,4 +1,4 @@
-import { IHttpResponse, post } from '@olliecaine/fetch';
+import { IHttpResponse, post } from '@olliecaine/fetch'
 
 export interface LoginResponse {
   token: string

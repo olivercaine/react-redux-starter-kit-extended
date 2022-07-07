@@ -1,4 +1,4 @@
-import { authApi, LoginResponse } from '../../../src/connectors/ApiConnector';
+import { authApi, LoginResponse } from '../../../src/connectors/ApiConnector'
 
 describe('Example', () => {
   beforeEach(() => {
@@ -40,8 +40,8 @@ describe('Example', () => {
       cy.intercept('POST', authApi, (req) => {
         req.reply({
           token: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0b3B0YWwuY29tIiwiZXhw`
-        } as LoginResponse);
-      });
+        } as LoginResponse)
+      })
 
       cy.login('me@mail.com', 'paS$w0rd')
 
@@ -56,10 +56,10 @@ describe('Example', () => {
     cy.intercept('POST', authApi, (req) => {
       req.reply({
         token: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0b3B0YWwuY29tIiwiZXhw`
-      } as LoginResponse);
-    });
+      } as LoginResponse)
+    })
 
-    cy.get('form:first').submit();
+    cy.get('form:first').submit()
     cy.contains('Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0b3B0YWwuY29tIiwiZXhw')
   })
 })

@@ -1,7 +1,7 @@
-import { emailValidation, passwordValidation } from '@olliecaine/form-validation';
-import { FormikBag, FormikProps, withFormik } from 'formik';
-import React, { FC } from 'react';
-import * as Yup from 'yup';
+import { emailValidation, passwordValidation } from '@olliecaine/form-validation'
+import { FormikBag, FormikProps, withFormik } from 'formik'
+import React, { FC } from 'react'
+import * as Yup from 'yup'
 
 export interface IPropsFromState {
   initialValues?: IState
@@ -41,7 +41,7 @@ const SignInFormFormik = withFormik<IProps, IState>({
   }),
 
   handleSubmit: (formValues: IState, formikBag: FormikBag<IProps, IState>) => {
-    formikBag.props.onSubmit(formValues);
+    formikBag.props.onSubmit(formValues)
   },
   // END: Set up form
 

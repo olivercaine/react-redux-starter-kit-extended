@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
-import './Button.scss';
+import React, { FC } from 'react'
+import './Button.scss'
 
 export interface IProps {
   /**

@@ -1,15 +1,15 @@
-import { action } from '@storybook/addon-actions';
-import { Meta } from '@storybook/react';
-import React from 'react';
-import { storyTemplate } from '../../../.storybook/helpers';
-import PageLayout from '../../ui/templates/PageLayout';
-import { Counter, IProps } from './components/Counter';
+import { action } from '@storybook/addon-actions'
+import { Meta } from '@storybook/react'
+import React from 'react'
+import { storyTemplate } from '../../../.storybook/helpers'
+import PageLayout from '../../ui/templates/PageLayout'
+import { Counter, IProps } from './components/Counter'
 
 export default {
   component: Counter,
   title: 'Features/Counter',
   decorators: [(Story) => (<PageLayout><Story /></PageLayout>)]
-} as Meta;
+} as Meta
 
 const template = storyTemplate(Counter)
 
@@ -19,4 +19,4 @@ const defaultArgs: IProps = {
   onDoubleAsync: action('DoubleAsync callback')
 }
 
-export const Default = template({ ...defaultArgs });
+export const Default = template({ ...defaultArgs })
