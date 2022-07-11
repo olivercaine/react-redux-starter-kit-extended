@@ -1,7 +1,9 @@
+npm run lint:fix
+
 if [[ `git status --porcelain` ]]; then
   echo 'Changes'
-  npm run lint:fix
-  # git add -A && git commit -m "Your Message"
+  git add -A && git commit -m "Performing auto-lint fix"
+  git push
 else
   echo "No changes"
 fi

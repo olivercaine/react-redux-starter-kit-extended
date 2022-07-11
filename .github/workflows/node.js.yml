@@ -24,6 +24,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - run: npm ci && npm run health-check
+      - name: Run script file
+        run: |
+          ./.github/workflows/code-lint.sh
+        shell: bash      
+      - run: npm run integration
       - run: npm run integration
       - run: git submodule update --init --recursive
       - run: docker build .
