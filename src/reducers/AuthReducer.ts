@@ -20,13 +20,13 @@ export type SignInAction =
   | IActionWithPayload<typeof SHOULD_SIGN_IN, IState>
   | IActionWithPayload<typeof DID_SIGN_IN, IAuthState>;
 
-// ------------------------------------
-// Action Creators
-// ------------------------------------
-export const AuthActions = {
-  shouldSignIn: (payload: IState): SignInAction => createAction(SHOULD_SIGN_IN, payload),
-  didSignIn: (payload: IAuthState): SignInAction => createAction(DID_SIGN_IN, payload)
-}
+  // ------------------------------------
+  // Action Creators
+  // ------------------------------------
+  export const AuthActions = {
+    shouldSignIn: (payload: IState): SignInAction => createAction(SHOULD_SIGN_IN, payload),
+    didSignIn: (payload: IAuthState): SignInAction => createAction(DID_SIGN_IN, payload)
+  };
 
 // ------------------------------------
 // Domain & State
@@ -43,9 +43,9 @@ export const authReducer = (
   switch (action.type) {
     case SHOULD_SIGN_IN:
       const shouldSignInState = Object.assign({}, state)
-      shouldSignInState.submitting = true
-      shouldSignInState.generalErrors = []
-      return shouldSignInState
+  shouldSignInState.submitting = true
+  shouldSignInState.generalErrors = []
+  return shouldSignInState
     case DID_SIGN_IN:
       const didSignInState = Object.assign({}, state)
       didSignInState.submitting = false
