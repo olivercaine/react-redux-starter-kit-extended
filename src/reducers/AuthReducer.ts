@@ -20,9 +20,9 @@ export type SignInAction =
   | IActionWithPayload<typeof SHOULD_SIGN_IN, IState>
   | IActionWithPayload<typeof DID_SIGN_IN, IAuthState>;
 
-  // ------------------------------------
-  // Action Creators
-  // ------------------------------------
+// ------------------------------------
+// Action Creators
+// ------------------------------------
 export const AuthActions = {
   shouldSignIn: (payload: IState): SignInAction => createAction(SHOULD_SIGN_IN, payload),
   didSignIn: (payload: IAuthState): SignInAction => createAction(DID_SIGN_IN, payload)
