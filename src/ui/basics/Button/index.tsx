@@ -13,6 +13,6 @@ export interface IProps {
 }
 
 export const Button: FC<IProps> = (props: IProps) =>
-  <button className='btn btn-primary' onClick={props.onClick}>
+  <button className="btn btn-primary" onClick={props.onClick}>
     {props.text}
   </button>
