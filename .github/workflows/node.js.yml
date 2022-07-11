@@ -30,6 +30,5 @@ jobs:
         shell: bash      
       - run: npm run health-check
       - run: npm run integration
-      - run: npm run integration
       - run: git submodule update --init --recursive
       - run: docker build .
