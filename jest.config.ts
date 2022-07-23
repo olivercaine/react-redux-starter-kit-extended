@@ -3,6 +3,7 @@
  * https://jestjs.io/docs/configuration
  */
 
+/* eslint-disable max-len */
 export default {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
