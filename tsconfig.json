@@ -33,6 +33,7 @@
       "node",
       "mocha",
       "chai",
+      "jest",
       "@testing-library/jest-dom"
     ]
   },
