@@ -1,4 +1,5 @@
 import { action } from '@storybook/addon-actions'
+import { expect } from '@storybook/jest'
 import { ComponentMeta } from '@storybook/react'
 import { userEvent, within } from '@storybook/testing-library'
 import { storyTemplate } from '../../../../.storybook/helpers'
@@ -39,7 +40,7 @@ export const RequiresEmail = template({ ...defaultArgs })
 RequiresEmail.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
   await userEvent.click(canvas.getByRole('button'))
-  // await expect(canvas.getByText('Email is required')).toBeInTheDocument();
+  await expect(canvas.getByText('Email is required')).toBeInTheDocument();
 }
 
 export const PasswordIsRequired = template({ ...defaultArgs })
@@ -47,7 +48,7 @@ PasswordIsRequired.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
   await userEvent.type(canvas.getByTestId('email'), 'me@mail.com')
   await userEvent.click(canvas.getByRole('button'))
-  // await expect(canvas.getByText('Password is required')).toBeInTheDocument();
+  await expect(canvas.getByText('Password is required!')).toBeInTheDocument();
 }
 
 export const Submitting = template({
@@ -63,5 +64,5 @@ Submitting.play = async ({ canvasElement }) => {
   await userEvent.type(canvas.getByTestId('email'), 'michael@chromatic.com')
   await userEvent.type(canvas.getByTestId('password'), 'pass')
   await userEvent.click(canvas.getByRole('button'))
-  // await expect(canvas.getByText('Password needs at least one uppercase letter')).toBeInTheDocument();
+  await expect(canvas.getByText('Password needs at least one uppercase letter')).toBeInTheDocument();
 }
