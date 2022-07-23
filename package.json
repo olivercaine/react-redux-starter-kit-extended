@@ -9,8 +9,8 @@
     "compile": "node build/scripts/compile",
     "lint": "eslint . --ext .ts,.tsx,.js",
     "lint:fix": "npm run lint -- --fix",
-    "test": "cross-env NODE_ENV=none karma start build/karma.config",
-    "test:jest": "jest",
+    "test": "jest",
+    "test:karma": "cross-env NODE_ENV=none karma start build/karma.config",
     "test:watch": "npm test -- --watch",
     "storybook": "start-storybook -p 6006 -s ./public",
     "storybook:test": "start-server-and-test storybook 6006 'test-storybook'",
@@ -19,7 +19,7 @@
     "build": "npm run clean && npm run storybook:build && cross-env NODE_ENV=production npm run compile",
     "cypress:open": "cypress open --e2e --browser chrome",
     "integration": "start-server-and-test start 3000 'cypress run --headed'",
-    "health-check": "concurrently 'npm run lint --quiet' 'npm test' 'test:jest' 'npm run storybook:test' 'npm run build'"
+    "health-check": "concurrently 'npm run lint --quiet' 'npm test' 'npm run test:karma' 'npm run storybook:test' 'npm run build'"
   },
   "husky": {
     "hooks": {
