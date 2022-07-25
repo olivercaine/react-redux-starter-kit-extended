@@ -1,6 +1,6 @@
 {
   "background_color": "#83ACCE",  
-  "display": "browser",
+  "display": "fullscreen",
   "icons": [
     {
       "src": "/icons/icon-260.png",
