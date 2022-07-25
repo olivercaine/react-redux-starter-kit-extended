@@ -10,7 +10,6 @@
     "lint:fix": "npm run lint -- --fix",
     "test": "cross-env NODE_ENV=none karma start build/karma.config",
     "test:watch": "npm test -- --watch",
-    "test:storybook": "start-storybook --smoke-test",
     "storybook": "start-storybook -p 6006 -s ./public",
     "dev": "npm i && concurrently 'npm run start' 'npm run storybook' 'npm run test:watch'",
     "start": "cross-env NODE_ENV=development node build/scripts/start",
