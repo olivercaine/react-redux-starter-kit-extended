@@ -1,4 +1,4 @@
-import { Middleware } from 'redux';
+import { Middleware } from 'redux'
 
 export const ERROR_SUFFIX = '_ERROR'
 
@@ -12,5 +12,5 @@ export const errorLoggerMiddleware: Middleware = (/*store: any*/) => (next) => (
     //     eventAction: action.type,
     // })
   }
-  return next(action);
+  return next(action)
 }

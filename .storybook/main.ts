@@ -8,12 +8,15 @@ const config: StorybookConfig = {
   ],
   addons: [
     "@storybook/addon-links",
+    "@storybook/addon-actions",
     "@storybook/addon-essentials",
+    "@storybook/addon-interactions",
   ],
   core: {
     builder: "webpack5"
   },
-  features: { // Was failing node 10 build
+  features: {
+    interactionsDebugger: true, // Enable playback controls
     storyStoreV7: true, // https://storybook.js.org/docs/react/configure/webpack#bundle-splitting
   },
   typescript: {
@@ -24,8 +27,10 @@ const config: StorybookConfig = {
     // You can change the configuration based on that.
     // 'PRODUCTION' is used when building the static version of storybook.
 
+    // TODO: https://storybook.js.org/docs/react/builders/webpack#using-your-existing-config
+
     // Make whatever fine-grained changes you need
-    config.module.rules.push({
+    config.module?.rules?.push({
       test: /\.scss$/,
       use: ['style-loader', 'css-loader', 'sass-loader'],
       include: path.resolve(__dirname, '../'),

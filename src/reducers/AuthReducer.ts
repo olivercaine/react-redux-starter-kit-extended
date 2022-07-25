@@ -1,5 +1,5 @@
-import { createAction, IActionWithPayload } from '@olliecaine/reducers';
-import { IState } from '../routes/SignInForm/components/SignInFormWrapper';
+import { createAction, IActionWithPayload } from '@olliecaine/reducers'
+import { IState } from '../routes/SignInForm/components/SignInForm'
 
 export interface IAuthState {
   token?: string;
@@ -10,8 +10,8 @@ export interface IAuthState {
 // ------------------------------------
 // Action names
 // ------------------------------------
-export const SHOULD_SIGN_IN = 'SHOULD_SIGN_IN';
-export const DID_SIGN_IN = 'DID_SIGN_IN';
+export const SHOULD_SIGN_IN = 'SHOULD_SIGN_IN'
+export const DID_SIGN_IN = 'DID_SIGN_IN'
 
 // ------------------------------------
 // Action definitions
@@ -31,7 +31,7 @@ export const AuthActions = {
 // ------------------------------------
 // Domain & State
 // ------------------------------------
-export const initialState: IAuthState = { submitting: false };
+export const initialState: IAuthState = { submitting: false }
 
 // ------------------------------------
 // Reducer
@@ -42,17 +42,17 @@ export const authReducer = (
 ): IAuthState => {
   switch (action.type) {
     case SHOULD_SIGN_IN:
-      const shouldSignInState = Object.assign({}, state);
-      shouldSignInState.submitting = true;
-      shouldSignInState.generalErrors = [];
-      return shouldSignInState;
+      const shouldSignInState = Object.assign({}, state)
+      shouldSignInState.submitting = true
+      shouldSignInState.generalErrors = []
+      return shouldSignInState
     case DID_SIGN_IN:
-      const didSignInState = Object.assign({}, state);
-      didSignInState.submitting = false;
-      didSignInState.token = action.payload.token;
-      didSignInState.generalErrors = action.payload.generalErrors;
-      return didSignInState;
+      const didSignInState = Object.assign({}, state)
+      didSignInState.submitting = false
+      didSignInState.token = action.payload.token
+      didSignInState.generalErrors = action.payload.generalErrors
+      return didSignInState
     default:
-      return state;
+      return state
   }
 }

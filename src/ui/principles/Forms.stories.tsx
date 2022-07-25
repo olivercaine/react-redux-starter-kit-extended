@@ -1,6 +1,6 @@
-import { Meta } from '@storybook/react';
-import { Story } from '@storybook/react/types-6-0';
-import * as React from 'react';
+import { Meta } from '@storybook/react'
+import { Story } from '@storybook/react/types-6-0'
+import React from 'react'
 
 export default {
   title: 'Principles/Forms',
@@ -9,7 +9,7 @@ export default {
       defaultViewport: 'desktop',
     },
   },
-} as Meta;
+} as Meta
 
 export const Forms: Story = () => <div>
 

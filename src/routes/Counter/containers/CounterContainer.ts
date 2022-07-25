@@ -2,25 +2,24 @@
     nor does it import React. This component is **only** responsible for
     wiring in the actions and state necessary to render a presentational
     component - in this case, the counter:   */
-import { createAction } from '@olliecaine/reducers';
-import { connect } from 'react-redux';
-import { IRootState } from '../../../Definitions';
-import { Counter as Component } from '../components/Counter';
-import { DEFAULT_INCREMENT, doubleAsync } from '../modules/counter';
-import { COUNTER_INCREMENT } from './../modules/counter';
+import { createAction } from '@olliecaine/reducers'
+import { connect } from 'react-redux'
+import { IRootState } from '../../../Definitions'
+import { Counter as Component, IPropsFromDispatch, IPropsFromState } from '../components/Counter'
+import { COUNTER_INCREMENT, DEFAULT_INCREMENT, onDoubleAsync } from '../modules/counter'
 
 /*  Object of action creators (can also be function that returns object).
     Keys will be passed as props to presentational components. Here we are
     implementing our wrapper around increment; the component doesn't care   */
 
-const mapDispatchToProps = {
-  doubleAsync,
-  increment: () => createAction(COUNTER_INCREMENT, DEFAULT_INCREMENT),
-};
+const mapDispatchToProps: IPropsFromDispatch = {
+  onIncrement: () => createAction(COUNTER_INCREMENT, DEFAULT_INCREMENT),
+  onDoubleAsync,
+}
 
-const mapStateToProps = (state: IRootState) => ({
+const mapStateToProps = (state: IRootState): IPropsFromState => ({
   counter: state.counter,
-});
+})
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:
 
@@ -36,4 +35,4 @@ const mapStateToProps = (state: IRootState) => ({
     Selectors are composable. They can be used as input to other selectors.
     https://github.com/reactjs/reselect    */
 
-export default connect(mapStateToProps, mapDispatchToProps)(Component);
+export default connect(mapStateToProps, mapDispatchToProps)(Component)

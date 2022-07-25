@@ -14,7 +14,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x]
+        node-version: [14.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -23,7 +23,12 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - run: npm ci && npm run health-check
+      - run: npm ci
+      - name: Auto-lint app
+        run: |
+          ./.github/workflows/code-lint.sh
+        shell: bash      
+      - run: npm run health-check
       - run: npm run integration
       - run: git submodule update --init --recursive
       - run: docker build .
