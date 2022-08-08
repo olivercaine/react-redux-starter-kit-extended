@@ -43,17 +43,19 @@ export const authReducer = (
   action: SignInAction,
 ): IAuthState => {
   switch (action.type) {
-    case AuthAction.SHOULD_SIGN_IN:
+    case AuthAction.SHOULD_SIGN_IN: {
       const shouldSignInState = Object.assign({}, state)
       shouldSignInState.submitting = true
       shouldSignInState.generalErrors = []
       return shouldSignInState
-    case AuthAction.DID_SIGN_IN:
+    }
+    case AuthAction.DID_SIGN_IN: {
       const didSignInState = Object.assign({}, state)
       didSignInState.submitting = false
       didSignInState.token = action.payload.token
       didSignInState.generalErrors = action.payload.generalErrors
       return didSignInState
+    }
     default:
       return state
   }
