@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions'
 import { ComponentMeta } from '@storybook/react'
-import { Button, IProps } from '.'
 import { storyTemplate } from '../../../../.storybook/helpers'
+import { Button, IProps } from './Button'
 
 export default {
   component: Button,
@@ -10,9 +10,10 @@ export default {
 
 const template = storyTemplate(Button)
 
-const defaultArgs: IProps = {
-  text: 'Button text',
+const requiredProps: IProps = {
   onClick: action('Clicked')
 }
 
-export const Default = template({ ...defaultArgs, text: 'Button text override' })
+export const Default = template({ ...requiredProps })
+
+export const ButtonTextOverride = template({ ...requiredProps, text: 'Button text override' })

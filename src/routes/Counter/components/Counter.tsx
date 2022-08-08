@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from '../../../ui/basics/Button'
+import { Button } from '../../../ui/basics/Button/Button'
 
 export interface IPropsFromState {
   /**
@@ -21,12 +21,12 @@ export interface IPropsFromDispatch {
 
 export interface IProps extends IPropsFromDispatch, IPropsFromState { }
 
-export const Counter = (props: IProps) =>
+export const Counter = ({ counter, onIncrement, onDoubleAsync }: IProps) =>
   <div style={{ margin: '0 auto' }} >
-    <h2>Counter: {props.counter}</h2>
-    <Button text='Increment' onClick={props.onIncrement} />
+    <h2>Counter: {counter}</h2>
+    <Button text='Increment' onClick={onIncrement} />
     {' '}
-    <button className='btn btn-secondary' onClick={props.onDoubleAsync}>
+    <button className='btn btn-secondary' onClick={onDoubleAsync}>
       Double (Async)
     </button>
   </div>
