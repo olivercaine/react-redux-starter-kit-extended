@@ -1,6 +1,6 @@
 {
   "background_color": "#83ACCE",  
-  "display": "browser",
+  "display": "standalone",
   "icons": [
     {
       "src": "/icons/icon-260.png",
