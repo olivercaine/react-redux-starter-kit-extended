@@ -41,6 +41,7 @@
     "no-case-declarations" : 2,
     "semi"                 : [1, "never"],
     "comma-dangle"         : "off",
-    "no-undef"             : "off"
+    "no-undef"             : "off",
+    "one-var"              : "off"
   }
 }
