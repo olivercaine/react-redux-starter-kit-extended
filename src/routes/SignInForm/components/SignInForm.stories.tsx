@@ -12,14 +12,14 @@ export default {
 
 const template = storyTemplate(SignInForm)
 
-const defaultArgs: IProps = {
+const requiredProps: IProps = {
   onSubmit: action('Clicked')
 }
 
-export const Default = template({ ...defaultArgs })
+export const Default = template({ ...requiredProps })
 
 export const WithInitialValues = template({
-  ...defaultArgs,
+  ...requiredProps,
   initialValues: {
     email: 'olliecaine@gmail.com',
     password: 'pass123'
@@ -27,23 +27,23 @@ export const WithInitialValues = template({
 })
 
 export const WithProp = template({
-  ...defaultArgs,
+  ...requiredProps,
   customProp: 'A custom prop'
 })
 
 export const WithGeneralErrors = template({
-  ...defaultArgs,
+  ...requiredProps,
   generalErrors: ['Server validation failed']
 })
 
-export const RequiresEmail = template({ ...defaultArgs })
+export const RequiresEmail = template({ ...requiredProps })
 RequiresEmail.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
   await userEvent.click(canvas.getByRole('button'))
   await expect(canvas.getByText('Email is required')).toBeInTheDocument()
 }
 
-export const PasswordIsRequired = template({ ...defaultArgs })
+export const PasswordIsRequired = template({ ...requiredProps })
 PasswordIsRequired.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
   await userEvent.type(canvas.getByTestId('email'), 'me@mail.com')
@@ -52,7 +52,7 @@ PasswordIsRequired.play = async ({ canvasElement }) => {
 }
 
 export const Submitting = template({
-  ...defaultArgs,
+  ...requiredProps,
   initialValues: {
     email: 'olliecaine@gmail.com',
     password: 'pass123'

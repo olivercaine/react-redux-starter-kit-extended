@@ -1,0 +1,18 @@
+import React, { FC, MouseEventHandler } from 'react'
+import './Button.scss'
+
+export interface IProps {
+  /**
+  The callback when the button is clicked
+  */
+  onClick: MouseEventHandler<HTMLButtonElement>
+  /**
+  Text to be shown in the button
+  */
+  text?: string
+}
+
+export const Button: FC<IProps> = ({ onClick, text = 'Default button text' }: IProps) =>
+  <button className='btn btn-primary' onClick={onClick}>
+    {text}
+  </button>

@@ -13,8 +13,8 @@ export default {
 
 const template = storyTemplate(SignInForm)
 
-const defaultArgs: IProps = {
+const requiredProps: IProps = {
   onSubmit: action('Clicked')
 }
 
-export const Default = template({ ...defaultArgs })
+export const Default = template({ ...requiredProps })
