@@ -1,6 +1,7 @@
 import React from 'react'
-import { MonthBlurb } from '.'
+// @ts-ignore
 import { shallow } from '../../../../tests/enzyme-wrapper'
+import { MonthBlurb } from './MonthBlurb'
 
 describe('Month is Feb', () => {
   describe('Building blurb text', () => {

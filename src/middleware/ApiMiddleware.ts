@@ -1,13 +1,13 @@
 import { IHttpResponse } from '@olliecaine/fetch'
 import { Dispatch, Middleware } from 'redux'
 import { login, LoginResponse } from '../connectors/ApiConnector'
-import { AuthActions, SHOULD_SIGN_IN } from '../reducers/AuthReducer'
+import { AuthAction, AuthActions } from '../reducers/AuthReducer'
 import { CounterActions } from './../routes/Counter/modules/counter'
 
 // Receives all actions but only processes ones defined below before they reach the store's reducer.
 export const apiMiddleware: Middleware = (store) => (next: Dispatch<any>) => (action) => {
   switch (action.type) {
-    case SHOULD_SIGN_IN:
+    case AuthAction.SHOULD_SIGN_IN:
       login()
         .then((response: IHttpResponse<LoginResponse>) => {
           store.dispatch(
