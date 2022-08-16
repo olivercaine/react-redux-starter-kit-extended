@@ -1,5 +1,5 @@
 # --------------- STAGE 1: Develop ---------------
-FROM olliecaine/dev:node14alpine as stage-develop
+FROM cypress/browsers:node14.15.0-chrome86-ff82 as stage-develop
 
 CMD ["npm", "run", "dev"]
 
