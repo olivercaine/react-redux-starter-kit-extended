@@ -13,10 +13,10 @@ export default {
 
 const template = storyTemplate(Counter)
 
-const defaultArgs: IProps = {
+const requiredProps: IProps = {
   counter: 1,
   onIncrement: action('Increment callback'),
   onDoubleAsync: action('DoubleAsync callback')
 }
 
-export const Default = template({ ...defaultArgs })
+export const Default = template({ ...requiredProps })
