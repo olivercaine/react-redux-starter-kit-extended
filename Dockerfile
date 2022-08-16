@@ -1,5 +1,5 @@
 # --------------- STAGE 1: Develop ---------------
-FROM cypress/browsers:node14.15.0-chrome86-ff82 as stage-develop
+FROM cypress/browsers:node14.17.6-slim-chrome100-ff99-edge as stage-develop
 
 CMD ["npm", "run", "dev"]
 
