@@ -64,11 +64,11 @@ export const Component = () => (
 
 ```javascript
 createStore(reducer,
- applyMiddleware(
- middlewareA,
- middlewareB,
- middlewareC
- )
+  applyMiddleware(
+    middlewareA,
+    middlewareB,
+    middlewareC
+  )
 );
 ```
 
