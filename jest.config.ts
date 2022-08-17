@@ -6,7 +6,7 @@
 /* eslint-disable max-len */
 export default {
   // All imported modules in your tests should be mocked automatically
-  // automock: false,
+  // automock: true, - TODO play around with this to see I we want to enable it
 
   // Stop running tests after `n` failures
   // bail: 0,
@@ -138,7 +138,8 @@ export default {
   // snapshotSerializers: [],
 
   // The test environment that will be used for testing
-  testEnvironment: 'jsdom',
+  // testEnvironment: 'jsdom',
+  testEnvironment: 'node',
 
   // Options that will be passed to the testEnvironment
   testEnvironmentOptions: {},
@@ -172,7 +173,10 @@ export default {
   // timers: "real",
 
   // A map from regular expressions to paths to transformers
-  // transform: undefined,
+  transform: {
+    '^.+\\.(ts|tsx)?$': 'ts-jest',
+    "^.+\\.(js|jsx)$": "babel-jest",
+  },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [
@@ -184,7 +188,7 @@ export default {
   // unmockedModulePathPatterns: undefined,
 
   // Indicates whether each individual test should be reported during the run
-  // verbose: undefined,
+  // verbose: verbose,
 
   // An array of regexp patterns that are matched against all source file paths before re-running tests in watch mode
   // watchPathIgnorePatterns: [],
