@@ -6,4 +6,6 @@ if [[ `git status --porcelain` ]]; then
   git config --global user.name "Oliver Caine"
   git add -A && git commit -m "Performing auto-lint fix"
   git push --no-verify
+  echo "Stopping build due to lint fixes"
+  exit 1
 fi
