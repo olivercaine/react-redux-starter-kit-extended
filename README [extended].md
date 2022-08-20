@@ -1,5 +1,7 @@
 # README [extended]
 
+[![Node.js CI](https://github.com/olivercaine/react-redux-starter-kit-extended/actions/workflows/node.js.yml/badge.svg)](https://github.com/olivercaine/react-redux-starter-kit-extended/actions/workflows/node.js.yml)
+
 ## Creating a new route
 
 1. Duplicate any folder inside /src/routes.
