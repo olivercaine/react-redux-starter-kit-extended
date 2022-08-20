@@ -1,4 +1,5 @@
 # docker build . -t olliecaine/dev:node14alpine -f Dockerfile.dev
+# docker push olliecaine/dev:node14alpine
 FROM olliecaine/base:node14alpine
 
 WORKDIR /project
