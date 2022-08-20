@@ -12,7 +12,7 @@ export interface IAuthState {
 // ------------------------------------
 export enum AuthAction {
   SHOULD_SIGN_IN = 'SHOULD_SIGN_IN',
-  DID_SIGN_IN = "DID_SIGN_IN"
+  DID_SIGN_IN = 'DID_SIGN_IN'
 }
 
 // ------------------------------------
