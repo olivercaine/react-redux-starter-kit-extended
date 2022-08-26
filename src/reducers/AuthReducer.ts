@@ -1,5 +1,4 @@
 import { createAction, IActionWithPayload } from '@olliecaine/reducers'
-import { Reducer } from 'react'
 import { IState } from '../routes/SignInForm/components/SignInForm'
 
 export interface IAuthState {
@@ -34,7 +33,7 @@ export const AuthActions = {
 // ------------------------------------
 // Reducer
 // ------------------------------------
-export const authReducer: Reducer<IAuthState, SignInAction> = (
+export const authReducer = (
   state: IAuthState = { submitting: false },
   action: SignInAction,
 ): IAuthState => {
