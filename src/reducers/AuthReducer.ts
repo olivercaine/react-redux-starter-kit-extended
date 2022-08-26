@@ -1,5 +1,6 @@
-import { createAction, IActionWithPayload } from '@olliecaine/reducers'
-import { IState } from '../routes/SignInForm/components/SignInForm'
+import { createAction, IActionWithPayload } from '@olliecaine/reducers';
+import { Reducer } from 'react';
+import { IState } from '../routes/SignInForm/components/SignInForm';
 
 export interface IAuthState {
   token?: string;
@@ -38,7 +39,7 @@ export const initialState: IAuthState = { submitting: false }
 // ------------------------------------
 // Reducer
 // ------------------------------------
-export const authReducer = (
+export const authReducer: Reducer<IAuthState, SignInAction> = (
   state: IAuthState = initialState,
   action: SignInAction,
 ): IAuthState => {
