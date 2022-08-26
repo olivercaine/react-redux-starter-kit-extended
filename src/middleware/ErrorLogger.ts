@@ -2,7 +2,7 @@ import { Middleware } from 'redux'
 
 export const ERROR_SUFFIX = '_ERROR'
 
-export const errorLoggerMiddleware: Middleware = (/*store: any*/) => (next) => (action) => {
+export const errorLoggerMiddleware: Middleware = (/* store: any */) => (next) => (action) => {
   if ((/[A-Z]*_ERROR/i).test(action.type)) {
     console.log(`Error ${action.type} occurred with stack "${action['payload'].stack}"`)
     // TODO: Log to Google Analytics

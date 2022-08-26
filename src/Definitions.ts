@@ -4,7 +4,7 @@ import { IAuthState } from './reducers/AuthReducer'
 
 export interface IRootState {
   counter: ICounter;
-  signInForm: IAuthState
+  signInForm?: IAuthState
   // canonicalData: ICanonicalData;
 }
 
