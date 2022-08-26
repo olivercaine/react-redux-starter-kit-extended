@@ -1,6 +1,6 @@
-import { createAction, IActionWithPayload } from '@olliecaine/reducers';
-import { Reducer } from 'react';
-import { IState } from '../routes/SignInForm/components/SignInForm';
+import { createAction, IActionWithPayload } from '@olliecaine/reducers'
+import { Reducer } from 'react'
+import { IState } from '../routes/SignInForm/components/SignInForm'
 
 export interface IAuthState {
   token?: string;
