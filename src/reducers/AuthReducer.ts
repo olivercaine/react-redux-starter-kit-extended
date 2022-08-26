@@ -32,15 +32,10 @@ export const AuthActions = {
 }
 
 // ------------------------------------
-// Domain & State
-// ------------------------------------
-export const initialState: IAuthState = { submitting: false }
-
-// ------------------------------------
 // Reducer
 // ------------------------------------
 export const authReducer: Reducer<IAuthState, SignInAction> = (
-  state: IAuthState = initialState,
+  state: IAuthState = { submitting: false },
   action: SignInAction,
 ): IAuthState => {
   switch (action.type) {
