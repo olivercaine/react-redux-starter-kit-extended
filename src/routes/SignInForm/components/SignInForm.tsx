@@ -12,13 +12,13 @@ export interface IPropsFromState {
   loginAttempts?: Number
 }
 
+export interface IPropsFromDispatch {
+  onSubmit(formValues: IState): any
+}
+
 export interface IState { // Form values which get passed to callback
   email: string
   password: string
-}
-
-export interface IPropsFromDispatch {
-  onSubmit(formValues: IState): any
 }
 
 export interface IProps extends IPropsFromDispatch, IPropsFromState { }
@@ -67,7 +67,7 @@ export const SignInForm: FC<IProps> = (props: IProps): JSX.Element => {
           value={props.values.email}
         />
         <br />
-        {(props.submitCount || props.touched.email) && props.errors.email}
+        <span>{(props.submitCount || props.touched.email) && props.errors.email}</span>
       </div>
 
       <br />
@@ -85,7 +85,7 @@ export const SignInForm: FC<IProps> = (props: IProps): JSX.Element => {
           value={props.values.password}
         />
         <br />
-        {(props.submitCount || props.touched.password) && props.errors.password}
+        <span>{(props.submitCount || props.touched.password) && props.errors.password}</span>
       </div>
 
       <br />
