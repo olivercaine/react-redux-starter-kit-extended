@@ -32,7 +32,7 @@ export const WithInitialValues = template({
 
 export const WithProp = template({
   ...requiredProps,
-  customProp: 'A custom prop'
+  customProp: 'A custom prop',
 })
 WithProp.play = async ({ canvasElement }) => {
   const canvas = await within(canvasElement)
@@ -43,7 +43,7 @@ export const WithGeneralErrors = template({
   ...requiredProps,
   generalErrors: ['Server validation failed']
 })
-WithProp.play = async ({ canvasElement }) => {
+WithGeneralErrors.play = async ({ canvasElement }) => {
   const canvas = await within(canvasElement)
   await waitFor(() => expect(canvas.getByText('Server validation failed')).toBeInTheDocument())
 }
