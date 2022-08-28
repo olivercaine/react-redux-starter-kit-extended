@@ -4,7 +4,7 @@ import React, { FC } from 'react'
 import * as Yup from 'yup'
 
 export interface IPropsFromState {
-  initialValues?: IState
+  initialValues?: Partial<IState>
   customProp?: string
   submitting?: boolean
   token?: string
@@ -28,12 +28,11 @@ export const SignInForm: FC<IProps> = (props: IProps): JSX.Element => <SignInFor
 const SignInFormFormik = withFormik<IProps, IState>({
 
   // Set up form
-  mapPropsToValues: (props: IPropsFromState): IState => {
-    return props.initialValues || {
+  mapPropsToValues: (props: IPropsFromState): IState =>
+    Object.assign({
       email: '',
       password: '',
-    }
-  },
+    }, props.initialValues),
 
   validationSchema: Yup.object().shape<IState>({
     email: emailValidation,
