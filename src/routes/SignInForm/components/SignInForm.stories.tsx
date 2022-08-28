@@ -22,7 +22,6 @@ export const WithInitialValues = template({
   ...requiredProps,
   initialValues: {
     email: 'olliecaine@gmail.com',
-    password: 'pass123'
   }
 })
 

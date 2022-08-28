@@ -18,7 +18,7 @@
     "integration": "start-server-and-test start 3000 'cypress run --headed --browser chrome'",
     "build": "npm run clean && npm run build-storybook && cross-env NODE_ENV=production npm run compile",
     "build-storybook": "build-storybook -o ./dist/storybook",
-    "health-check": "concurrently 'npm run lint --quiet' 'npm test' 'npm run test:storybook' 'npm run build'"
+    "health-check": "time concurrently --group --kill-others-on-fail --timings 'npm run lint --quiet' 'npm test' 'npm run test:storybook' 'npm run build'"
   },
   "husky": {
     "hooks": {
@@ -96,7 +96,7 @@
     "chai-enzyme": "^1.0.0-beta.1",
     "chalk": "^1.1.3",
     "codecov": "^3.8.3",
-    "concurrently": "^4.1.0",
+    "concurrently": "^7.3.0",
     "connect-history-api-fallback": "^1.6.0",
     "core-js": "^2.6.12",
     "cross-env": "^5.0.0",

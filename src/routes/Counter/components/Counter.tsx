@@ -21,7 +21,7 @@ export interface IPropsFromDispatch {
 
 export interface IProps extends IPropsFromDispatch, IPropsFromState { }
 
-export const Counter = ({ counter, onIncrement, onDoubleAsync }: IProps) =>
+export const Counter = ({ counter = 0, onIncrement, onDoubleAsync }: IProps): JSX.Element =>
   <div style={{ margin: '0 auto' }} >
     <h2>Counter: {counter}</h2>
     <Button text='Increment' onClick={onIncrement} />
