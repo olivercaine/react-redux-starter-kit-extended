@@ -8,7 +8,7 @@
 | --------------- | --------------------------- |
 | Unit            | [FileUnderTest].spec.ts     |
 | Component       | [ComponentName].stories.tsx |
-| Integration/E2E | [FeatureName].cy.ts         |
+| Integration / E2E | [FeatureName].cy.ts         |
 
 ## Creating a new route
 
