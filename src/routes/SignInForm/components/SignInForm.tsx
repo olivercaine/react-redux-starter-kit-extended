@@ -24,7 +24,6 @@ export interface IPropsFromDispatch {
 export interface IProps extends IPropsFromDispatch, IPropsFromState { }
 
 export const SignInForm: FC<IProps> = (props: IProps): JSX.Element => {
-
   const SignInFormFormik = withFormik<IProps, IState>({
 
     // Set up form
@@ -102,5 +101,4 @@ export const SignInForm: FC<IProps> = (props: IProps): JSX.Element => {
   ))
 
   return <SignInFormFormik {...props} />
-
 }
