@@ -11,7 +11,7 @@
     "test": "cross-env NODE_ENV=none karma start build/karma.config",
     "storybook:start": "http-server storybook-static --port 6006 --silent",
     "test:watch": "npm test -- --watch",
-    "test:storybook": "start-server-and-test storybook 6006 'test-storybook --browsers webkit'",
+    "test:storybook": "start-server-and-test storybook 6006 'test-storybook --browsers chromium'",
     "storybook": "start-storybook -p 6006 -s ./public",
     "dev": "npm i && concurrently 'npm run start' 'npm run storybook' 'npm run test:watch'",
     "start": "cross-env NODE_ENV=development node build/scripts/start",
