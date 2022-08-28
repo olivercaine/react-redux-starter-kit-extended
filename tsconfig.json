@@ -32,7 +32,9 @@
     "types": [
       "node",
       "mocha",
-      "chai"
+      "chai",
+      "jest",
+      "@testing-library/jest-dom"
     ]
   },
   "exclude": [

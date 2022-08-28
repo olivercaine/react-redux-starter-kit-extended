@@ -51,13 +51,14 @@ describe('Example', () => {
 
   it('SignInForm performs auth request', () => {
     cy.get('a:contains(SignInForm)').click()
-    cy.login('me@mail.com', 'paS$w0rd')
 
     cy.intercept('POST', authApi, (req) => {
       req.reply({
         token: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0b3B0YWwuY29tIiwiZXhw`
       } as LoginResponse)
     })
+
+    cy.login('me@mail.com', 'paS$w0rd')
 
     cy.get('form:first').submit()
     cy.contains('Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0b3B0YWwuY29tIiwiZXhw')
