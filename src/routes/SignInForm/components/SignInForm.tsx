@@ -23,80 +23,84 @@ export interface IPropsFromDispatch {
 
 export interface IProps extends IPropsFromDispatch, IPropsFromState { }
 
-export const SignInForm: FC<IProps> = (props: IProps): JSX.Element => <SignInFormFormik {...props} />
+export const SignInForm: FC<IProps> = (props: IProps): JSX.Element => {
 
-const SignInFormFormik = withFormik<IProps, IState>({
+  const SignInFormFormik = withFormik<IProps, IState>({
 
-  // Set up form
-  mapPropsToValues: (props: IPropsFromState): IState =>
-    Object.assign({
-      email: '',
-      password: '',
-    }, props.initialValues),
+    // Set up form
+    mapPropsToValues: (props: IPropsFromState): IState =>
+      Object.assign({
+        email: '',
+        password: '',
+      }, props.initialValues),
 
-  validationSchema: Yup.object().shape<IState>({
-    email: emailValidation,
-    password: passwordValidation,
-  }),
+    validationSchema: Yup.object().shape<IState>({
+      email: emailValidation,
+      password: passwordValidation,
+    }),
 
-  handleSubmit: (formValues: IState, formikBag: FormikBag<IProps, IState>) => {
-    formikBag.props.onSubmit(formValues)
-  },
-  // END: Set up form
+    handleSubmit: (formValues: IState, formikBag: FormikBag<IProps, IState>) => {
+      formikBag.props.onSubmit(formValues)
+    },
+    // END: Set up form
 
-})((props: IProps & FormikProps<IState>): JSX.Element => (
+  })((props: IProps & FormikProps<IState>): JSX.Element => (
 
-  <form autoComplete='on' noValidate onSubmit={props.handleSubmit}>
+    <form autoComplete='on' noValidate onSubmit={props.handleSubmit}>
 
-    {props.customProp && <h2>{props.customProp}</h2>}
+      {props.customProp && <h2>{props.customProp}</h2>}
 
-    <p>Login attempts: {props.loginAttempts || 0}</p>
+      <p>Login attempts: {props.loginAttempts || 0}</p>
 
-    {!!props.generalErrors && <ul>{props.generalErrors.map((generalError, i) => <li key={i}>{generalError}</li>)}</ul>}
+      {!!props.generalErrors && <ul>{props.generalErrors.map((generalError, i) => <li key={i}>{generalError}</li>)}</ul>}
 
-    <div>
-      <label htmlFor='email'>Email</label>
-      <input
-        autoFocus
-        data-testid='email'
-        name='email'
-        type='email'
-        onBlur={props.handleBlur}
-        onChange={props.handleChange}
-        placeholder='yourname@email.com'
-        required
-        value={props.values.email}
-      />
+      <div>
+        <label htmlFor='email'>Email</label>
+        <input
+          autoFocus
+          data-testid='email'
+          name='email'
+          type='email'
+          onBlur={props.handleBlur}
+          onChange={props.handleChange}
+          placeholder='yourname@email.com'
+          required
+          value={props.values.email}
+        />
+        <br />
+        {(props.submitCount || props.touched.email) && props.errors.email}
+      </div>
+
       <br />
-      {(props.submitCount || props.touched.email) && props.errors.email}
-    </div>
 
-    <br />
+      <div>
+        <label htmlFor='password'>Password</label>
+        <input
+          name='password'
+          type='password'
+          data-testid='password'
+          placeholder='password'
+          onBlur={props.handleBlur}
+          onChange={props.handleChange}
+          required
+          value={props.values.password}
+        />
+        <br />
+        {(props.submitCount || props.touched.password) && props.errors.password}
+      </div>
 
-    <div>
-      <label htmlFor='password'>Password</label>
-      <input
-        name='password'
-        type='password'
-        data-testid='password'
-        placeholder='password'
-        onBlur={props.handleBlur}
-        onChange={props.handleChange}
-        required
-        value={props.values.password}
-      />
       <br />
-      {(props.submitCount || props.touched.password) && props.errors.password}
-    </div>
 
-    <br />
+      <button disabled={props.submitting}>
+        {!props.submitting ? 'Login' : 'Logging in...'}
+      </button>
 
-    <button disabled={props.submitting}>
-      {!props.submitting ? 'Login' : 'Logging in...'}
-    </button>
+      <p>Token: {props.token}</p>
 
-    <p>Token: {props.token}</p>
+    </form>
 
-  </form>
+  ))
 
-))
+  return <SignInFormFormik {...props} />
+
+}
