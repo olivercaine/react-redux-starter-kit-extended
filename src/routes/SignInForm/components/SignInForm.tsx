@@ -23,7 +23,7 @@ export interface IPropsFromDispatch {
 
 export interface IProps extends IPropsFromDispatch, IPropsFromState { }
 
-export const SignInForm: FC<IProps> = (props: IProps) => <SignInFormFormik {...props} />
+export const SignInForm: FC<IProps> = (props: IProps): JSX.Element => <SignInFormFormik {...props} />
 
 const SignInFormFormik = withFormik<IProps, IState>({
 
@@ -45,7 +45,7 @@ const SignInFormFormik = withFormik<IProps, IState>({
   },
   // END: Set up form
 
-})((props: IProps & FormikProps<IState>) => (
+})((props: IProps & FormikProps<IState>): JSX.Element => (
 
   <form autoComplete='on' noValidate onSubmit={props.handleSubmit}>
 

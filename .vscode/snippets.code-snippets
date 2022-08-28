@@ -33,7 +33,7 @@
       "  text?: string",
       "}",
       "",
-      "export const Button: FC<IProps> = ({ onClick, text = 'Default button text' }: IProps) =>",
+      "export const Button: FC<IProps> = ({ onClick, text = 'Default button text' }: IProps): JSX.Element =>",
       "  <button className='btn btn-primary' onClick={onClick}>",
       "    {text}",
       "  </button>",
