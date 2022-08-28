@@ -26,6 +26,7 @@ export const WithInitialValues = template({
   ...requiredProps,
   initialValues: {
     email: 'olliecaine@gmail.com',
+    password: 'mypass'
   }
 })
 
@@ -33,11 +34,19 @@ export const WithProp = template({
   ...requiredProps,
   customProp: 'A custom prop'
 })
+WithProp.play = async ({ canvasElement }) => {
+  const canvas = await within(canvasElement)
+  await waitFor(() => expect(canvas.getByText('A custom prop')).toBeInTheDocument())
+}
 
 export const WithGeneralErrors = template({
   ...requiredProps,
   generalErrors: ['Server validation failed']
 })
+WithProp.play = async ({ canvasElement }) => {
+  const canvas = await within(canvasElement)
+  await waitFor(() => expect(canvas.getByText('Server validation failed')).toBeInTheDocument())
+}
 
 export const RequiresEmail = template({ ...requiredProps })
 RequiresEmail.play = async ({ canvasElement }) => {
@@ -54,19 +63,14 @@ PasswordIsRequired.play = async ({ canvasElement }) => {
   await waitFor(() => expect(canvas.getByText('Password is required')).toBeInTheDocument())
 }
 
-export const Submitting = template({
+export const SubmitButtonDisables = template({
   ...requiredProps,
-  initialValues: {
-    email: 'olliecaine@gmail.com',
-    password: 'pass123'
-  },
   submitting: true
 })
-Submitting.play = async ({ canvasElement }) => {
+SubmitButtonDisables.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
-  await userEvent.type(canvas.getByTestId('email'), 'michael@chromatic.com')
-  await userEvent.type(canvas.getByTestId('password'), 'pass')
+  await userEvent.type(canvas.getByTestId('email'), 'me@email.com')
+  await userEvent.type(canvas.getByTestId('password'), 'myMass1*')
   await userEvent.click(canvas.getByRole('button'))
-  await canvas.getByTestId('password').blur()
-  await waitFor(() => expect(canvas.getByText('Password needs at least one uppercase letter')).toBeInTheDocument())
+  await expect(canvas.getByRole('button')).toHaveProperty('disabled', true)
 }
