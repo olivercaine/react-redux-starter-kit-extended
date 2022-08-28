@@ -5,7 +5,7 @@ export interface IPropsFromState {
   /**
   The current counter value
   */
-  counter: Number
+  counter?: Number
 }
 
 export interface IPropsFromDispatch {
