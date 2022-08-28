@@ -7,5 +7,5 @@ export interface IProps {
   month: string
 }
 
-export const MonthBlurb = ({ month }: IProps) =>
+export const MonthBlurb = ({ month }: IProps): JSX.Element =>
   <span>The current month is {month} according to TypeScript</span>
