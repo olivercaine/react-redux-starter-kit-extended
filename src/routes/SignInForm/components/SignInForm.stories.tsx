@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions'
-import { expect } from '@storybook/jest'
+import { expect, jest } from '@storybook/jest'
 import { ComponentMeta } from '@storybook/react'
 import { userEvent, waitFor, within } from '@storybook/testing-library'
 import { storyTemplate } from '../../../../.storybook/helpers'
@@ -74,7 +74,8 @@ SubmitButtonDisables.play = async ({ canvasElement }) => {
 
 export const TriggersCallback = template({
   ...requiredProps,
-  submitting: false
+  submitting: false,
+  onSubmit: jest.fn()
 })
 TriggersCallback.play = async ({ args, canvasElement }) => {
   const canvas = within(canvasElement)
