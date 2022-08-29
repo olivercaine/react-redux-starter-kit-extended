@@ -19,12 +19,12 @@
     "cypress:open": "cypress open --browser chrome --e2e",
     "integration": "start-server-and-test start 3000 'cypress run --headed --browser chrome'",
     "build": "npm run clean && cross-env NODE_ENV=production npm run compile",
-    "health-check": "time concurrently --group --kill-others-on-fail --timings 'npm run lint --quiet' 'npm test' 'npm run build' 'npm run storybook:build'"
+    "health-check": "time concurrently --group --kill-others-on-fail --timings 'npm run lint --quiet' 'npm test' 'npm run build' 'npm run storybook:build && npm run storybook:test'"
   },
   "husky": {
     "hooks": {
       "post-commit": "npm run lint:fix",
-      "pre-push": "time concurrently --group --kill-others-on-fail --timings 'npm run health-check' 'npm run integration' 'npm run storybook:test'"
+      "pre-push": "time concurrently --group --kill-others-on-fail --timings 'npm run health-check' 'npm run integration'"
     }
   },
   "engines": {
