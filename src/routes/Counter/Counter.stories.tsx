@@ -2,7 +2,7 @@ import { action } from '@storybook/addon-actions'
 import { Meta } from '@storybook/react'
 import React from 'react'
 import { storyTemplate } from '../../../.storybook/helpers'
-import PageLayout from '../../ui/templates/PageLayout'
+import { PageLayout } from '../../ui/templates/PageLayout'
 import { Counter, IProps } from './components/Counter'
 
 export default {
