@@ -85,8 +85,8 @@ TriggersCallback.play = async ({ args, canvasElement }) => {
     expect(args.onSubmit).toHaveBeenCalledTimes(1)
     expect(args.onSubmit).toHaveBeenCalledWith(
       {
-        email: "me@email.com",
-        password: "myPass1*"
+        email: 'me@email.com',
+        password: 'myPass1*'
       }
     )
   })
