@@ -13,7 +13,7 @@ export interface IPropsFromState {
 }
 
 export interface IPropsFromDispatch {
-  onSubmit(formValues: IState): any
+  onSubmit(formValues: IState): void
 }
 
 export interface IState { // Form values which get passed to callback
