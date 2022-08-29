@@ -1,18 +1,18 @@
-import { ComponentMeta } from '@storybook/react';
-import { IProps, MonthBlurb } from '.';
-import { componentTemplate } from '../../../../.storybook/helper';
+import { ComponentMeta } from '@storybook/react'
+import { storyTemplate } from '../../../../.storybook/helpers'
+import { IProps, MonthBlurb } from './MonthBlurb'
 
 export default {
   component: MonthBlurb,
   title: 'Components/MonthBlurb',
-} as ComponentMeta<typeof MonthBlurb>;
+} as ComponentMeta<typeof MonthBlurb>
 
-const template = componentTemplate(MonthBlurb);
+const template = storyTemplate(MonthBlurb)
 
-const defaultArgs: IProps = {
-  month: 'Nov'
+const requiredProps: IProps = {
+  month: 'Jan'
 }
 
-export const Default = template({ ...defaultArgs });
+export const Default = template({ ...requiredProps })
 
-export const Jan = template({ ...defaultArgs, month: 'Jan' });
+export const MonthOverride = template({ ...requiredProps, month: 'Nov' })

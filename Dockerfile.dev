@@ -1,0 +1,15 @@
+# docker build . -t olliecaine/dev:node14alpine -f Dockerfile.dev
+# docker push olliecaine/dev:node14alpine
+FROM olliecaine/base:node14alpine
+
+WORKDIR /project
+
+# Install Chrome
+RUN echo https://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories \
+    && echo https://dl-cdn.alpinelinux.org/alpine/edge/main >> /etc/apk/repositories \
+    && echo https://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories \
+    && apk --no-cache update && apk --no-cache upgrade \
+    && apk add --no-cache chromium \
+    && rm -rf /var/cache/apk/* /tmp/*
+
+ENV CHROME_BIN /usr/bin/chromium-browser

@@ -2,23 +2,21 @@
     nor does it import React. This component is **only** responsible for
     wiring in the actions and state necessary to render a presentational
     component - in this case, the counter:   */
-import { connect } from 'react-redux';
-import { AuthActions } from '../../../reducers/AuthReducer';
+import { connect } from 'react-redux'
+import { AuthActions } from '../../../reducers/AuthReducer'
 import {
   IPropsFromDispatch,
-  IPropsFromState,
-  IState,
-  SignInFormWrapper as Component
-} from '../components/SignInFormWrapper';
-import { IRootState } from './../../../Definitions';
+  IPropsFromState, SignInForm as Component
+} from '../components/SignInForm'
+import { IRootState } from './../../../Definitions'
 
 /*  Object of action creators (can also be function that returns object).
     Keys will be passed as props to presentational components. Here we are
     implementing our wrapper around increment; the component doesn't care   */
 
 const mapDispatchToProps: IPropsFromDispatch = {
-  handleFormSubmit: (formValues: IState) => AuthActions.shouldSignIn(formValues),
-};
+  onSubmit: AuthActions.shouldSignIn
+}
 
 /*
 Note: mapStateToProps is where you should use `reselect` to create selectors, ie:
@@ -40,4 +38,4 @@ const mapStateToProps = (state: IRootState): IPropsFromState => ({ // Example of
   loginAttempts: state.counter
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Component);
+export default connect(mapStateToProps, mapDispatchToProps)(Component)

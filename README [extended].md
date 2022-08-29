@@ -1,5 +1,15 @@
 # README [extended]
 
+[![Node.js CI](https://github.com/olivercaine/react-redux-starter-kit-extended/actions/workflows/node.js.yml/badge.svg)](https://github.com/olivercaine/react-redux-starter-kit-extended/actions/workflows/node.js.yml)
+
+## Tests
+
+| Test Type       | Naming Convention           |
+| --------------- | --------------------------- |
+| Unit            | [FileUnderTest].spec.ts     |
+| Component       | [ComponentName].stories.tsx |
+| Integration / E2E | [FeatureName].cy.ts         |
+
 ## Creating a new route
 
 1. Duplicate any folder inside /src/routes.
@@ -64,11 +74,11 @@ export const Component = () => (
 
 ```javascript
 createStore(reducer,
- applyMiddleware(
- middlewareA,
- middlewareB,
- middlewareC
- )
+  applyMiddleware(
+    middlewareA,
+    middlewareB,
+    middlewareC
+  )
 );
 ```
 

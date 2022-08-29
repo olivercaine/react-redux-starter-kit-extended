@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import { AuthActions, authReducer, initialState } from './AuthReducer';
+import { expect } from 'chai'
+import { AuthActions, authReducer } from './AuthReducer'
 
 describe('AuthReducer', () => {
   describe('On shouldSignIn action', () => {
@@ -11,10 +11,10 @@ describe('AuthReducer', () => {
       }
 
       // Act
-      const newState = authReducer(initialState, AuthActions.shouldSignIn(payload));
+      const newState = authReducer(undefined, AuthActions.shouldSignIn(payload))
 
       // Assert
-      expect(newState.submitting).to.equal(true);
-    });
-  });
-});
+      expect(newState.submitting).to.equal(true)
+    })
+  })
+})

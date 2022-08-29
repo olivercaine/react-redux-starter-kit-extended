@@ -1,0 +1,104 @@
+import { emailValidation, passwordValidation } from '@olliecaine/form-validation'
+import { FormikBag, FormikProps, withFormik } from 'formik'
+import React, { FC } from 'react'
+import * as Yup from 'yup'
+
+export interface IPropsFromState {
+  initialValues?: Partial<IState>
+  customProp?: string
+  submitting?: boolean
+  token?: string
+  generalErrors?: string[]
+  loginAttempts?: Number
+}
+
+export interface IPropsFromDispatch {
+  onSubmit(formValues: IState): void
+}
+
+export interface IState { // Form values which get passed to callback
+  email: string
+  password: string
+}
+
+export interface IProps extends IPropsFromDispatch, IPropsFromState { }
+
+export const SignInForm: FC<IProps> = (props: IProps): JSX.Element => {
+  const SignInFormFormik = withFormik<IProps, IState>({
+
+    // Set up form
+    mapPropsToValues: (props: IPropsFromState): IState =>
+      Object.assign({
+        email: '',
+        password: '',
+      }, props.initialValues),
+
+    validationSchema: Yup.object().shape<IState>({
+      email: emailValidation,
+      password: passwordValidation,
+    }),
+
+    handleSubmit: (formValues: IState, formikBag: FormikBag<IProps, IState>) => {
+      formikBag.props.onSubmit(formValues)
+    },
+    // END: Set up form
+
+  })((props: IProps & FormikProps<IState>): JSX.Element => (
+
+    <form autoComplete='on' noValidate onSubmit={props.handleSubmit}>
+
+      {props.customProp && <h2>{props.customProp}</h2>}
+
+      <p>Login attempts: {props.loginAttempts || 0}</p>
+
+      {!!props.generalErrors && <ul>{props.generalErrors.map((generalError, i) => <li key={i}>{generalError}</li>)}</ul>}
+
+      <div>
+        <label htmlFor='email'>Email</label>
+        <input
+          autoFocus
+          data-testid='email'
+          name='email'
+          type='email'
+          onBlur={props.handleBlur}
+          onChange={props.handleChange}
+          placeholder='yourname@email.com'
+          required
+          value={props.values.email}
+        />
+        <br />
+        <span>{(props.submitCount || props.touched.email) && props.errors.email}</span>
+      </div>
+
+      <br />
+
+      <div>
+        <label htmlFor='password'>Password</label>
+        <input
+          name='password'
+          type='password'
+          data-testid='password'
+          placeholder='password'
+          onBlur={props.handleBlur}
+          onChange={props.handleChange}
+          required
+          value={props.values.password}
+        />
+        <br />
+        <span>{(props.submitCount || props.touched.password) && props.errors.password}</span>
+      </div>
+
+      <br />
+
+      <button disabled={props.submitting}>
+        {!props.submitting ? 'Login' : 'Logging in...'}
+      </button>
+
+      <p>Token: {props.token}</p>
+
+    </form>
+
+  ))
+
+  return <SignInFormFormik {...props} />
+}

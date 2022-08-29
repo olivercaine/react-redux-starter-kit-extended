@@ -18,6 +18,7 @@ RUN npm run health-check
 FROM nginx:alpine
 
 COPY --from=stage-build /project/dist /usr/share/nginx/html
+COPY --from=stage-build /project/storybook-static /usr/share/nginx/html/storybook
 COPY ./devops/nginx/nginx.conf.template /etc/nginx/conf.d/default.conf.template
 
 CMD /bin/sh -c "envsubst '\$PORT' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf" && nginx -g 'daemon off;'

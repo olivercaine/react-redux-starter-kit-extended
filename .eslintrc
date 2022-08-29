@@ -38,8 +38,10 @@
     "max-len"              : [2, 140, 2],
     "object-curly-spacing" : [2, "always"],
     "no-null/no-null"      : 2,
-    "semi"                 : "off",
+    "no-case-declarations" : 2,
+    "semi"                 : [1, "never"],
     "comma-dangle"         : "off",
-    "no-undef"             : "off"
+    "no-undef"             : "off",
+    "one-var"              : "off"
   }
 }

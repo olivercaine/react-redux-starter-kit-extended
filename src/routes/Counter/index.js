@@ -16,8 +16,7 @@ export default (store) => ({
       injectReducer(store, { key: 'counter', reducer })
 
       /*  Return getComponent   */
-      // eslint-disable-next-line no-null/no-null
-      cb(null, Counter)
+      cb(undefined, Counter)
 
     /* Webpack named bundle   */
     }, 'counter')

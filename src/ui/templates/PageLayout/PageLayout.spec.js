@@ -1,5 +1,5 @@
 import React from 'react'
-import PageLayout from '.'
+import { PageLayout } from '.'
 import { shallow } from '../../../../tests/enzyme-wrapper'
 
 describe('(Layout) PageLayout', () => {

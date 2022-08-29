@@ -1,5 +1,7 @@
+.nyc_output/**
 coverage/**
-node_modules/**
-dist/**
-src/index.html
 devops/**
+dist/**
+node_modules/**
+storybook-static/**
+src/index.html

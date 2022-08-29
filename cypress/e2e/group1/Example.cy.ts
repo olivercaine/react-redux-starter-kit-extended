@@ -1,4 +1,4 @@
-import { authApi, LoginResponse } from '../../../src/connectors/ApiConnector';
+import { authApi, LoginResponse } from '../../../src/connectors/ApiConnector'
 
 describe('Example', () => {
   beforeEach(() => {
@@ -35,13 +35,13 @@ describe('Example', () => {
     })
 
     it('Increases on login attempt', () => {
-      cy.get('a:contains(SignInFormWrapper)').click()
+      cy.get('a:contains(SignInForm)').click()
 
       cy.intercept('POST', authApi, (req) => {
         req.reply({
           token: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0b3B0YWwuY29tIiwiZXhw`
-        } as LoginResponse);
-      });
+        } as LoginResponse)
+      })
 
       cy.login('me@mail.com', 'paS$w0rd')
 
@@ -49,17 +49,18 @@ describe('Example', () => {
     })
   })
 
-  it('SignInFormWrapper performs auth request', () => {
-    cy.get('a:contains(SignInFormWrapper)').click()
-    cy.login('me@mail.com', 'paS$w0rd')
+  it('SignInForm performs auth request', () => {
+    cy.get('a:contains(SignInForm)').click()
 
     cy.intercept('POST', authApi, (req) => {
       req.reply({
         token: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0b3B0YWwuY29tIiwiZXhw`
-      } as LoginResponse);
-    });
+      } as LoginResponse)
+    })
 
-    cy.get('form:first').submit();
+    cy.login('me@mail.com', 'paS$w0rd')
+
+    cy.get('form:first').submit()
     cy.contains('Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0b3B0YWwuY29tIiwiZXhw')
   })
 })
