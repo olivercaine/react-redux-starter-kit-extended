@@ -69,8 +69,25 @@ export const SubmitButtonDisables = template({
 })
 SubmitButtonDisables.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
-  await userEvent.type(canvas.getByTestId('email'), 'me@email.com')
-  await userEvent.type(canvas.getByTestId('password'), 'myMass1*')
-  await userEvent.click(canvas.getByRole('button'))
   await expect(canvas.getByRole('button')).toHaveProperty('disabled', true)
+}
+
+export const TriggersCallback = template({
+  ...requiredProps,
+  submitting: false
+})
+TriggersCallback.play = async ({ args, canvasElement }) => {
+  const canvas = within(canvasElement)
+  await userEvent.type(canvas.getByTestId('email'), 'me@email.com')
+  await userEvent.type(canvas.getByTestId('password'), 'myPass1*')
+  await userEvent.click(canvas.getByRole('button'))
+  await waitFor(() => {
+    expect(args.onSubmit).toHaveBeenCalledTimes(1)
+    expect(args.onSubmit).toHaveBeenCalledWith(
+      {
+        email: "me@email.com",
+        password: "myPass1*"
+      }
+    )
+  })
 }
