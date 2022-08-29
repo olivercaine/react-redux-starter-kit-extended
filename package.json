@@ -13,7 +13,7 @@
     "test": "cross-env NODE_ENV=none karma start build/karma.config",
     "test:watch": "npm test -- --watch",
     "storybook": "start-storybook -p 6006 -s ./public",
-    "storybook:test": "start-server-and-test storybook 6006 'test-storybook --browsers chromium'",
+    "storybook:test": "start-server-and-test storybook:serve 6006 'test-storybook --browsers chromium'",
     "storybook:build": "build-storybook",
     "storybook:serve": "http-server storybook-static --port 6006 --silent",
     "cypress:open": "cypress open --browser chrome --e2e",
