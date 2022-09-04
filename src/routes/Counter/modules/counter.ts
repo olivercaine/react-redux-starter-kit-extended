@@ -48,7 +48,7 @@ const ACTION_HANDLERS = {
 // ------------------------------------
 // Reducer & State
 // ------------------------------------
-export const counterReducer = (state = 0, action): Reducer<number> => {
+export const counterReducer: Reducer<number> = (state = 0, action): number => {
   const handler = ACTION_HANDLERS[action.type]
   return handler ? handler(state, action) : state
 }
