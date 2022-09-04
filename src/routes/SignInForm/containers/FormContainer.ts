@@ -4,11 +4,11 @@
     component - in this case, the counter:   */
 import { connect } from 'react-redux'
 import { AuthActions } from '../../../reducers/AuthReducer'
+import { IRootState } from '../../../store/reducers'
 import {
   IPropsFromDispatch,
   IPropsFromState, SignInForm as Component
 } from '../components/SignInForm'
-import { IRootState } from './../../../Definitions'
 
 /*  Object of action creators (can also be function that returns object).
     Keys will be passed as props to presentational components. Here we are

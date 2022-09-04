@@ -1,4 +1,4 @@
-import { IRootState } from 'Definitions'
+import { IRootState } from '../store/reducers'
 
 const GLOBAL_STATE = 'GLOBAL_STATE'
 
