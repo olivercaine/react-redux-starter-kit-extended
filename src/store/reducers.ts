@@ -12,6 +12,7 @@ export const makeRootReducer = (asyncReducers): Reducer<IRootState> =>
 
 // TODO: dynamically create IRootState,
 // e.g. `export type IRootState = ReturnType<typeof makeRootReducer>;` (not currently working)
+// or maybe, `export type RootState = ReturnType<typeof store.getState>` in main.js or createStore.js
 export interface IRootState {
   counter: ReturnType<typeof counterReducer>
   signInForm: ReturnType<typeof authReducer>
