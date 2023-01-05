@@ -4,7 +4,7 @@ export default (store) => ({
   path: 'form',
   /*  Async getComponent is only invoked when route matches   */
   // @ts-expect-error
-  getComponent(nextState, cb) {
+  getComponent (nextState, cb) {
     /*  Webpack - use 'require.ensure' to create a split point
     and embed an async module loader (jsonp) when bundling   */
     // @ts-expect-error
