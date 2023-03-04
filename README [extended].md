@@ -1,5 +1,11 @@
 # README [extended]
 
+## Copying the client into your own repo
+
+```
+git clone git@github.com:olivercaine/react-redux-starter-kit-extended.git client && rm -rf ./client/.git
+```
+
 [![Node.js CI](https://github.com/olivercaine/react-redux-starter-kit-extended/actions/workflows/node.js.yml/badge.svg)](https://github.com/olivercaine/react-redux-starter-kit-extended/actions/workflows/node.js.yml)
 
 ## Tests
