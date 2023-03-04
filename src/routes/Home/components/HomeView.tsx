@@ -1,7 +1,7 @@
 import { Months } from '@olliecaine/months'
 import React from 'react'
 import { MonthBlurb } from '../../../ui/components/MonthBlurb/MonthBlurb'
-// @ts-expect-error
+// @ts-ignore
 import DuckImage from '../assets/Duck.jpg'
 import './HomeView.scss'
 
