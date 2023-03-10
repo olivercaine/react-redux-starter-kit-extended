@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions'
 import { ComponentMeta } from '@storybook/react'
-import { storyTemplate } from '../../../../.storybook/helpers'
+import { storyTemplate } from '../../../../.storybook/helper'
 import { Button, IProps } from './Button'
 
 export default {

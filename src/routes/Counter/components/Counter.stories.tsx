@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions'
 import { ComponentMeta } from '@storybook/react'
-import { storyTemplate } from '../../../../.storybook/helpers'
+import { storyTemplate } from '../../../../.storybook/helper'
 import { Counter, IProps } from './Counter'
 
 export default {
