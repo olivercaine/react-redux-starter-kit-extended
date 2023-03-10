@@ -2,7 +2,7 @@ import { action } from '@storybook/addon-actions'
 import { expect, jest } from '@storybook/jest'
 import { ComponentMeta } from '@storybook/react'
 import { userEvent, waitFor, within } from '@storybook/testing-library'
-import { storyTemplate } from '../../../../.storybook/helpers'
+import { storyTemplate } from '../../../../.storybook/helper'
 import { IProps, SignInForm } from './SignInForm'
 
 export default {
