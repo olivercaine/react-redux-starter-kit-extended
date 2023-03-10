@@ -96,7 +96,7 @@
       "    text?: string",
       "}",
       "",
-      "export const Component: FC<IProps> = ({ onClick, text = 'Default button text' }: IProps) =>",
+      "const Component: FC<IProps> = ({ onClick, text = 'Default button text' }: IProps) =>",
       "    <button className='btn btn-primary' onClick={onClick}>",
       "        {text}",
       "    </button>",
