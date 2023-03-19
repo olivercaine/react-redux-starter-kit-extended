@@ -1,5 +1,5 @@
 import { ComponentMeta } from '@storybook/react'
-import { storyTemplate } from '../../../../.storybook/helper'
+import { storyTemplate } from '../../../../.storybook/helpers'
 import { IProps, MonthBlurb } from './MonthBlurb'
 
 export default {

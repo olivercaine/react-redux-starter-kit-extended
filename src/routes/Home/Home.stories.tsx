@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react'
 import React from 'react'
-import { storyTemplate } from '../../../.storybook/helper'
+import { storyTemplate } from '../../../.storybook/helpers'
 import { PageLayout } from '../../ui/templates/PageLayout'
 import { HomeView } from './components/HomeView'
 
