@@ -18,7 +18,7 @@
     "test": "cross-env NODE_ENV=none karma start build/karma.config",
     "test:watch": "npm test -- --watch",
     "cypress:open": "cypress open --browser chrome --e2e",
-    "integration": "start-test start 3000 'cypress run --headed --browser chrome'",
+    "integration": "start-test start 3000 'cypress run --browser chrome'",
     "build": "npm run clean && cross-env NODE_ENV=production npm run compile",
     "health-check": "time concurrently --group --kill-others-on-fail --timings 'npm run lint --quiet' 'npm run build' 'npm run storybook:build' 'npm test'"
   },
