@@ -1,7 +1,7 @@
 import { IHttpResponse } from '@olliecaine/fetch'
 import { Dispatch, Middleware } from 'redux'
-import { login, LoginResponse } from '../connectors/ApiConnector'
-import { AuthAction, AuthActions } from '../reducers/AuthReducer'
+import { LoginResponse, login } from '../connectors/ApiConnector'
+import { AuthAction, AuthActions } from '../store/reducers/AuthReducer'
 import { CounterActions } from './../routes/Counter/modules/counter'
 
 // Receives all actions but only processes ones defined below before they reach the store's reducer.
