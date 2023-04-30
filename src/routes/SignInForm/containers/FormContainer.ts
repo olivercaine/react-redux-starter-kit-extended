@@ -3,11 +3,12 @@
     wiring in the actions and state necessary to render a presentational
     component - in this case, the counter:   */
 import { connect } from 'react-redux'
-import { AuthActions } from '../../../store/reducers/AuthReducer'
-import { IRootState } from '../../../store/reducers'
+import { IRootState } from '../../../state/reducers'
+import { AuthActions } from '../../../state/reducers/AuthReducer'
 import {
+  SignInForm as Component,
   IPropsFromDispatch,
-  IPropsFromState, SignInForm as Component
+  IPropsFromState
 } from '../components/SignInForm'
 
 /*  Object of action creators (can also be function that returns object).

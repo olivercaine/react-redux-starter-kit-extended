@@ -1,6 +1,6 @@
 import { combineReducers, Reducer } from 'redux'
 import { counterReducer } from '../routes/Counter/modules/counter'
-import locationReducer from './location'
+import locationReducer from './reducers/location'
 import { authReducer } from './reducers/AuthReducer'
 
 export const makeRootReducer = (asyncReducers?): Reducer<IRootState> =>

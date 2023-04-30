@@ -1,4 +1,4 @@
-import { injectReducer } from '../../store/reducers'
+import { injectReducer } from '../../state/reducers'
 
 export default (store) => ({
   path: 'form',
@@ -10,7 +10,7 @@ export default (store) => ({
       /*  Webpack - use require callback to define
           dependencies for bundling   */
       const Counter = require('./containers/FormContainer').default
-      const reducer = require('../../store/reducers/AuthReducer').authReducer
+      const reducer = require('../../state/reducers/AuthReducer').authReducer
 
       /*  Add the reducer to the store on key 'counter'  */
       injectReducer(store, { key: 'signInForm', reducer })

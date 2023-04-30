@@ -1,6 +1,6 @@
 import { Store } from 'redux'
 import { CounterActions } from '../routes/Counter/modules/counter'
-import { createStore } from '../store/createStore'
+import { createStore } from './createStore'
 import { IRootState } from './reducers'
 
 describe('(Store) createStore', () => {
