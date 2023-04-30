@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import createStore from './store/createStore'
+import createStore from './state/createStore'
 
 // Store Initialization - with state
 const store = createStore(JSON.parse(sessionStorage.getItem('ROOT_STATE')) || {})

@@ -19,6 +19,7 @@ module.exports = {
   externals: {},
   /** A hash map of variables and their values to expose globally */
   globals: {
+    appName: 'React Redux Starter Kit',
     analyticsId: process.env.analyticsId || 'UA-XXXXXXXX-1'
   },
   /** Whether to enable verbose logging */

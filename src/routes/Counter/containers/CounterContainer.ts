@@ -4,7 +4,7 @@
     component - in this case, the counter:   */
 import { createAction } from '@olliecaine/reducers'
 import { connect } from 'react-redux'
-import { IRootState } from '../../../store/reducers'
+import { IRootState } from '../../../state/reducers'
 import { Counter as Component, IPropsFromDispatch, IPropsFromState } from '../components/Counter'
 import { COUNTER_INCREMENT, DEFAULT_INCREMENT, onDoubleAsync } from '../modules/counter'
 

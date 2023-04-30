@@ -3,7 +3,7 @@ import { applyMiddleware, compose, createStore as createReduxStore } from 'redux
 import thunk from 'redux-thunk'
 import { apiMiddleware } from '../middleware/ApiMiddleware'
 import { errorLoggerMiddleware } from '../middleware/ErrorLogger'
-import { updateLocation } from './location'
+import { updateLocation } from './reducers/location'
 import makeRootReducer, { IRootState } from './reducers'
 
 export const createStore = (initialState = {} as IRootState) => {
