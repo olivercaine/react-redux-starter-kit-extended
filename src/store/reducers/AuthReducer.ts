@@ -1,10 +1,10 @@
 import { createAction, IActionWithPayload } from '@olliecaine/reducers'
-import { IState } from '../routes/SignInForm/components/SignInForm'
+import { IState } from '../../routes/SignInForm/components/SignInForm'
 
 export interface IAuthState {
-  token?: string;
-  submitting: boolean;
-  generalErrors?: string[];
+  token?: string
+  submitting: boolean
+  generalErrors?: string[]
 }
 
 // ------------------------------------
@@ -20,7 +20,7 @@ export enum AuthAction {
 // ------------------------------------
 export type SignInAction =
   | IActionWithPayload<typeof AuthAction.SHOULD_SIGN_IN, IState>
-  | IActionWithPayload<typeof AuthAction.DID_SIGN_IN, IAuthState>;
+  | IActionWithPayload<typeof AuthAction.DID_SIGN_IN, IAuthState>
 
 // ------------------------------------
 // Action Creators
