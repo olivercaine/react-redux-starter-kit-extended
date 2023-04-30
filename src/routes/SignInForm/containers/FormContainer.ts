@@ -3,7 +3,7 @@
     wiring in the actions and state necessary to render a presentational
     component - in this case, the counter:   */
 import { connect } from 'react-redux'
-import { AuthActions } from '../../../reducers/AuthReducer'
+import { AuthActions } from '../../../store/reducers/AuthReducer'
 import { IRootState } from '../../../store/reducers'
 import {
   IPropsFromDispatch,
