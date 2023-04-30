@@ -1,12 +1,12 @@
 import { browserHistory } from 'react-router'
-import { applyMiddleware, compose, createStore as createReduxStore, Store } from 'redux'
+import { applyMiddleware, compose, createStore as createReduxStore } from 'redux'
 import thunk from 'redux-thunk'
 import { apiMiddleware } from '../middleware/ApiMiddleware'
 import { errorLoggerMiddleware } from '../middleware/ErrorLogger'
 import { updateLocation } from './location'
-import makeRootReducer from './reducers'
+import makeRootReducer, { IRootState } from './reducers'
 
-export const createStore = (initialState = {}): Store<any> => {
+export const createStore = (initialState = {} as IRootState) => {
   // ======================================================
   // Middleware Configuration
   // ======================================================
@@ -30,8 +30,7 @@ export const createStore = (initialState = {}): Store<any> => {
   // ======================================================
   // Store Instantiation and HMR Setup
   // ======================================================
-  const store = createReduxStore(
-    // @ts-ignore
+  const store = createReduxStore<IRootState>(
     makeRootReducer(),
     initialState,
     composeEnhancers(

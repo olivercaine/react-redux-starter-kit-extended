@@ -14,11 +14,13 @@ export const makeRootReducer = (asyncReducers?): Reducer<IRootState> =>
 // e.g. `export type IRootState = ReturnType<typeof makeRootReducer>;` (not currently working)
 // or maybe, `export type RootState = ReturnType<typeof store.getState>` in main.js or createStore.js
 export interface IRootState {
+  location: ReturnType<typeof locationReducer>
   counter: ReturnType<typeof counterReducer>
   signInForm: ReturnType<typeof authReducer>
+  // asyncReducers?: ReturnType<any>
 }
 
-export const injectReducer = (store, { key, reducer }) => {
+export const injectReducer = (store, { key, reducer }): void => {
   if (Object.hasOwnProperty.call(store.asyncReducers, key)) return
 
   store.asyncReducers[key] = reducer

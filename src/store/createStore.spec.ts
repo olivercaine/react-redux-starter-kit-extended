@@ -1,17 +1,19 @@
+import { Store } from 'redux'
 import { CounterActions } from '../routes/Counter/modules/counter'
-import {
-  default as createStore
-} from '../store/createStore'
+import { createStore } from '../store/createStore'
+import { IRootState } from './reducers'
 
 describe('(Store) createStore', () => {
-  let store
+  let store: Store<IRootState>
 
   before(() => {
     store = createStore()
   })
 
   it('should have an empty asyncReducers object', () => {
+    // @ts-ignore - fix this when I need to use asyncReducers
     expect(store.asyncReducers).to.be.an('object')
+    // @ts-ignore - fix this when I need to use asyncReducers
     expect(store.asyncReducers).to.be.empty
   })
 
