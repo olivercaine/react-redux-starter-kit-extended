@@ -4,7 +4,7 @@ on:
   push:
     branches: ['**']
   schedule:
-    - cron: '0 18 * * FRI' # Every Friday at 6pm
+    - cron: '0 18 1 * *' # 1st of every month
   workflow_dispatch: # Enables running workflow manually
 
 jobs:
