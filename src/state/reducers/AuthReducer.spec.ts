@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-import { AuthActions, authReducer } from './AuthReducer'
+import { authReducer } from './AuthReducer'
 
 describe('AuthReducer', () => {
   describe('On shouldSignIn action', () => {
@@ -9,9 +9,12 @@ describe('AuthReducer', () => {
         email: 'olliecaine@gmail.com',
         password: 'mYPa$$w0rd'
       }
+      const action = authReducer.actions.shouldSignIn(payload)
 
       // Act
-      const newState = authReducer(undefined, AuthActions.shouldSignIn(payload))
+      const newState = authReducer.reducer({
+        submitting: false
+      }, action)
 
       // Assert
       expect(newState.submitting).to.equal(true)

@@ -1,50 +1,53 @@
-import { createAction, IActionWithPayload } from '@olliecaine/reducers'
-import { IState } from '../../routes/SignInForm/components/SignInForm'
-
-export interface IAuthState {
-  token?: string
-  submitting: boolean
-  generalErrors?: string[]
-}
+import { createAction } from '@olliecaine/reducers'
+import { ActionsUnion, IReduxReducer } from '@olliecaine/reducers/types'
+import { IState as ISignInFormState } from '../../routes/SignInForm/components/SignInForm'
 
 // ------------------------------------
-// Action names
+// Action types
 // ------------------------------------
-export enum AuthAction {
+export enum ActionTypes {
   SHOULD_SIGN_IN = 'SHOULD_SIGN_IN',
   DID_SIGN_IN = 'DID_SIGN_IN'
 }
 
 // ------------------------------------
-// Action definitions
-// ------------------------------------
-export type SignInAction =
-  | IActionWithPayload<typeof AuthAction.SHOULD_SIGN_IN, IState>
-  | IActionWithPayload<typeof AuthAction.DID_SIGN_IN, IAuthState>
-
-// ------------------------------------
 // Action Creators
 // ------------------------------------
-export const AuthActions = {
-  shouldSignIn: (payload: IState): SignInAction => createAction(AuthAction.SHOULD_SIGN_IN, payload),
-  didSignIn: (payload: IAuthState): SignInAction => createAction(AuthAction.DID_SIGN_IN, payload)
+const actions = {
+  shouldSignIn: (signInCredentials: ISignInFormState) => createAction(ActionTypes.SHOULD_SIGN_IN, signInCredentials),
+  didSignIn: (authDetails: IState) => createAction(ActionTypes.DID_SIGN_IN, authDetails)
+}
+
+type Actions = ActionsUnion<typeof actions>
+
+// ------------------------------------
+// State
+// ------------------------------------
+interface IState {
+  token?: string
+  submitting: boolean
+  generalErrors?: string[]
+}
+
+const initialState: IState = {
+  submitting: false
 }
 
 // ------------------------------------
 // Reducer
 // ------------------------------------
-export const authReducer = (
-  state: IAuthState = { submitting: false },
-  action: SignInAction,
-): IAuthState => {
+const reducer = (
+  state: IState = initialState,
+  action: Actions
+): IState => {
   switch (action.type) {
-    case AuthAction.SHOULD_SIGN_IN: {
+    case ActionTypes.SHOULD_SIGN_IN: {
       const shouldSignInState = Object.assign({}, state)
       shouldSignInState.submitting = true
       shouldSignInState.generalErrors = []
       return shouldSignInState
     }
-    case AuthAction.DID_SIGN_IN: {
+    case ActionTypes.DID_SIGN_IN: {
       const didSignInState = Object.assign({}, state)
       didSignInState.submitting = false
       didSignInState.token = action.payload.token
@@ -54,4 +57,13 @@ export const authReducer = (
     default:
       return state
   }
+}
+
+// ------------------------------------
+// Expose
+// ------------------------------------
+export const authReducer: IReduxReducer<typeof reducer, ReturnType<typeof reducer>, typeof actions> = {
+  initialState,
+  reducer,
+  actions,
 }

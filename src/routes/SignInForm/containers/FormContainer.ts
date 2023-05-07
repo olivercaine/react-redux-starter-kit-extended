@@ -4,7 +4,7 @@
     component - in this case, the counter:   */
 import { connect } from 'react-redux'
 import { IRootState } from '../../../state/reducers'
-import { AuthActions } from '../../../state/reducers/AuthReducer'
+import { authReducer } from '../../../state/reducers/AuthReducer'
 import {
   SignInForm as Component,
   IPropsFromDispatch,
@@ -16,7 +16,7 @@ import {
     implementing our wrapper around increment; the component doesn't care   */
 
 const mapDispatchToProps: IPropsFromDispatch = {
-  onSubmit: AuthActions.shouldSignIn
+  onSubmit: authReducer.actions.shouldSignIn
 }
 
 /*

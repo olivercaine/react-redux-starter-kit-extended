@@ -10,11 +10,20 @@ git clone git@github.com:olivercaine/react-redux-starter-kit-extended.git client
 
 ## Tests
 
-| Test Type       | Naming Convention           |
-| --------------- | --------------------------- |
-| Unit            | [FileUnderTest].spec.ts     |
-| Component       | [ComponentName].stories.tsx |
+| Test Type         | Naming Convention           |
+| ----------------- | --------------------------- |
+| Unit              | [FileUnderTest].spec.ts     |
+| Component         | [ComponentName].stories.tsx |
 | Integration / E2E | [FeatureName].cy.ts         |
+
+## Snippets
+
+| Descriptions                    | Shortcut |
+| ------------------------------- | -------- |
+| A React component (functional)  | rcf      |
+| A React component (class-based) | rcc      |
+| A Storybook story               | sbs      |
+| A Redux reducer                 | rr       |
 
 ## Creating a new route
 

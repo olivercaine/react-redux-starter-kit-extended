@@ -41,7 +41,7 @@
     "@olliecaine/fetch": "^1.0.0",
     "@olliecaine/form-validation": "^1.0.4",
     "@olliecaine/months": "^1.0.2",
-    "@olliecaine/reducers": "^1.0.8",
+    "@olliecaine/reducers": "^1.0.19",
     "bootstrap": "^4.3.1",
     "compression": "^1.6.2",
     "express": "^4.14.1",
