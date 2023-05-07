@@ -1,7 +1,7 @@
 import { combineReducers, Reducer } from 'redux'
 import { counterReducer } from '../routes/Counter/modules/counter'
-import locationReducer from './reducers/location'
 import { authReducer } from './reducers/AuthReducer'
+import locationReducer from './reducers/location'
 
 export const makeRootReducer = (asyncReducers?): Reducer<IRootState> =>
   combineReducers<IRootState>({
@@ -16,7 +16,7 @@ export const makeRootReducer = (asyncReducers?): Reducer<IRootState> =>
 export interface IRootState {
   location: ReturnType<typeof locationReducer>
   counter: ReturnType<typeof counterReducer>
-  signInForm: ReturnType<typeof authReducer>
+  signInForm: ReturnType<typeof authReducer.reducer>
   // asyncReducers?: ReturnType<any>
 }
 
