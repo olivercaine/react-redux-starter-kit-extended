@@ -7,7 +7,7 @@
     "clean": "rimraf dist",
     "compile": "node build/scripts/compile",
     "start": "cross-env NODE_ENV=development node build/scripts/start",
-    "dev": "concurrently 'npm run start' 'npm run storybook' 'npm run test:watch'",
+    "dev": "concurrently 'npm install' 'npm run start' 'npm run storybook' 'npm run test:watch'",
     "dev:docker": "docker run --rm -it -w /app -v ${PWD}:/app --expose 7000 -p 6006:6006 -p 3000:3000 node:14-alpine sh -c 'npm run dev'",
     "lint": "eslint . --ext .ts,.tsx,.js",
     "lint:fix": "npm run lint -- --fix",
