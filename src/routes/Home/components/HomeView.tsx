@@ -7,6 +7,6 @@ import './HomeView.scss'
 
 export const HomeView = (): JSX.Element =>
   <div>
-    <h4><MonthBlurb month={Months[new Date().getMonth()]} /></h4>
+    <h4><MonthBlurb month={Months[new Date().getMonth()] || 'Unknown'} /></h4>
     <img alt='This is a duck, because Redux!' className='duck' src={DuckImage} />
   </div>
