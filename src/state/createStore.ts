@@ -3,10 +3,10 @@ import { applyMiddleware, compose, createStore as createReduxStore } from 'redux
 import thunk from 'redux-thunk'
 import { apiMiddleware } from '../middleware/ApiMiddleware'
 import { errorLoggerMiddleware } from '../middleware/ErrorLogger'
-import { updateLocation } from './location'
-import makeRootReducer from './reducers'
+import { updateLocation } from './reducers/location'
+import makeRootReducer, { IRootState } from './reducers'
 
-const createStore = (initialState = {}) => {
+export const createStore = (initialState = {} as IRootState) => {
   // ======================================================
   // Middleware Configuration
   // ======================================================
@@ -18,8 +18,11 @@ const createStore = (initialState = {}) => {
   const enhancers = []
   let composeEnhancers = compose
 
-  if (__DEV__) {
+  // @ts-ignore
+  if (typeof __DEV__ !== 'undefined') {
+    // @ts-ignore
     if (typeof window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ === 'function') {
+      // @ts-ignore
       composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     }
   }
@@ -27,7 +30,7 @@ const createStore = (initialState = {}) => {
   // ======================================================
   // Store Instantiation and HMR Setup
   // ======================================================
-  const store = createReduxStore(
+  const store = createReduxStore<IRootState>(
     makeRootReducer(),
     initialState,
     composeEnhancers(
@@ -35,14 +38,16 @@ const createStore = (initialState = {}) => {
       ...enhancers
     )
   )
+  // @ts-ignore
   store.asyncReducers = {}
 
-  // To unsubscribe, invoke `store.unsubscribeHistory()` anytime
+  // @ts-ignore To unsubscribe, invoke `store.unsubscribeHistory()` anytime
   store.unsubscribeHistory = browserHistory.listen(updateLocation(store))
 
   if (module.hot) {
     module.hot.accept('./reducers', () => {
       const reducers = require('./reducers').default
+      // @ts-ignore
       store.replaceReducer(reducers(store.asyncReducers))
     })
   }

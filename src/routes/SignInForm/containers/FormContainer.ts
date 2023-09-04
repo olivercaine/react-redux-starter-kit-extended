@@ -3,19 +3,20 @@
     wiring in the actions and state necessary to render a presentational
     component - in this case, the counter:   */
 import { connect } from 'react-redux'
-import { AuthActions } from '../../../reducers/AuthReducer'
+import { IRootState } from '../../../state/reducers'
+import { authReducer } from '../../../state/reducers/AuthReducer'
 import {
+  SignInForm as Component,
   IPropsFromDispatch,
-  IPropsFromState, SignInForm as Component
+  IPropsFromState
 } from '../components/SignInForm'
-import { IRootState } from './../../../Definitions'
 
 /*  Object of action creators (can also be function that returns object).
     Keys will be passed as props to presentational components. Here we are
     implementing our wrapper around increment; the component doesn't care   */
 
 const mapDispatchToProps: IPropsFromDispatch = {
-  onSubmit: AuthActions.shouldSignIn
+  onSubmit: authReducer.actions.shouldSignIn
 }
 
 /*

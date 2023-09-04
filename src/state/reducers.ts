@@ -1,0 +1,30 @@
+import { combineReducers, Reducer } from 'redux'
+import { counterReducer } from '../routes/Counter/modules/counter'
+import { authReducer } from './reducers/AuthReducer'
+import locationReducer from './reducers/location'
+
+export const makeRootReducer = (asyncReducers?): Reducer<IRootState> =>
+  combineReducers<IRootState>({
+    location: locationReducer,
+    counter: counterReducer,
+    ...asyncReducers
+  })
+
+// TODO: dynamically create IRootState,
+// e.g. `export type IRootState = ReturnType<typeof makeRootReducer>;` (not currently working)
+// or maybe, `export type RootState = ReturnType<typeof store.getState>` in main.js or createStore.js
+export interface IRootState {
+  location: ReturnType<typeof locationReducer>
+  counter: ReturnType<typeof counterReducer>
+  signInForm: ReturnType<typeof authReducer.reducer>
+  // asyncReducers?: ReturnType<any>
+}
+
+export const injectReducer = (store, { key, reducer }): void => {
+  if (Object.hasOwnProperty.call(store.asyncReducers, key)) return
+
+  store.asyncReducers[key] = reducer
+  store.replaceReducer(makeRootReducer(store.asyncReducers))
+}
+
+export default makeRootReducer

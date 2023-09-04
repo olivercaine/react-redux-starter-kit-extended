@@ -1,5 +1,4 @@
 import React from 'react'
-// @ts-ignore
 import { shallow } from '../../../../tests/enzyme-wrapper'
 import { MonthBlurb } from './MonthBlurb'
 
