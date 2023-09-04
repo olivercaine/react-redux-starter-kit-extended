@@ -19,7 +19,8 @@
     "noPropertyAccessFromIndexSignature": false, // Override inherited as it fails compilation
     "typeRoots": [
       "./node_modules",
-      "./node_modules/@types"
+      "./node_modules/@types",
+      "./node_modules/@olliecaine"
     ],
     "types": [
       "@testing-library/jest-dom",
