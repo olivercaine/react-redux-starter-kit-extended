@@ -29,6 +29,9 @@
       "node"
     ]
   },
+  "include": [
+    ".storybook"
+  ],
   "exclude": [
     "node_modules"
   ]
