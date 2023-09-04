@@ -2,13 +2,28 @@
 
 [![Node.js CI](https://github.com/olivercaine/react-redux-starter-kit-extended/actions/workflows/node.js.yml/badge.svg)](https://github.com/olivercaine/react-redux-starter-kit-extended/actions/workflows/node.js.yml)
 
+## Copying the app into your own repo
+
+```
+git clone git@github.com:olivercaine/react-redux-starter-kit-extended.git client && rm -rf ./client/.git
+```
+
 ## Tests
 
-| Test Type       | Naming Convention           |
-| --------------- | --------------------------- |
-| Unit            | [FileUnderTest].spec.ts     |
-| Component       | [ComponentName].stories.tsx |
+| Test Type         | Naming Convention           |
+| ----------------- | --------------------------- |
+| Unit              | [FileUnderTest].spec.ts     |
+| Component         | [ComponentName].stories.tsx |
 | Integration / E2E | [FeatureName].cy.ts         |
+
+## Snippets
+
+| Descriptions                    | Shortcut |
+| ------------------------------- | -------- |
+| A React component (functional)  | rcf      |
+| A React component (class-based) | rcc      |
+| A Storybook story               | sbs      |
+| A Redux reducer                 | rr       |
 
 ## Creating a new route
 

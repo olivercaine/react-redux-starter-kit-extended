@@ -1,40 +1,32 @@
 {
+  "extends": "@olliecaine/tsconfig",
   "compilerOptions": { // https://www.typescriptlang.org/tsconfig
     "baseUrl": "src", // Set a base directory to resolve non-absolute module names.
-    "jsx": "react", // Use typescript to transpile jsx to js
-    "target": "es5", // Target es5 for IE9/10 strict - https://www.typescriptlang.org/tsconfig#target
-    "module": "commonjs", // https://www.typescriptlang.org/tsconfig#module
-    "sourceMap": true, // Enables the generation of sourcemap files to display original TypeScript source code
-    "emitDecoratorMetadata": true, // Enables experimental support for emitting type metadata for decorators
-    "experimentalDecorators": true, // Enables experimental support for decorators
-    "noImplicitReturns": true, // Ensure all code paths in a function to ensure they return a value
-    "noImplicitAny": false, // Don't throw errors by falling back to type any for JS imports https://www.typescriptlang.org/tsconfig#noImplicitAny
-    "resolveJsonModule": true, // Allows importing modules with a ‘.json’ extension
-    "forceConsistentCasingInFileNames": true, // Forces case sensitivity on file imports - forces compatibility on case-sensitive/case-insensitive systems
-    "allowSyntheticDefaultImports": true, // Allows you name `* as` in import, e.g. `import React from "react"`
-    "strictNullChecks": true, // https://www.typescriptlang.org/tsconfig#strictNullChecks
-    "strict": true, // Results in stronger guarantees of program correctness
+    "checkJs": false, // Override inherited as it fails compilation
     "diagnostics": true, // Used to output diagnostic information for debugging
-    "noUnusedLocals": false, // Report errors on unused local variables
-    "noUnusedParameters": false, // Report errors on unused parameters in functions
-    "noFallthroughCasesInSwitch": true, // Report errors for fallthrough cases in switch statements to prevent a case fallthrough bug
-    "allowUnreachableCode": false, // Raise compiler error if code is unreachable
+    "emitDecoratorMetadata": true, // Enables experimental support for emitting type metadata for decorators
     "esModuleInterop": true, // Import non-ES modules as default imports.
-    "removeComments": true, // Strip all comments from TypeScript files when converting into JavaScript
+    "exactOptionalPropertyTypes": false, // Override inherited as it fails compilation
+    "experimentalDecorators": true, // Enables experimental support for decorators
+    "jsx": "react", // Use typescript to transpile jsx to js
     "lib": [
-      "es2015",
-      "dom"
+      "dom",
+      "es2015"
     ],
+    "module": "commonjs", // https://www.typescriptlang.org/tsconfig#module
+    "noImplicitAny": false, // Don't throw errors by falling back to type any for JS imports https://www.typescriptlang.org/tsconfig#noImplicitAny
+    "noImplicitReturns": true, // Ensure all code paths in a function to ensure they return a value
+    "noPropertyAccessFromIndexSignature": false, // Override inherited as it fails compilation
     "typeRoots": [
-      "./node_modules/@types",
-      "./node_modules"
+      "./node_modules",
+      "./node_modules/@types"
     ],
     "types": [
-      "node",
-      "mocha",
+      "@testing-library/jest-dom",
       "chai",
       "jest",
-      "@testing-library/jest-dom"
+      "mocha",
+      "node"
     ]
   },
   "exclude": [

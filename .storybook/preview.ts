@@ -1,5 +1,5 @@
-import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
-import '../src/ui/styles/project.scss';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
+import '../src/ui/styles/project.scss'
 
 export const parameters = {
   actions: { argTypesRegex: '^on.*' },
@@ -10,7 +10,7 @@ export const parameters = {
     },
   },
   viewport: {
-    defaultViewport: 'iphone5',
+    defaultViewport: 'iphone6',
     viewports: INITIAL_VIEWPORTS
   },
   options: {

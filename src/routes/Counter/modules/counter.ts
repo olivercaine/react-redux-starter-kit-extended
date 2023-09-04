@@ -1,5 +1,5 @@
 import { createAction } from '@olliecaine/reducers'
-import { ICounter } from './../../../Definitions'
+import { Reducer } from 'redux'
 import { ERROR_SUFFIX } from './../../../middleware/ErrorLogger'
 
 // ------------------------------------
@@ -41,15 +41,14 @@ export const CounterActions = {
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-  [COUNTER_INCREMENT]: (state: number, action): ICounter => state + action.payload,
-  [COUNTER_DOUBLE_ASYNC]: (state: number): ICounter => state * 2,
+  [COUNTER_INCREMENT]: (state: number, action): number => state + action.payload,
+  [COUNTER_DOUBLE_ASYNC]: (state: number): number => state * 2,
 }
 
 // ------------------------------------
-// Reducer
+// Reducer & State
 // ------------------------------------
-export const initialState: ICounter = 0
-export function counterReducer (state = initialState, action): ICounter {
+export const counterReducer: Reducer<number> = (state = 0, action): number => {
   const handler = ACTION_HANDLERS[action.type]
   return handler ? handler(state, action) : state
 }

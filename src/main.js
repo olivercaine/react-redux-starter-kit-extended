@@ -1,10 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { initialRootState } from './State'
-import createStore from './store/createStore'
+import createStore from './state/createStore'
 
 // Store Initialization - with state
-const store = createStore(JSON.parse(sessionStorage.getItem('ROOT_STATE')) || initialRootState)
+const store = createStore(JSON.parse(sessionStorage.getItem('ROOT_STATE')) || {})
 
 // Persist state
 store.subscribe(() => {

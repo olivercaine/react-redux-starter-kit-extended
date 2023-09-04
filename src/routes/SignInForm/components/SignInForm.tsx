@@ -9,7 +9,7 @@ export interface IPropsFromState {
   submitting?: boolean
   token?: string
   generalErrors?: string[]
-  loginAttempts?: Number
+  loginAttempts?: number
 }
 
 export interface IPropsFromDispatch {
