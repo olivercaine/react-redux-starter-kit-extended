@@ -20,7 +20,7 @@
     "cypress:open": "cypress open --browser chrome --e2e",
     "integration": "start-test start 3000 'cypress run --browser chrome'",
     "build": "npm run clean && cross-env NODE_ENV=production npm run compile",
-    "health-check": "time concurrently --group --kill-others-on-fail --timings 'npm run lint --quiet' 'npm run build' 'npm run storybook:build' 'npm test'"
+    "health-check": "time concurrently --group --kill-others-on-fail 'npm run lint --quiet' 'npm run build' 'npm run storybook:build' 'npm test'"
   },
   "husky": {
     "hooks": {
@@ -71,6 +71,7 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.15.0",
     "@babel/runtime-corejs2": "^7.0.0",
+    "@olliecaine/eslint-config": "^1.0.4",
     "@olliecaine/tsconfig": "^1.0.10",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-essentials": "^6.5.16",
