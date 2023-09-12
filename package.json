@@ -25,7 +25,7 @@
   "husky": {
     "hooks": {
       "post-commit": "npm run lint:fix",
-      "pre-push": "time concurrently --group --kill-others-on-fail --timings 'npm run health-check' 'npm run storybook:test' 'npm run integration'"
+      "pre-push": "time concurrently --group --kill-others-on-fail 'npm run health-check' 'npm run storybook:test' 'npm run integration'"
     }
   },
   "engines": {
