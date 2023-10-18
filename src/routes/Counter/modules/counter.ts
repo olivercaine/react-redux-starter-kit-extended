@@ -22,7 +22,7 @@ export const COUNTER_DOUBLE_ASYNC = 'COUNTER_DOUBLE_ASYNC'
 export const onDoubleAsync = () => {
   return async (dispatch, getState) => {
     try {
-      await setTimeout(() => { console.log('Mocking delay') }, 1000)
+      await setTimeout(() => { console.log('Mocking delay') }, 1000) // eslint-disable-line no-console
       dispatch(createAction(COUNTER_DOUBLE_ASYNC, getState().counter))
     } catch (error) {
       dispatch(createAction(COUNTER_DOUBLE_ASYNC + ERROR_SUFFIX, error))

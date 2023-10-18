@@ -1,3 +1,4 @@
+import { StoryTypes } from '@olliecaine/storybook-utils'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 import '../src/ui/styles/project.scss'
 
@@ -16,12 +17,12 @@ export const parameters = {
   options: {
     storySort: {
       order: [
-        'Applications',
-        'Features',
-        'Templates',
-        'Components',
-        'Basics',
-        'Principles',
+        StoryTypes.Applications,
+        StoryTypes.Features,
+        StoryTypes.Templates,
+        StoryTypes.Components,
+        StoryTypes.Basics,
+        StoryTypes.Principles,
         '*'
       ],
     },

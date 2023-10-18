@@ -20,12 +20,12 @@
     "cypress:open": "cypress open --browser chrome --e2e",
     "integration": "start-test start 3000 'cypress run --browser chrome'",
     "build": "npm run clean && cross-env NODE_ENV=production npm run compile",
-    "health-check": "time concurrently --group --kill-others-on-fail --timings 'npm run lint --quiet' 'npm test' 'npm run build' 'npm run storybook:build && npm run storybook:test'"
+    "health-check": "time concurrently --group --kill-others-on-fail 'npm run lint --quiet' 'npm test' 'npm run build' 'npm run storybook:build && npm run storybook:test'"
   },
   "husky": {
     "hooks": {
       "post-commit": "npm run lint:fix",
-      "pre-push": "time concurrently --group --kill-others-on-fail --timings 'npm run health-check' 'npm run integration'"
+      "pre-push": "time concurrently --group --kill-others-on-fail 'npm run health-check' 'npm run integration'"
     }
   },
   "engines": {
@@ -45,7 +45,7 @@
     "bootstrap": "^4.3.1",
     "compression": "^1.6.2",
     "express": "^4.14.1",
-    "formik": "^1.5.8",
+    "formik": "^2.2.9",
     "object-assign": "^4.1.1",
     "promise": "^7.1.1",
     "prop-types": "^15.7.2",
@@ -71,6 +71,8 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.15.0",
     "@babel/runtime-corejs2": "^7.0.0",
+    "@olliecaine/eslint-config": "^1.0.6",
+    "@olliecaine/storybook-utils": "0.0.2",
     "@olliecaine/tsconfig": "^1.0.10",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-essentials": "^6.5.16",
@@ -105,7 +107,7 @@
     "core-js": "^2.6.12",
     "cross-env": "^5.0.5",
     "css-loader": "^6.2.0",
-    "cypress": "^10.1.0",
+    "cypress": "^13.1.0",
     "dirty-chai": "^1.2.2",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.10.0",
@@ -116,8 +118,6 @@
     "eslint-plugin-chai-friendly": "^0.7.2",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-no-null": "^1.0.2",
-    "eslint-plugin-no-only-tests": "^3.0.0",
     "eslint-plugin-node": "^4.2.3",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^7.12.4",
@@ -141,7 +141,7 @@
     "node-sass": "^4.11.0",
     "react-addons-test-utils": "^15.5.1",
     "react-hot-loader": "^4.13.1",
-    "react-test-renderer": "^15.5.4",
+    "react-test-renderer": "^18.2.0",
     "rimraf": "^2.6.3",
     "sass": "^1.32.13",
     "sass-loader": "^12.1.0",
