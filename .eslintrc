@@ -15,9 +15,7 @@
   "plugins": [
     "babel",
     "react",
-    "no-null",
     "promise",
-    "no-only-tests",
     "chai-friendly"
   ],
   "env": {
