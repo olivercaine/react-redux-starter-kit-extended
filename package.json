@@ -72,6 +72,7 @@
     "@babel/preset-typescript": "^7.15.0",
     "@babel/runtime-corejs2": "^7.0.0",
     "@olliecaine/eslint-config": "^1.0.6",
+    "@olliecaine/storybook-utils": "0.0.2",
     "@olliecaine/tsconfig": "^1.0.10",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-essentials": "^6.5.16",

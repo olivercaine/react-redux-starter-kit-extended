@@ -17,7 +17,7 @@ const config: StorybookConfig = {
   },
   features: {
     interactionsDebugger: true, // Enable playback controls
-    storyStoreV7: true, // https://storybook.js.org/docs/react/configure/webpack#bundle-splitting
+    // storyStoreV7: true, // https://storybook.js.org/docs/react/configure/webpack#bundle-splitting
   },
   typescript: {
     check: true
