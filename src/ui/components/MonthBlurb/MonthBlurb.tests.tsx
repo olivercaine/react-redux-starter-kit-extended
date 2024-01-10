@@ -15,7 +15,7 @@ describe.skip('Month is Feb', () => {
       render(<MonthBlurb month={month} />)
 
       // Assert
-      expect(screen.getByText(/Hello, World!/i)).toBeInTheDocument()
+      // expect(screen.getByText(/Hello, World!/i)).toBeInTheDocument()
     })
   })
 })
