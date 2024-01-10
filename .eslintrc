@@ -4,7 +4,6 @@
   "extends": [
     "standard",
     "standard-react",
-    "plugin:chai-friendly/recommended",
     "@olliecaine/eslint-config"
   ],
   "settings": {
@@ -15,12 +14,11 @@
   "plugins": [
     "babel",
     "react",
-    "promise",
-    "chai-friendly"
+    "promise"
   ],
   "env": {
     "browser" : true,
-    "mocha" : true,
+    "jest" : true,
     "node": true
   },
   "globals": {

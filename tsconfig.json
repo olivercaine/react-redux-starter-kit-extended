@@ -17,16 +17,10 @@
     "noImplicitAny": false, // Don't throw errors by falling back to type any for JS imports https://www.typescriptlang.org/tsconfig#noImplicitAny
     "noImplicitReturns": true, // Ensure all code paths in a function to ensure they return a value
     "noPropertyAccessFromIndexSignature": false, // Override inherited as it fails compilation
-    "typeRoots": [
-      "./node_modules",
-      "./node_modules/@types"
-    ],
     "types": [
-      "@testing-library/jest-dom",
-      "chai",
+      "node",
       "jest",
-      "mocha",
-      "node"
+      "@testing-library/jest-dom"
     ]
   },
   "exclude": [
