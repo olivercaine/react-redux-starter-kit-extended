@@ -4,8 +4,22 @@
 
 ## Copying the app into your own repo
 
+1. Option 1: Clone
+
 ```
 git clone git@github.com:olivercaine/react-redux-starter-kit-extended.git client && rm -rf ./client/.git
+```
+
+2. Option 2: Fork
+
+If you fork, you can fetch and merge the recent updates back into your project by running:
+
+```shell
+git remote add react-redux-starter-kit-base https://github.com/olivercaine/react-redux-starter-kit-extended.git
+git checkout modpack/latest
+git fetch react-redux-starter-kit-base
+git merge react-redux-starter-kit-base/modpack/latest
+npm install
 ```
 
 ## Tests
