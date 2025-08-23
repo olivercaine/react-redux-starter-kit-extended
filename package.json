@@ -8,7 +8,7 @@
     "compile": "node build/scripts/compile",
     "start": "cross-env NODE_ENV=development node build/scripts/start",
     "dev": "concurrently 'npm install' 'npm run start' 'npm run storybook' 'npm run test:watch'",
-    "dev:docker": "docker run --rm -it -w /app -v ${PWD}:/app --expose 7000 -p 6006:6006 -p 3000:3000 node:14-alpine sh -c 'npm run dev'",
+    "dev:docker": "docker run --rm -it -w /app -v ${PWD}:/app --expose 7000 -p 6006:6006 -p 3000:3000 $(docker build . --target stage-develop -q) sh -c 'npm run dev'",
     "lint": "eslint . --ext .ts,.tsx,.js",
     "lint:fix": "npm run lint -- --fix",
     "storybook": "start-storybook -p 6006 -s ./public",
@@ -20,6 +20,7 @@
     "cypress:open": "cypress open --browser chrome --e2e",
     "integration": "start-test start 3000 'cypress run --browser chrome'",
     "build": "npm run clean && cross-env NODE_ENV=production npm run compile",
+    "build:docker": "docker run --rm -it -w /app -v ${PWD}:/app $(docker build . --target stage-develop -q) sh -c 'npm ci && npm run dev'",
     "health-check": "time concurrently --group --kill-others-on-fail 'npm run lint --quiet' 'npm run build' 'npm run storybook:build' 'npm test'"
   },
   "husky": {
